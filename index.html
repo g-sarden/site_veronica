@@ -17,10 +17,38 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://veronicagrijo.psc.br/" />
-    <meta property="og:title" content="Psicóloga Verônica Grijó" />
+    <meta property="og:title" content="Psicóloga Verônica Grijó - Especialista em Ansiedade e Maternidade" />
     <meta property="og:description"
-        content="Há 15 anos ajudo mulheres e mães ansiosas a construir uma vida mais leve significativa." />
+        content="Há 15 anos ajudo mulheres e mães ansiosas a construir uma vida mais leve e significativa através da psicoterapia online." />
     <meta property="og:image" content="https://veronicagrijo.psc.br/assets/foto1.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Data -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Psicóloga Verônica Grijó" />
+    <meta name="twitter:description" content="Psicoterapia online para mulheres e mães. Reencontre sua leveza." />
+    <meta name="twitter:image" content="https://veronicagrijo.psc.br/assets/foto1.jpeg" />
+
+    <!-- Google Analytics (GA4) - Substitua 'G-XXXXXXX' pelo seu ID -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    </script> -->
+
+    <!-- Facebook Pixel Code - Substitua 'PIXEL_ID' pelo seu ID -->
+    <!-- <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'PIXEL_ID');
+    fbq('track', 'PageView');
+    </script> -->
 
     <!-- Ícone do Navegador (Favicon) -->
     <link rel="icon" type="image/png" href="assets/icone.png" />
@@ -636,7 +664,48 @@
         </div>
     </footer>
 
+    <!-- Modal de Cookies (LGPD) -->
+    <div id="cookie-banner"
+        class="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md bg-white/80 backdrop-blur-xl border border-white/20 p-6 rounded-[32px] shadow-2xl z-[9999] transform translate-y-24 opacity-0 transition-all duration-700 pointer-events-none">
+        <div class="flex flex-col gap-4 text-left">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-2xl">cookie</span>
+                <h4 class="font-headline text-on-background text-lg font-bold">Privacidade & Cookies</h4>
+            </div>
+            <p class="text-on-surface-variant text-sm leading-relaxed font-light">
+                Utilizamos cookies para melhorar sua experiência e analisar o tráfego do site. Ao continuar, você
+                concorda com nossa política de privacidade.
+            </p>
+            <div class="flex items-center gap-3 mt-2">
+                <button onclick="acceptCookies()"
+                    class="flex-1 bg-primary text-white py-3 px-6 rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 text-center">
+                    Aceitar Todos
+                </button>
+                <button onclick="acceptCookies()" class="text-xs text-on-surface-variant/60 hover:text-primary transition-all underline decoration-1 underline-offset-4">
+                    Gerenciar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Lógica do Banner de Cookies
+        window.addEventListener('load', () => {
+            const hasAccepted = localStorage.getItem('cookies-accepted');
+            if (!hasAccepted) {
+                setTimeout(() => {
+                    const banner = document.getElementById('cookie-banner');
+                    if (banner) banner.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+                }, 2000);
+            }
+        });
+
+        function acceptCookies() {
+            const banner = document.getElementById('cookie-banner');
+            if (banner) banner.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+            localStorage.setItem('cookies-accepted', 'true');
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
@@ -644,13 +713,10 @@
                         entry.target.classList.add("active");
                     } else {
                         entry.target.classList.remove("active");
-                        // Verifica por qual lado da tela o elemento saiu
                         if (entry.boundingClientRect.top < 0) {
-                            // Saiu por cima, então quando voltar, deve vir de cima
                             entry.target.classList.add("from-top");
                             entry.target.classList.remove("from-bottom");
                         } else {
-                            // Saiu por baixo (ou ainda não apareceu), deve vir de baixo
                             entry.target.classList.add("from-bottom");
                             entry.target.classList.remove("from-top");
                         }
@@ -659,7 +725,7 @@
             }, { threshold: 0.15 });
 
             document.querySelectorAll('.reveal').forEach((el) => {
-                el.classList.add("from-bottom"); // Estado inicial
+                el.classList.add("from-bottom");
                 observer.observe(el);
             });
         });
