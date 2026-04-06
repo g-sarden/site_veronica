@@ -1,0 +1,31 @@
+{
+    "name":  "site_veronica",
+    "version":  "1.0.0",
+    "description":  "",
+    "main":  "index.js",
+    "scripts":  {
+                    "build:css":  "node node_modules/@tailwindcss/cli/dist/index.mjs -i ./input.css -o ./assets/style.css --minify",
+                    "watch:css":  "node node_modules/@tailwindcss/cli/dist/index.mjs -i ./input.css -o ./assets/style.css --watch",
+                    "test":  "echo \"Error: no test specified\" \u0026\u0026 exit 1"
+                },
+    "repository":  {
+                       "type":  "git",
+                       "url":  "git+https://github.com/g-sarden/site_veronica.git"
+                   },
+    "keywords":  [
+
+                 ],
+    "author":  "",
+    "license":  "ISC",
+    "type":  "commonjs",
+    "bugs":  {
+                 "url":  "https://github.com/g-sarden/site_veronica/issues"
+             },
+    "homepage":  "https://github.com/g-sarden/site_veronica#readme",
+    "devDependencies":  {
+                            "@tailwindcss/cli":  "^4.2.2",
+                            "@tailwindcss/container-queries":  "^0.1.1",
+                            "@tailwindcss/forms":  "^0.5.11",
+                            "tailwindcss":  "^4.2.2"
+                        }
+}

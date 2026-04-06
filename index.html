@@ -101,80 +101,14 @@
 }
 </script>
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- CSS (Tailwind buildado — apenas classes utilizadas) -->
+    <link rel="stylesheet" href="assets/style.css" />
+
+    <!-- Fontes -->
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "on-tertiary": "#FFFFFF",
-                        "on-primary": "#FFFFFF",
-                        "outline": "#857375",
-                        "surface-container-high": "#EDDDCA",
-                        "on-primary-fixed": "#40101b",
-                        "surface-container": "#F5EFE9",
-                        "on-tertiary-fixed": "#252B11",
-                        "on-error-container": "#6e0a12",
-                        "surface-tint": "#A25B6C",
-                        "on-primary-fixed-variant": "#6E4F51",
-                        "inverse-surface": "#362F31",
-                        "surface-container-highest": "#E4D3C2",
-                        "on-secondary-fixed-variant": "#5B4A4B",
-                        "on-background": "#201A1B",
-                        "tertiary-container": "#DCE997",
-                        "surface-container-lowest": "#FFFFFF",
-                        "surface-bright": "#FFF8F7",
-                        "surface-container-low": "#FDF2EC",
-                        "primary-container": "#DABFC3",
-                        "primary": "#A25B6C",
-                        "inverse-on-surface": "#FAEEED",
-                        "surface-variant": "#F4DDDF",
-                        "on-tertiary-fixed-variant": "#49502D",
-                        "on-surface-variant": "#534345",
-                        "tertiary-dim": "#70764D",
-                        "background": "#FFF8F7",
-                        "tertiary-fixed-dim": "#C0CD7E",
-                        "on-secondary-container": "#2B1519",
-                        "on-secondary-fixed": "#2B1519",
-                        "on-secondary": "#FFFFFF",
-                        "on-primary-container": "#400D1B",
-                        "surface": "#FFF8F7",
-                        "error-container": "#fa746f",
-                        "on-surface": "#201A1B",
-                        "primary-dim": "#8A4456",
-                        "secondary-dim": "#6E4F51",
-                        "on-error": "#fff7f6",
-                        "primary-fixed": "#FFD9Df",
-                        "tertiary": "#8B8949",
-                        "error": "#a83836",
-                        "secondary": "#77575C",
-                        "secondary-fixed": "#FFD9Df",
-                        "surface-dim": "#E8D6D8",
-                        "primary-fixed-dim": "#E2BDC3",
-                        "secondary-container": "#DABFC3",
-                        "on-tertiary-container": "#181E05",
-                        "inverse-primary": "#FFB2BE",
-                        "outline-variant": "#D8C2C5",
-                        "error-dim": "#67040d",
-                        "tertiary-fixed": "#F8FFBD",
-                        "secondary-fixed-dim": "#E5BDBA",
-                        "sage-green": "#A25B6C",
-                        "warm-beige": "#EDDDCA"
-                    },
-                    fontFamily: {
-                        "headline": ["Lora", "serif"],
-                        "body": ["Plus Jakarta Sans", "sans-serif"],
-                        "label": ["Plus Jakarta Sans", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
+
     <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -686,10 +620,13 @@
                 </a>
             </div>
 
-            <!-- Bottom Section: Copyright -->
-            <div class="pt-8 border-t border-white/5 w-full">
-                <p class="text-white/30 text-[10px] md:text-xs">© 2026 - Verônica Grijó. Todos os direitos reservados.
-                </p>
+            <!-- Bottom Section: Copyright + Privacy -->
+            <div class="pt-8 border-t border-white/5 w-full flex flex-col md:flex-row items-center justify-center gap-4">
+                <p class="text-white/30 text-[10px] md:text-xs">© 2026 - Verônica Grijó. Todos os direitos reservados.</p>
+                <a href="/politica-de-privacidade"
+                    class="text-white/30 text-[10px] md:text-xs hover:text-white/60 transition-colors underline underline-offset-4">
+                    Política de Privacidade
+                </a>
             </div>
         </div>
     </footer>
@@ -704,16 +641,19 @@
             </div>
             <p class="text-on-surface-variant text-sm leading-relaxed font-light">
                 Utilizamos cookies para melhorar sua experiência e analisar o tráfego do site. Ao continuar, você
-                concorda com nossa política de privacidade.
+                concorda com nossa
+                <a href="/politica-de-privacidade"
+                    class="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">política de privacidade</a>.
             </p>
             <div class="flex items-center gap-3 mt-2">
                 <button onclick="acceptCookies()"
                     class="flex-1 bg-primary text-white py-3 px-6 rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 text-center">
                     Aceitar Todos
                 </button>
-                <button onclick="acceptCookies()" class="text-xs text-on-surface-variant/60 hover:text-primary transition-all underline decoration-1 underline-offset-4">
+                <a href="/politica-de-privacidade"
+                    class="text-xs text-on-surface-variant/60 hover:text-primary transition-all underline decoration-1 underline-offset-4">
                     Gerenciar
-                </button>
+                </a>
             </div>
         </div>
     </div>
