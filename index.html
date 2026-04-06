@@ -7,10 +7,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     <!-- SEO & Meta Tags -->
-    <title>Psicóloga em Macaé | Atendimento Online e presencial | Mulheres e ansiedade | Verônica Grijó</title>
+    <title>Psicóloga em Macaé | Ansiedade Feminina | Verônica Grijó</title>
     <meta name="description"
         content="Psicóloga em Macaé com atendimento online para qualquer lugar. Especialista em ansiedade feminina. Agende sua sessão com Verônica Grijó – CRP 05/41808." />
-    <meta name="keywords" content="psicóloga em Macaé, psicóloga online, psicóloga ansiedade, psicóloga maternidade, terapia online, psicoterapia online, psicóloga RJ, terapia para mulheres, ansiedade feminina, CRP 05/41808" />
+
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Verônica Grijó" />
     <link rel="canonical" href="https://veronicagrijo.psc.br/" />
@@ -31,14 +31,24 @@
     <meta name="twitter:description" content="Psicoterapia online para mulheres e mães. Reencontre sua leveza." />
     <meta name="twitter:image" content="https://veronicagrijo.psc.br/assets/foto1.jpeg" />
 
-    <!-- Google Analytics (GA4) - Substitua 'G-XXXXXXX' pelo seu ID -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXG49PXGTM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXX');
-    </script> -->
+        gtag('config', 'G-NXG49PXGTM', {
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false
+        });
+        function trackWhatsApp(label) {
+            gtag('event', 'whatsapp_click', {
+                event_category: 'contato',
+                event_label: label,
+                value: 1
+            });
+        }
+    </script>
 
     <!-- Facebook Pixel Code - Substitua 'PIXEL_ID' pelo seu ID -->
     <!-- <script>
@@ -54,6 +64,7 @@
     <!-- Ícone do Navegador (Favicon) -->
     <link rel="icon" type="image/png" href="assets/icone.png" />
     <meta name="theme-color" content="#FFF8F7" />
+    <link rel="preload" as="image" href="assets/foto1.jpeg" fetchpriority="high" />
 
     <!-- Schema Markup (JSON-LD) para estruturação profunda do Google -->
     <script type="application/ld+json">
@@ -85,23 +96,6 @@
       "contentUrl": "https://veronicagrijo.psc.br/assets/lavanda.mp4",
       "uploadDate": "2026-03-31",
       "embedUrl": "https://veronicagrijo.psc.br/#home"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "psicóloga",
-          "item": "https://veronicagrijo.psc.br/psicologa"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "ansiedade",
-          "item": "https://veronicagrijo.psc.br/psicologa/ansiedade"
-        }
-      ]
     }
   ]
 }
@@ -354,7 +348,8 @@
                     class="relative w-full rounded-[40px] md:rounded-tl-[120px] md:rounded-br-[120px] overflow-hidden shadow-2xl">
                     <img alt="Verônica Grijó - Psicóloga Clínica para mulheres ansiosas, atendimento presencial e online"
                         class="w-full h-auto object-center object-cover transition-all duration-700"
-                        src="assets/foto1.jpeg" />
+                        src="assets/foto1.jpeg"
+                        fetchpriority="high" />
                 </div>
                 <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary-fixed-dim/30 rounded-full blur-3xl -z-10">
                 </div>
@@ -378,7 +373,8 @@
             <div class="order-2 md:order-1 relative">
                 <img alt="Psicóloga Verônica Grijó, psicóloga especialista em ansiedade feminina"
                     class="w-full h-auto rounded-[40px] md:rounded-[80px] object-cover object-center shadow-xl"
-                    src="assets/foto2.jpeg" />
+                    src="assets/foto2.jpeg"
+                    loading="lazy" />
             </div>
             <div class="order-1 md:order-2">
                 <div class="flex items-center gap-3 mb-6">
@@ -418,7 +414,8 @@
         <!-- Video de Fundo Seção 3 -->
         <video aria-hidden="true" autoplay=""
             class="absolute inset-0 w-full h-full object-cover z-0 opacity-100 pointer-events-none" loop="" muted=""
-            playsinline="">
+            playsinline=""
+            poster="assets/textura-thumb.jpg">
             <source src="assets/textura.mp4" type="video/mp4" />
         </video>
         <!-- Overlay elegante escuro -->
@@ -577,6 +574,7 @@
                 <div class="flex justify-center">
                     <a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sessões"
                         target="_blank" rel="noopener noreferrer"
+                        onclick="trackWhatsApp('cta_agendar')"
                         class="bg-primary text-on-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-primary-dim hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(162,91,108,0.5)] transition-all duration-500 flex items-center justify-center gap-4 group w-full sm:w-auto">
                         <svg viewBox="0 0 24 24"
                             class="w-6 h-6 fill-current transition-transform group-hover:rotate-12">
@@ -592,8 +590,10 @@
                 <div
                     class="absolute -inset-1 bg-white/10 rounded-[40px] md:rounded-[80px] blur-sm scale-105 group-hover:bg-primary/20 transition-all duration-700">
                 </div>
-                <img src="assets/foto3.jpeg" alt="Macaé e Atendimento Online"
-                    class="w-full h-auto rounded-[40px] md:rounded-[80px] object-cover shadow-2xl relative z-10 grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000" />
+                <img src="assets/foto3.jpeg"
+                    alt="Verônica Grijó, psicóloga em Macaé com atendimento presencial e online"
+                    class="w-full h-auto rounded-[40px] md:rounded-[80px] object-cover shadow-2xl relative z-10 grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000"
+                    loading="lazy" />
                 <div
                     class="absolute -bottom-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl -z-0 pointer-events-none">
                 </div>
@@ -633,6 +633,7 @@
                     <!-- WhatsApp -->
                     <a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sessões"
                         target="_blank" rel="noopener noreferrer"
+                        onclick="trackWhatsApp('footer')"
                         class="flex items-center gap-3 hover:text-white transition-colors group">
                         <div
                             class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-all">
@@ -775,6 +776,7 @@
             <!-- Ícone WhatsApp -->
             <a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sessões"
                 target="_blank" rel="noopener noreferrer"
+                onclick="trackWhatsApp('botao_flutuante')"
                 class="bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300 animate-whatsapp">
                 <svg viewBox="0 0 24 24" class="w-8 h-8 fill-current">
                     <path
