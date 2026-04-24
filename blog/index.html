@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <!-- SEO -->
+  <title>Blog da Psicóloga em Macaé | Ansiedade, Maternidade e Saúde Mental</title>
+  <meta name="description"
+    content="Artigos sobre ansiedade, maternidade, autoestima e saúde mental escritos por psicóloga em Macaé, com atendimento presencial e online." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Verônica Grijó" />
+  <link rel="canonical" href="https://veronicagrijo.psc.br/blog/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://veronicagrijo.psc.br/blog/" />
+  <meta property="og:title" content="Blog da Psicóloga em Macaé | Verônica Grijó" />
+  <meta property="og:description"
+    content="Textos sobre ansiedade, maternidade, autoestima e saúde mental escritos por psicóloga em Macaé." />
+  <meta property="og:image" content="https://veronicagrijo.psc.br/assets/foto1.jpeg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/icone.png" />
+  <meta name="theme-color" content="#FFF8F7" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://veronicagrijo.psc.br/blog/#webpage",
+          "url": "https://veronicagrijo.psc.br/blog/",
+          "name": "Blog da psicóloga Verônica Grijó",
+          "description": "Artigos sobre ansiedade, maternidade, autoestima e saúde mental escritos por psicóloga em Macaé.",
+          "inLanguage": "pt-BR",
+          "isPartOf": {
+            "@type": "WebSite",
+            "name": "Verônica Grijó",
+            "url": "https://veronicagrijo.psc.br/"
+          }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://veronicagrijo.psc.br/blog/#blog",
+          "url": "https://veronicagrijo.psc.br/blog/",
+          "name": "Blog da Verônica Grijó",
+          "description": "Textos sobre ansiedade, maternidade, autoestima e saúde mental escritos por psicóloga em Macaé.",
+          "inLanguage": "pt-BR",
+          "publisher": {
+            "@type": "Person",
+            "name": "Verônica Grijó",
+            "url": "https://veronicagrijo.psc.br/",
+            "jobTitle": "Psicóloga",
+            "identifier": "CRP 05/41808"
+          }
+        }
+      ]
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXG49PXGTM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NXG49PXGTM', {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
+    function trackWhatsApp(label) {
+      gtag('event', 'whatsapp_click', {
+        event_category: 'contato',
+        event_label: label,
+        value: 1
+      });
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="../assets/style.css" />
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    @keyframes pageLoad {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .page-load-effect {
+      animation: pageLoad 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .reveal {
+      opacity: 0;
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal.from-bottom {
+      transform: translateY(40px);
+    }
+
+    .reveal.from-top {
+      transform: translateY(-40px);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .shape-divider {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .shape-divider-bottom {
+      bottom: -1px;
+    }
+
+    .shape-divider-top {
+      top: -1px;
+    }
+
+    .shape-divider svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 80px;
+      fill: currentColor;
+    }
+
+    .blog-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 70px rgba(162, 91, 108, 0.14);
+    }
+
+    .blog-card .card-cover {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .blog-card:hover .card-cover {
+      transform: scale(1.05);
+    }
+
+    .cat-pill {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card-media {
+      aspect-ratio: 16 / 10;
+    }
+
+    .post-excerpt {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      overflow: hidden;
+    }
+
+    .theme-default {
+      background: rgba(162, 91, 108, 0.12);
+      color: #8a4456;
+    }
+
+    .theme-maternidade {
+      background: #fde7eb;
+      color: #9f4c65;
+    }
+
+    .theme-ansiedade {
+      background: #f9ebd1;
+      color: #9a6a14;
+    }
+
+    .theme-autoconhecimento {
+      background: #eee7ff;
+      color: #6a46b8;
+    }
+
+    .theme-saude-mental {
+      background: #dff4ef;
+      color: #1d6b5d;
+    }
+
+    .theme-relacionamentos {
+      background: #fde4ef;
+      color: #a33b6f;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -800px 0;
+      }
+
+      100% {
+        background-position: 800px 0;
+      }
+    }
+
+    .skeleton {
+      background: linear-gradient(90deg, #f0e8e9 25%, #faf2f3 50%, #f0e8e9 75%);
+      background-size: 800px 100%;
+      animation: shimmer 1.4s infinite linear;
+      border-radius: 32px;
+    }
+
+    #blog-empty {
+      display: none;
+    }
+
+    #posts-section,
+    #agendar {
+      scroll-margin-top: 120px;
+    }
+
+    @keyframes pulse-whatsapp {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+      }
+
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .animate-whatsapp {
+      animation: pulse-whatsapp 2s infinite;
+    }
+
+    @media (max-width: 768px) {
+      .shape-divider svg {
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container page-load-effect">
+  <nav
+    class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-outline-variant/10">
+    <div class="flex justify-center md:justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
+      <a href="../#home" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <img src="../assets/icone.png"
+          class="h-12 md:h-14 w-auto object-contain drop-shadow-sm mix-blend-multiply dark:invert dark:mix-blend-screen"
+          alt="Logotipo Psicóloga Verônica Grijó" />
+        <div class="flex flex-col">
+          <span
+            class="font-headline text-xl md:text-2xl font-bold text-primary dark:text-primary-container leading-none">Verônica
+            Grijó</span>
+          <span class="font-label text-xs md:text-sm tracking-widest text-outline uppercase mt-1">Psicóloga
+            Clínica</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-10">
+        <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+          href="../#home">Início</a>
+        <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+          href="../#sobre">Sobre</a>
+        <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+          href="../#o-processo">O Processo</a>
+        <a class="text-rose-900 dark:text-rose-50 transition-colors" href="./">Blog</a>
+        <a class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium hover:bg-primary-dim hover:shadow-[0_0_15px_rgba(76,100,88,0.5)] hover:-translate-y-0.5 transition-all scale-95 duration-200 ease-in-out shadow-sm active:scale-90"
+          href="../#agendar">Agendar Consulta</a>
+      </div>
+    </div>
+  </nav>
+
+  <header
+    class="relative pt-32 md:pt-36 px-6 md:px-8 pb-20 md:pb-24 overflow-hidden bg-surface w-full flex flex-col justify-center"
+    id="topo">
+    <video aria-hidden="true" autoplay class="absolute inset-0 w-full h-full object-cover z-0" loop muted
+      preload="metadata" playsinline
+      poster="../assets/lavanda-thumb.jpg">
+      <source src="../assets/lavanda.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/45 z-0 pointer-events-none"></div>
+    <div
+      class="absolute inset-0 bg-[linear-gradient(110deg,rgba(30,22,23,0.88)_0%,rgba(30,22,23,0.58)_45%,rgba(30,22,23,0.16)_100%)] z-0 pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
+      <div class="text-white">
+        <div class="flex items-center gap-3 mb-6">
+          <img src="../assets/icone.png"
+            class="h-10 w-auto object-contain mix-blend-screen invert opacity-90 drop-shadow-md"
+            alt="Psicóloga Verônica Grijó - Logotipo" />
+          <span class="text-xs font-label uppercase tracking-widest text-primary-container drop-shadow-md">REFLEXÕES
+            COM ACOLHIMENTO</span>
+        </div>
+        <h1 class="font-headline text-5xl md:text-6xl text-white leading-[1.08] mb-8 drop-shadow-xl">
+          Um blog feito para você que precisa de <span class="italic font-normal text-primary-container">respiro,
+            clareza e leveza</span>.
+        </h1>
+        <p class="text-lg md:text-xl text-surface-bright leading-relaxed mb-10 max-w-xl drop-shadow-md">
+          Aqui você encontra textos sobre ansiedade, autoestima, autoconhecimento e saúde mental escritos por uma
+          psicóloga em Macaé, em uma experiência visual alinhada ao cuidado que eu te ofereço.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <a class="bg-white text-primary px-8 py-4 rounded-full font-label tracking-wide hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300 w-full sm:w-auto text-center"
+            href="#posts-section">Explorar artigos</a>
+          <a class="border border-white/40 text-white backdrop-blur-sm px-8 py-4 rounded-full font-label tracking-wide hover:bg-white/10 hover:border-white transition-colors w-full sm:w-auto text-center"
+            href="../#agendar">Agendar consulta</a>
+        </div>
+        <div class="flex flex-wrap gap-3 text-sm text-white/80">
+          <span class="px-4 py-2 bg-white/10 border border-white/10 rounded-full backdrop-blur-sm">Ansiedade</span>
+          <span class="px-4 py-2 bg-white/10 border border-white/10 rounded-full backdrop-blur-sm">Autoestima</span>
+          <span class="px-4 py-2 bg-white/10 border border-white/10 rounded-full backdrop-blur-sm">Saúde
+            emocional</span>
+        </div>
+      </div>
+
+      <div
+        class="bg-white/5 backdrop-blur-3xl border border-white/10 p-8 md:p-10 rounded-[40px] md:rounded-[60px] text-white shadow-2xl reveal from-bottom">
+        <span class="text-xs font-label uppercase tracking-widest text-primary-container/80 mb-6 block">ARTIGO EM
+          DESTAQUE</span>
+        <div id="featured-post">
+          <!-- BLOG_FEATURED_START -->
+          <div class="flex flex-wrap items-center gap-3 mb-5">
+            <span class="cat-pill font-medium px-3 py-1 rounded-full theme-saude-mental">Saúde Mental</span>
+            <span class="text-white/60 text-xs font-light">6 min de leitura</span>
+          </div>
+          <h2 class="font-headline text-3xl md:text-4xl leading-tight mb-4">5 sinais de que você precisa de terapia agora</h2>
+          <p class="text-white/75 text-lg leading-relaxed font-light mb-6">Você sente que algo não vai bem, mas não sabe se já é hora de pedir ajuda? Estes 5 sinais ajudam a reconhecer quando a terapia pode ser um passo de cuidado importante.</p>
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <span class="text-white/55 text-sm">23 de abril de 2026</span>
+            <a href="./5-sinais-de-que-voce-precisa-de-terapia.html"
+              class="inline-flex items-center gap-2 text-white border border-white/20 px-5 py-3 rounded-full font-medium hover:bg-white/10 transition-all w-fit">
+              Ler artigo
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+          </div>
+<!-- BLOG_FEATURED_END -->
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <div class="rounded-[24px] bg-white/5 border border-white/10 p-5">
+            <span class="text-xs font-label uppercase tracking-[0.16em] text-white/60">Artigos</span>
+            <strong id="hero-post-count" class="block font-headline text-3xl text-white mt-2"><!-- BLOG_POST_COUNT_START -->
+02
+<!-- BLOG_POST_COUNT_END --></strong>
+          </div>
+          <div class="rounded-[24px] bg-white/5 border border-white/10 p-5">
+            <span class="text-xs font-label uppercase tracking-[0.16em] text-white/60">Temas</span>
+            <strong id="hero-category-count" class="block font-headline text-3xl text-white mt-2"><!-- BLOG_CATEGORY_COUNT_START -->
+02
+<!-- BLOG_CATEGORY_COUNT_END --></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shape-divider shape-divider-bottom text-surface-container-low">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+          d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z">
+        </path>
+      </svg>
+    </div>
+  </header>
+
+  <section class="py-16 md:py-20 px-6 md:px-8 bg-surface-container-low reveal from-bottom">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-10">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-6">
+            <img src="../assets/icone.png" class="h-10 w-auto object-contain mix-blend-multiply opacity-80"
+              alt="Ramo de Lavanda" />
+            <span class="text-xs font-label uppercase tracking-widest text-primary">NAVEGUE COM CALMA</span>
+          </div>
+          <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4 leading-tight">Encontre aqui o seu ombro
+            amigo.</h2>
+          <p class="text-on-surface-variant font-light text-lg leading-relaxed max-w-2xl">
+            Com apenas 5 minutos dedicados você pode encontrar um apoio para suas dificuldades.
+          </p>
+        </div>
+        <div class="bg-surface rounded-[32px] border border-outline-variant/20 shadow-sm p-6 md:p-8 max-w-md">
+          <p class="text-xs font-label uppercase tracking-widest text-primary">Atalhos</p>
+          <div class="flex flex-col gap-3 mt-4">
+            <a href="../#sobre"
+              class="inline-flex items-center justify-between gap-3 rounded-full border border-outline-variant/20 px-5 py-3 text-on-surface hover:border-primary/30 hover:text-primary transition-all">
+              Conheça a Verônica
+              <span class="material-symbols-outlined text-base">north_east</span>
+            </a>
+            <a href="../#agendar"
+              class="inline-flex items-center justify-between gap-3 rounded-full border border-outline-variant/20 px-5 py-3 text-on-surface hover:border-primary/30 hover:text-primary transition-all">
+              Agendar uma sessão
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface rounded-[32px] border border-outline-variant/20 shadow-sm p-6 md:p-8">
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <p class="font-headline text-2xl md:text-3xl text-on-surface leading-tight">Encontre um tema que conversa
+                com o seu momento.</p>
+              <p id="posts-summary" class="text-on-surface-variant font-light mt-2"><!-- BLOG_SUMMARY_START -->
+2 artigos disponíveis em todos os temas. Total publicado: 2.
+<!-- BLOG_SUMMARY_END --></p>
+            </div>
+            <a href="#posts-section"
+              class="inline-flex items-center gap-2 border border-primary/30 text-primary px-6 py-3 rounded-full font-medium hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300 w-fit">
+              Ver artigos
+              <span class="material-symbols-outlined text-base">south</span>
+            </a>
+          </div>
+
+          <div id="categories-filter" class="flex flex-wrap gap-3">
+            <!-- BLOG_FILTERS_START -->
+            <button type="button" data-cat="all"
+              class="cat-filter-btn px-5 py-2.5 rounded-full border border-primary/30 text-primary bg-primary/10 font-medium cat-pill transition-all hover:bg-primary/20">
+              Todos
+            </button>
+            <button type="button" data-cat="Saúde Mental"
+              class="cat-filter-btn px-5 py-2.5 rounded-full border border-transparent text-on-surface-variant bg-surface-container-low font-medium cat-pill transition-all hover:bg-primary/10 hover:text-primary">
+              Saúde Mental
+            </button>
+            <button type="button" data-cat="Maternidade"
+              class="cat-filter-btn px-5 py-2.5 rounded-full border border-transparent text-on-surface-variant bg-surface-container-low font-medium cat-pill transition-all hover:bg-primary/10 hover:text-primary">
+              Maternidade
+            </button>
+<!-- BLOG_FILTERS_END -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="py-20 md:py-24 px-6 md:px-8 bg-surface" id="posts-section">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <img src="../assets/icone.png" class="h-10 w-auto object-contain mix-blend-multiply opacity-80"
+              alt="Ramo de Lavanda" />
+            <span class="text-xs font-label uppercase tracking-widest text-primary">ÚLTIMAS PUBLICAÇÕES</span>
+          </div>
+          <h2 class="font-headline text-4xl md:text-5xl text-on-surface leading-tight">Leituras pensadas para acolher,
+            não para sobrecarregar.</h2>
+        </div>
+        <p class="max-w-xl text-on-surface-variant font-light text-lg leading-relaxed">
+          Atualizações periódicas trazendo novos conteúdos para te ajudar nos momentos mais difíceis.
+        </p>
+      </div>
+
+      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- BLOG_GRID_START -->
+        <a href="./5-sinais-de-que-voce-precisa-de-terapia.html" data-category="Saúde Mental"
+          class="blog-card group bg-surface-container-low rounded-[32px] border border-outline-variant/20 overflow-hidden shadow-sm h-full flex flex-col"
+          style="animation: pageLoad 0.6s ease 0s both;">
+          <div class="card-media overflow-hidden bg-surface">
+            <img src="../assets/sinais-terapia.png"
+              alt="5 sinais de que você precisa de terapia agora"
+              class="card-cover w-full h-full object-cover"
+              loading="lazy"
+              onerror="this.src='../assets/foto1.jpeg'" />
+          </div>
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+              <span class="cat-pill font-medium px-3 py-1 rounded-full theme-saude-mental">Saúde Mental</span>
+              <span class="text-outline/70 text-xs font-light">6 min de leitura</span>
+            </div>
+            <h3 class="font-headline text-2xl text-on-surface mb-3 leading-snug group-hover:text-primary transition-colors">
+              5 sinais de que você precisa de terapia agora
+            </h3>
+            <p class="post-excerpt text-on-surface-variant text-sm font-light leading-relaxed">
+              Você sente que algo não vai bem, mas não sabe se já é hora de pedir ajuda? Estes 5 sinais ajudam a reconhecer quando a terapia pode ser um passo de cuidado importante.
+            </p>
+            <div class="mt-6 pt-6 border-t border-outline-variant/20 flex items-center justify-between gap-4">
+              <span class="text-xs text-outline">23 de abril de 2026</span>
+              <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                Ler artigo
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="./ansiedade-maternidade.html" data-category="Maternidade"
+          class="blog-card group bg-surface-container-low rounded-[32px] border border-outline-variant/20 overflow-hidden shadow-sm h-full flex flex-col"
+          style="animation: pageLoad 0.6s ease 0.08s both;">
+          <div class="card-media overflow-hidden bg-surface">
+            <img src="../assets/ansiedade-materna.jpg"
+              alt="Ansiedade na Maternidade: Você Não Precisa Dar Conta de Tudo"
+              class="card-cover w-full h-full object-cover"
+              loading="lazy"
+              onerror="this.src='../assets/foto1.jpeg'" />
+          </div>
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+              <span class="cat-pill font-medium px-3 py-1 rounded-full theme-maternidade">Maternidade</span>
+              <span class="text-outline/70 text-xs font-light">5 min de leitura</span>
+            </div>
+            <h3 class="font-headline text-2xl text-on-surface mb-3 leading-snug group-hover:text-primary transition-colors">
+              Ansiedade na Maternidade: Você Não Precisa Dar Conta de Tudo
+            </h3>
+            <p class="post-excerpt text-on-surface-variant text-sm font-light leading-relaxed">
+              A maternidade é transformadora e bonita, mas também pode ser exaustiva, solitária e cheia de cobranças invisíveis. Entender de onde vem essa ansiedade é o primeiro passo para respirar de novo.
+            </p>
+            <div class="mt-6 pt-6 border-t border-outline-variant/20 flex items-center justify-between gap-4">
+              <span class="text-xs text-outline">10 de abril de 2026</span>
+              <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                Ler artigo
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </span>
+            </div>
+          </div>
+        </a>
+<!-- BLOG_GRID_END -->
+      </div>
+
+      <div id="blog-empty"
+        class="flex flex-col items-center justify-center py-24 text-center bg-surface-container-low rounded-[32px] border border-outline-variant/20">
+        <span class="material-symbols-outlined text-5xl text-outline/40 mb-4">article</span>
+        <p class="font-headline text-2xl text-on-surface-variant mb-2">Nenhum post encontrado</p>
+        <p class="text-on-surface-variant/60 font-light max-w-md">Quando novos artigos forem publicados, eles aparecerão
+          aqui com a mesma organização visual.</p>
+      </div>
+    </div>
+  </main>
+
+  <section
+    class="py-24 px-6 md:px-8 bg-[#251c1d] reveal from-bottom w-full flex flex-col justify-center relative overflow-hidden"
+    id="agendar">
+    <div class="shape-divider shape-divider-top text-[#251c1d]">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.44,35.21S727.93,109,799,109c118.86,0,165.84-25.14,243-77.16,42.54-28.69,78-43.25,157-43.25V0Z">
+        </path>
+      </svg>
+    </div>
+    <div
+      class="absolute -top-40 -left-40 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none">
+    </div>
+    <div
+      class="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-tertiary-fixed-dim/10 rounded-full blur-[120px] pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center relative z-10">
+      <div
+        class="bg-white/5 backdrop-blur-3xl border border-white/10 p-10 md:p-16 rounded-[40px] md:rounded-[60px] text-white shadow-2xl group transition-all duration-700 hover:bg-white/[0.08] hover:border-white/20">
+        <span class="text-xs font-label uppercase tracking-widest text-primary-container/80 mb-6 block">VAMOS
+          CONVERSAR?</span>
+        <h2 class="font-headline text-4xl md:text-5xl mb-8 leading-tight drop-shadow-lg">
+          A leitura pode ser o começo. O cuidado mais profundo acontece quando você se permite <span
+            class="italic font-normal text-primary-container">ser acolhida de perto</span>.
+        </h2>
+        <div class="text-lg md:text-xl text-white/80 mb-12 leading-relaxed font-light max-w-xl text-left space-y-4">
+          <p>Sessões online de onde você estiver e com a privacidade da sua rotina.</p>
+          <p>Atendimento presencial em Macaé/RJ para mulheres que desejam um espaço seguro de escuta.</p>
+          <p>Se o blog fez sentido para você, esse pode ser um bom momento para transformar reflexão em cuidado.</p>
+        </div>
+        <div class="flex justify-center">
+          <a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20li%20seu%20blog%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sessões"
+            target="_blank" rel="noopener noreferrer" onclick="trackWhatsApp('blog_cta_agendar')"
+            class="bg-primary text-on-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-primary-dim hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(162,91,108,0.5)] transition-all duration-500 flex items-center justify-center gap-4 group w-full sm:w-auto">
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current transition-transform group-hover:rotate-12">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Fale com a Verônica
+          </a>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div
+          class="absolute -inset-1 bg-white/10 rounded-[40px] md:rounded-[80px] blur-sm scale-105 group-hover:bg-primary/20 transition-all duration-700">
+        </div>
+        <img src="../assets/foto3.jpeg" alt="Verônica Grijó, psicóloga em Macaé com atendimento presencial e online"
+          class="w-full h-auto rounded-[40px] md:rounded-[80px] object-cover shadow-2xl relative z-10 grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000"
+          loading="lazy" />
+        <div
+          class="absolute -bottom-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl -z-0 pointer-events-none">
+        </div>
+      </div>
+    </div>
+
+    <div class="shape-divider shape-divider-bottom text-[#1a1213]">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z">
+        </path>
+      </svg>
+    </div>
+  </section>
+
+  <footer class="bg-[#1a1213] text-white/80 border-t border-white/5 py-20 px-6 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+      <div class="flex flex-col items-center gap-10 mb-16">
+        <a href="../#home" class="flex flex-col items-center gap-4 group">
+          <img src="../assets/icone.png"
+            class="h-16 w-auto object-contain invert mix-blend-screen opacity-90 transition-transform group-hover:scale-105"
+            alt="Logotipo Verônica Grijó" />
+          <div class="flex flex-col items-center">
+            <span class="font-headline text-2xl md:text-3xl font-bold text-white tracking-tight">Verônica Grijó</span>
+            <span class="font-label text-xs tracking-[0.2em] text-primary-container uppercase opacity-70 mt-1">Psicóloga
+              Clínica</span>
+          </div>
+        </a>
+
+        <div class="flex flex-wrap justify-center gap-6 md:gap-10 text-sm md:text-base">
+          <a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20vi%20seu%20blog%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sessões"
+            target="_blank" rel="noopener noreferrer" onclick="trackWhatsApp('blog_footer')"
+            class="flex items-center gap-3 hover:text-white transition-colors group">
+            <div
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-all">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </div>
+            <span>(21) 97621-5505</span>
+          </a>
+
+          <a href="mailto:veronicagrijopsi@gmail.com"
+            class="flex items-center gap-3 hover:text-white transition-colors group">
+            <div
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-all">
+              <span class="material-symbols-outlined text-lg opacity-70 group-hover:opacity-100">mail</span>
+            </div>
+            <span>veronicagrijopsi@gmail.com</span>
+          </a>
+
+          <a href="https://www.instagram.com/psiveronicagrijo/" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-3 hover:text-white transition-colors group">
+            <div
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-all">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.56.216.96.474 1.38.894.42.42.678.82.894 1.38.163.422.358 1.057.412 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.412 2.227-.216.56-.474.96-.894 1.38-.42.42-.82.678-1.38.894-.422.163-1.057.358-2.227.412-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.805-.249-2.227-.412-.56-.216-.96-.474-1.38-.894-.42-.42-.678-.82-.894-1.38-.163-.422-.358-1.057-.412-2.227-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.054-1.17.249-1.805.412-2.227.216-.56.474-.96.894-1.38.42-.42.82-.678 1.38-.894.422-.163 1.057-.358 2.227-.412 1.266-.058 1.646-.07 4.85-.07m0-2.163c-3.259 0-3.667.014-4.947.072-1.277.057-2.148.258-2.911.554-.79.306-1.459.717-2.126 1.384-.667.667-1.078 1.335-1.384 2.126-.296.763-.497 1.634-.554 2.911-.059 1.28-.073 1.688-.073 4.947s.014 3.667.072 4.947c.058 1.277.258 2.148.554 2.911.306.79.717 1.459 1.384 2.126.667.667 1.335 1.078 2.126 1.384.763.296 1.634.497 2.911.554 1.28.059 1.688.073 4.947.073s3.667-.014 4.947-.072c1.277-.058 2.148-.258 2.911-.554.79-.306 1.459-.717 2.126-1.384.667-.667 1.078-1.335 1.384-2.126.296-.763.497-1.634.554-2.911.059-1.28.073-1.688.073-4.947s-.014-3.667-.072-4.947c-.058-1.277-.258-2.148-.554-2.911-.306-.79-.717-1.459-1.384-2.126-.667-.667-1.335-1.078-2.126-1.384-.763-.296-1.634-.497-2.911-.554-1.28-.059-1.688-.073-4.947-.073z" />
+                <path
+                  d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162m0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4m6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44" />
+              </svg>
+            </div>
+            <span>@psiveronicagrijo</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <a href="https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 px-8 py-3 bg-white/[0.03] border border-white/10 rounded-2xl hover:bg-white/[0.06] hover:border-primary/30 transition-all duration-300 group">
+          <span
+            class="material-symbols-outlined text-primary-container text-xl opacity-70 group-hover:opacity-100 transition-opacity">badge</span>
+          <span
+            class="text-sm font-label tracking-[0.1em] text-white/50 group-hover:text-white transition-colors uppercase">CRP
+            05/41808</span>
+        </a>
+      </div>
+
+      <div class="pt-8 border-t border-white/5 w-full flex flex-col md:flex-row items-center justify-center gap-4">
+        <p class="text-white/30 text-[10px] md:text-xs">© 2026 - Verônica Grijó. Todos os direitos reservados.</p>
+        <a href="../politica-de-privacidade.html"
+          class="text-white/30 text-[10px] md:text-xs hover:text-white/60 transition-colors underline underline-offset-4">
+          Política de Privacidade
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[9999] group flex items-center pointer-events-none">
+    <div class="flex items-center pointer-events-auto">
+      <div
+        class="absolute right-full mr-4 whitespace-nowrap opacity-0 translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out hidden md:block">
+        <div
+          class="bg-primary text-on-primary px-6 py-3 rounded-full font-medium shadow-lg text-sm flex items-center gap-2">
+          Fale com Verônica
+          <div class="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rotate-45"></div>
+        </div>
+      </div>
+      <a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20vi%20seu%20blog%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sessões"
+        target="_blank" rel="noopener noreferrer" onclick="trackWhatsApp('blog_floating')"
+        class="bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300 animate-whatsapp">
+        <svg viewBox="0 0 24 24" class="w-8 h-8 fill-current">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    let activeCategory = 'all';
+
+    function updateFilterButtonState(button, isActive) {
+      button.classList.toggle('bg-primary/10', isActive);
+      button.classList.toggle('text-primary', isActive);
+      button.classList.toggle('border-primary/30', isActive);
+      button.classList.toggle('bg-surface-container-low', !isActive);
+      button.classList.toggle('text-on-surface-variant', !isActive);
+      button.classList.toggle('border-transparent', !isActive);
+    }
+
+    function getAllCards() {
+      return Array.from(document.querySelectorAll('#blog-grid .blog-card'));
+    }
+
+    function updateSummary(visibleCards) {
+      const summary = document.getElementById('posts-summary');
+      const total = getAllCards().length;
+      const categoryText = activeCategory === 'all' ? 'todos os temas' : `a categoria ${activeCategory}`;
+      summary.textContent = `${visibleCards.length} ${visibleCards.length === 1 ? 'artigo disponível' : 'artigos disponíveis'} em ${categoryText}. Total publicado: ${total}.`;
+    }
+
+    function filterCategory(category) {
+      activeCategory = category;
+
+      const cards = getAllCards();
+      const visibleCards = [];
+
+      cards.forEach((card) => {
+        const matches = category === 'all' || card.dataset.category === category;
+        card.classList.toggle('hidden', !matches);
+        if (matches) visibleCards.push(card);
+      });
+
+      document.querySelectorAll('.cat-filter-btn').forEach((button) => {
+        updateFilterButtonState(button, button.dataset.cat === category);
+      });
+
+      document.getElementById('blog-empty').style.display = visibleCards.length ? 'none' : 'flex';
+      updateSummary(visibleCards);
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+    document.querySelectorAll('.cat-filter-btn').forEach((button) => {
+      button.addEventListener('click', () => filterCategory(button.dataset.cat));
+    });
+
+    filterCategory('all');
+  </script>
+</body>
+
+</html>

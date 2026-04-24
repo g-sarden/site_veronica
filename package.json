@@ -4,6 +4,7 @@
     "description":  "",
     "main":  "index.js",
     "scripts":  {
+                    "build:blog":  "node scripts/build-blog-static.cjs",
                     "build:css":  "node node_modules/@tailwindcss/cli/dist/index.mjs -i ./input.css -o ./assets/style.css --minify",
                     "watch:css":  "node node_modules/@tailwindcss/cli/dist/index.mjs -i ./input.css -o ./assets/style.css --watch",
                     "test":  "echo \"Error: no test specified\" \u0026\u0026 exit 1"
