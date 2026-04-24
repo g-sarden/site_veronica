@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Admin – Blog Verônica Grijó</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#1a1213;color:#f0e8e9;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+h1,h2{font-family:'Lora',serif}
+.card{background:#251c1d;border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;width:100%;max-width:600px;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.logo{text-align:center;margin-bottom:32px}
+.logo img{height:48px;opacity:.85;filter:invert(1) brightness(1.2)}
+.logo h1{font-size:1.5rem;font-weight:700;color:#f0e8e9;margin-top:12px}
+.logo p{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#a25b6c;margin-top:4px}
+label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+input,textarea,select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;color:#f0e8e9;font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;outline:none;transition:border .2s}
+input:focus,textarea:focus,select:focus{border-color:#a25b6c}
+textarea{resize:vertical;line-height:1.6}
+.field{margin-bottom:20px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.btn{width:100%;background:#a25b6c;color:#fff;border:none;border-radius:50px;padding:16px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;transition:all .3s;margin-top:8px}
+.btn:hover{background:#8a4d5e;transform:translateY(-2px);box-shadow:0 12px 30px rgba(162,91,108,.4)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.status{margin-top:16px;padding:14px 18px;border-radius:14px;font-size:.9rem;display:none}
+.status.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:#86efac}
+.status.err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#fca5a5}
+.status.loading{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+#login-screen,#admin-screen{display:none}
+#login-screen.active,#admin-screen.active{display:block}
+.hint{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:6px}
+.section-title{font-size:1.1rem;color:#f0e8e9;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="card" id="login-screen" class="active">
+  <div class="logo">
+    <img src="../assets/icone.png" alt="Logo"/>
+    <h1>Verônica Grijó</h1>
+    <p>Painel do Blog</p>
+  </div>
+  <div class="field">
+    <label>Senha de acesso</label>
+    <input type="password" id="pw-input" placeholder="Digite a senha…" onkeydown="if(event.key==='Enter')doLogin()"/>
+  </div>
+  <button class="btn" onclick="doLogin()">Entrar</button>
+  <div class="status err" id="login-err">Senha incorreta.</div>
+</div>
+
+<!-- ADMIN -->
+<div class="card" id="admin-screen">
+  <div class="logo">
+    <img src="../assets/icone.png" alt="Logo"/>
+    <h1>Novo Post</h1>
+    <p>Blog · GitHub Pages</p>
+  </div>
+
+  <h2 class="section-title">Configuração GitHub</h2>
+  <div class="field">
+    <label>GitHub Personal Access Token</label>
+    <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxxxxxx"/>
+    <p class="hint">Token com permissão <strong>repo</strong>. Não é salvo em nenhum lugar.</p>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label>Usuário / Org</label>
+      <input type="text" id="gh-owner" value="g-sarden" placeholder="seu-usuario"/>
+    </div>
+    <div class="field">
+      <label>Repositório</label>
+      <input type="text" id="gh-repo" value="site_veronica" placeholder="site_veronica"/>
+    </div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:28px">Dados do Post</h2>
+  <div class="field">
+    <label>Título</label>
+    <input type="text" id="p-title" placeholder="Título completo do artigo"/>
+  </div>
+  <div class="field">
+    <label>Slug (URL) — sem espaços, sem acentos</label>
+    <input type="text" id="p-slug" placeholder="ansiedade-na-maternidade"/>
+    <p class="hint">O post ficará em: /blog/<span id="slug-preview">...</span>.html</p>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label>Categoria</label>
+      <select id="p-cat">
+        <option>Maternidade</option>
+        <option>Ansiedade</option>
+        <option>Autoconhecimento</option>
+        <option>Saúde Mental</option>
+        <option>Relacionamentos</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Tempo de leitura (min)</label>
+      <input type="number" id="p-read" value="5" min="1" max="60"/>
+    </div>
+  </div>
+  <div class="field">
+    <label>Data de publicação</label>
+    <input type="date" id="p-date"/>
+  </div>
+  <div class="field">
+    <label>Resumo (excerpt — até 200 chars)</label>
+    <textarea id="p-excerpt" rows="2" placeholder="Resumo curto que aparece no card do blog…" maxlength="200"></textarea>
+  </div>
+  <div class="field">
+    <label>Imagem de capa (nome do arquivo em /assets/)</label>
+    <input type="text" id="p-img" placeholder="foto2.jpeg"/>
+    <p class="hint">Faça upload manual do arquivo em /assets/ antes de publicar.</p>
+  </div>
+  <div class="field">
+    <label>Conteúdo HTML do artigo</label>
+    <textarea id="p-content" rows="14" placeholder="Cole aqui o HTML do corpo do artigo gerado pelo Claude…"></textarea>
+    <p class="hint">Use &lt;h2&gt;, &lt;p&gt;, &lt;blockquote&gt;, &lt;ul&gt;, &lt;strong&gt; — sem &lt;html&gt; ou &lt;body&gt;.</p>
+  </div>
+  <div class="field">
+    <label>Meta description (até 160 chars)</label>
+    <input type="text" id="p-meta" maxlength="160" placeholder="Descrição para o Google…"/>
+  </div>
+
+  <button class="btn" id="publish-btn" onclick="publish()">Publicar Post</button>
+  <div class="status" id="pub-status"></div>
+</div>
+
+<script>
+// ── CONFIG ────────────────────────────────────────────────
+const ADMIN_PASSWORD = 'veronica2026'; // ← ALTERE AQUI
+
+// ── LOGIN ─────────────────────────────────────────────────
+function doLogin(){
+  const pw = document.getElementById('pw-input').value;
+  if(pw === ADMIN_PASSWORD){
+    document.getElementById('login-screen').classList.remove('active');
+    document.getElementById('admin-screen').classList.add('active');
+    // Data de hoje
+    document.getElementById('p-date').value = new Date().toISOString().split('T')[0];
+  } else {
+    const el = document.getElementById('login-err');
+    el.style.display = 'block';
+    setTimeout(()=>el.style.display='none', 3000);
+  }
+}
+
+// Mostrar tela de login
+document.getElementById('login-screen').classList.add('active');
+
+// Slug preview ao vivo
+document.getElementById('p-slug').addEventListener('input', function(){
+  document.getElementById('slug-preview').textContent = this.value || '...';
+});
+
+// ── PUBLICAR ──────────────────────────────────────────────
+async function publish(){
+  const status = document.getElementById('pub-status');
+  const btn    = document.getElementById('publish-btn');
+
+  // Coleta campos
+  const token   = document.getElementById('gh-token').value.trim();
+  const owner   = document.getElementById('gh-owner').value.trim();
+  const repo    = document.getElementById('gh-repo').value.trim();
+  const title   = document.getElementById('p-title').value.trim();
+  const slug    = document.getElementById('p-slug').value.trim();
+  const cat     = document.getElementById('p-cat').value;
+  const read    = document.getElementById('p-read').value;
+  const date    = document.getElementById('p-date').value;
+  const excerpt = document.getElementById('p-excerpt').value.trim();
+  const img     = document.getElementById('p-img').value.trim() || 'foto1.jpeg';
+  const content = document.getElementById('p-content').value.trim();
+  const meta    = document.getElementById('p-meta').value.trim();
+
+  if(!token||!owner||!repo||!title||!slug||!date||!content){
+    showStatus('err','Preencha todos os campos obrigatórios (token, título, slug, data, conteúdo).');
+    return;
+  }
+
+  btn.disabled = true;
+  showStatus('loading','Publicando… aguarde.');
+
+  const API = `https://api.github.com/repos/${owner}/${repo}/contents`;
+
+  // ── 1. Gera HTML do post ──────────────────────────────
+  const datePretty = new Date(date+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+  const postHtml = buildPostHTML({title,slug,cat,read,date,datePretty,excerpt,img,content,meta});
+
+  // ── 2. Atualiza posts.json ───────────────────────────
+  let jsonSha = null;
+  let posts   = [];
+  try {
+    const jr = await ghGet(`${API}/blog/posts.json`, token);
+    jsonSha  = jr.sha;
+    posts    = JSON.parse(atob(jr.content.replace(/\n/g,'')));
+  } catch(e){ /* arquivo ainda não existe */ }
+
+  // Remove entrada duplicada (re-publicação)
+  posts = posts.filter(p => p.slug !== slug);
+  posts.unshift({slug, title, excerpt, date, category:cat, readTime:`${read} min`, coverImage:`../assets/${img}`});
+  posts.sort((a,b)=>new Date(b.date)-new Date(a.date));
+
+  try {
+    // ── 3. Commit do HTML do post ──────────────────────
+    await ghPut(`${API}/blog/${slug}.html`, token,
+      `Post: ${title}`,
+      btoa(unescape(encodeURIComponent(postHtml))),
+      await getFileSha(`${API}/blog/${slug}.html`, token)
+    );
+
+    // ── 4. Commit do posts.json ────────────────────────
+    await ghPut(`${API}/blog/posts.json`, token,
+      `Index: add ${slug}`,
+      btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2)))),
+      jsonSha
+    );
+
+    showStatus('ok',`✅ Post publicado! Acesse em /blog/${slug}.html após o deploy (~1 min).`);
+  } catch(err){
+    showStatus('err',`❌ Erro: ${err.message}`);
+  }
+  btn.disabled = false;
+}
+
+// ── HELPERS ───────────────────────────────────────────────
+function showStatus(type, msg){
+  const el = document.getElementById('pub-status');
+  el.className = `status ${type}`;
+  el.style.display = 'block';
+  el.textContent = msg;
+}
+
+async function ghGet(url, token){
+  const r = await fetch(url, {headers:{Authorization:`token ${token}`, Accept:'application/vnd.github.v3+json'}});
+  if(!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+async function getFileSha(url, token){
+  try { return (await ghGet(url, token)).sha; } catch(e){ return null; }
+}
+
+async function ghPut(url, token, message, content, sha){
+  const body = {message, content};
+  if(sha) body.sha = sha;
+  const r = await fetch(url, {
+    method:'PUT',
+    headers:{Authorization:`token ${token}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
+    body: JSON.stringify(body)
+  });
+  if(!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+function buildPostHTML({title,slug,cat,read,date,datePretty,excerpt,img,content,meta}){
+  return `<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>${escHtml(title)} | Blog | Verônica Grijó</title>
+<meta name="description" content="${escHtml(meta||excerpt)}"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://veronicagrijo.psc.br/blog/${slug}.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://veronicagrijo.psc.br/blog/${slug}.html"/>
+<meta property="og:title" content="${escHtml(title)}"/>
+<meta property="og:description" content="${escHtml(meta||excerpt)}"/>
+<meta property="og:image" content="https://veronicagrijo.psc.br/assets/${img}"/>
+<meta property="article:published_time" content="${date}T00:00:00-03:00"/>
+<meta property="article:modified_time" content="${date}T00:00:00-03:00"/>
+<meta property="article:author" content="Verônica Grijó"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"${escJS(title)}","description":"${escJS(meta||excerpt)}","image":"https://veronicagrijo.psc.br/assets/${img}","datePublished":"${date}","author":{"@type":"Person","name":"Verônica Grijó","url":"https://veronicagrijo.psc.br"},"publisher":{"@type":"Organization","name":"Psicóloga Verônica Grijó","logo":{"@type":"ImageObject","url":"https://veronicagrijo.psc.br/assets/icone.png"}}}<\/script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXG49PXGTM"><\/script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NXG49PXGTM',{allow_google_signals:false,allow_ad_personalization_signals:false});<\/script>
+<link rel="icon" type="image/png" href="../assets/icone.png"/>
+<meta name="theme-color" content="#FFF8F7"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/style.css"/>
+<style>
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+@keyframes pageLoad{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.page-load-effect{animation:pageLoad .9s cubic-bezier(.16,1,.3,1) forwards}
+.prose h2{font-family:'Lora',serif;font-size:1.75rem;line-height:1.3;margin-top:2.5rem;margin-bottom:1rem;color:#1c1417}
+.prose h3{font-family:'Lora',serif;font-size:1.3rem;margin-top:2rem;margin-bottom:.75rem;color:#1c1417}
+.prose p{font-size:1.0625rem;line-height:1.85;margin-bottom:1.4rem;font-weight:300;color:#3d2d31}
+.prose ul,.prose ol{padding-left:1.5rem;margin-bottom:1.4rem}
+.prose li{font-size:1.0625rem;line-height:1.85;margin-bottom:.5rem;font-weight:300;color:#3d2d31}
+.prose blockquote{border-left:3px solid #A25B6C;padding:1rem 1.5rem;margin:2rem 0;background:#FFF0F2;border-radius:0 16px 16px 0;font-family:'Lora',serif;font-style:italic;font-size:1.15rem;color:#A25B6C;line-height:1.7}
+.prose strong{font-weight:600;color:#1c1417}
+.prose a{color:#A25B6C;text-decoration:underline;text-underline-offset:3px}
+.prose hr{border:none;border-top:1px solid #e8d8da;margin:2.5rem 0}
+.cover-img{aspect-ratio:21/9;object-fit:cover;width:100%}
+@media(max-width:640px){.cover-img{aspect-ratio:4/3}}
+@keyframes pulse-whatsapp{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(37,211,102,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.animate-whatsapp{animation:pulse-whatsapp 2s infinite}
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body page-load-effect selection:bg-primary-container selection:text-on-primary-container">
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<a href="../" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+<img src="../assets/icone.png" class="h-12 w-auto object-contain drop-shadow-sm mix-blend-multiply" alt="Logotipo Verônica Grijó"/>
+<div class="flex flex-col"><span class="font-headline text-xl font-bold text-primary leading-none">Verônica Grijó</span><span class="font-label text-xs tracking-widest text-outline uppercase mt-1">Psicóloga Clínica</span></div>
+</a>
+<div class="flex items-center gap-5">
+<a href="../blog/" class="text-rose-900/70 hover:text-rose-900 transition-colors flex items-center gap-1 text-sm"><span class="material-symbols-outlined text-base">arrow_back</span> Blog</a>
+<a href="../#agendar" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-medium hover:bg-primary-dim transition-all text-sm shadow-sm">Agendar Consulta</a>
+</div>
+</div>
+</nav>
+<header class="pt-24 bg-surface-container-low">
+<div class="w-full overflow-hidden">
+<img src="../assets/${img}" alt="${escHtml(title)}" class="cover-img" fetchpriority="high" onerror="this.src='../assets/foto1.jpeg'"/>
+</div>
+<div class="max-w-3xl mx-auto px-8 pt-12 pb-8">
+<div class="flex items-center gap-2 text-xs font-label uppercase tracking-widest mb-5">
+<a href="../blog/" class="text-outline/60 hover:text-primary transition-colors">Blog</a>
+<span class="text-outline/40">›</span>
+<span class="text-primary">${escHtml(cat)}</span>
+</div>
+<h1 class="font-headline text-4xl md:text-5xl text-on-surface leading-tight mb-6">${escHtml(title)}</h1>
+<div class="flex items-center gap-6 text-sm text-on-surface-variant font-light pb-8 border-b border-outline-variant/20">
+<div class="flex items-center gap-2"><img src="../assets/icone.png" class="h-8 w-8 rounded-full object-contain mix-blend-multiply bg-surface-container p-1" alt="Verônica Grijó"/><span>Verônica Grijó</span></div>
+<span class="text-outline/40">·</span><span>${datePretty}</span>
+<span class="text-outline/40">·</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">schedule</span>${read} min de leitura</span>
+</div>
+</div>
+</header>
+<main class="py-12 px-8">
+<article class="max-w-3xl mx-auto prose">${content}</article>
+<aside class="max-w-3xl mx-auto mt-16 bg-[#251c1d] rounded-[40px] p-10 md:p-14 text-center text-white shadow-2xl">
+<img src="../assets/icone.png" class="h-12 w-auto mx-auto mb-6 invert mix-blend-screen opacity-80" alt="Verônica Grijó"/>
+<p class="font-headline text-2xl md:text-3xl mb-4 leading-tight">Esse artigo ressoou com você?</p>
+<p class="text-white/70 font-light mb-8 max-w-md mx-auto leading-relaxed">A terapia é o espaço onde essas reflexões se transformam em movimento real. Dê o próximo passo.</p>
+<a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20li%20seu%20artigo%20sobre%20${encodeURIComponent(title)}%20e%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-bold hover:bg-primary-dim hover:-translate-y-1 transition-all duration-300">Agendar minha sessão</a>
+</aside>
+<nav class="max-w-3xl mx-auto mt-12 flex justify-between text-sm">
+<a href="../blog/" class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group"><span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>Voltar ao blog</a>
+</nav>
+</main>
+<footer class="bg-[#1a1213] text-white/50 py-8 px-8 text-center text-xs mt-12">
+<div class="flex flex-col md:flex-row items-center justify-center gap-4">
+<a href="../" class="hover:text-white/80 transition-colors">← Voltar ao site</a>
+<span class="hidden md:inline">·</span>
+<p>© 2026 Verônica Grijó · CRP 05/41808</p>
+</div>
+</footer>
+<div class="fixed bottom-6 right-6 z-[9999] group flex items-center pointer-events-none">
+<div class="flex items-center pointer-events-auto">
+<a href="https://wa.me/5521976215505" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 animate-whatsapp">
+<svg viewBox="0 0 24 24" class="w-8 h-8 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+</div>
+</div>
+</body>
+</html>`;
+}
+
+function escHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escJS(s){ return (s||'').replace(/\\/g,'\\\\').replace(/"/g,'\\"'); }
+</script>
+</body>
+</html>

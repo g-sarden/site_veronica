@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 sinais de que você precisa de terapia agora | Psicóloga Verônica Grijó</title>
+<meta name="description" content="Você sente que algo está errado, mas não sabe se é coisa sua ou se é hora de buscar ajuda? Estes 5 sinais vão te ajudar a entender quando procurar psicólogo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #FDFAF6;
+    --warm-brown: #3D2B1F;
+    --mauve: #8B6F7A;
+    --blush: #C9A9A6;
+    --sage: #8A9E8C;
+    --light-mauve: #E8D5D2;
+    --light-sage: #D4DDD5;
+    --text: #2C1F18;
+    --text-light: #6B5448;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--warm-brown);
+    padding: 1.2rem 2rem;
+    text-align: center;
+  }
+  header .site-name {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--cream);
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    opacity: 0.85;
+    text-transform: uppercase;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--warm-brown);
+    padding: 4rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero .category {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush);
+    border: 1px solid var(--mauve);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.8rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.2;
+    max-width: 720px;
+    margin: 0 auto 1.4rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blush);
+  }
+  .hero .meta {
+    font-size: 0.8rem;
+    color: var(--mauve);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Article container ── */
+  .article-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 5rem;
+  }
+
+  /* ── Intro ── */
+  .intro-block {
+    background: var(--light-mauve);
+    border-left: 3px solid var(--mauve);
+    border-radius: 0 12px 12px 0;
+    padding: 1.8rem 2rem;
+    margin-bottom: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--warm-brown);
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 1.4rem;
+    line-height: 1.85;
+  }
+
+  /* ── Section titles ── */
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--warm-brown);
+    margin: 3rem 0 1.2rem;
+    line-height: 1.3;
+  }
+
+  /* ── Signal cards ── */
+  .signal-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 20px rgba(61,43,31,0.07);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .signal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(61,43,31,0.12);
+  }
+  .signal-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 600;
+    color: var(--light-mauve);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .signal-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--warm-brown);
+    margin-bottom: 0.8rem;
+    position: relative;
+  }
+  .signal-card p {
+    font-size: 0.98rem;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  /* Alternating accent colors */
+  .signal-card:nth-child(1) { border-top: 3px solid var(--blush); }
+  .signal-card:nth-child(2) { border-top: 3px solid var(--sage); }
+  .signal-card:nth-child(3) { border-top: 3px solid var(--mauve); }
+  .signal-card:nth-child(4) { border-top: 3px solid var(--blush); }
+  .signal-card:nth-child(5) { border-top: 3px solid var(--sage); }
+
+  /* ── Divider ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    opacity: 0.4;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--warm-brown);
+  }
+  .divider span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--warm-brown);
+  }
+
+  /* ── Highlight quote ── */
+  .highlight-quote {
+    background: var(--warm-brown);
+    color: var(--cream);
+    padding: 2.2rem 2.5rem;
+    border-radius: 16px;
+    margin: 3rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  /* ── Comparison table ── */
+  .compare-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .compare-col {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  .compare-col.pass {
+    background: var(--light-sage);
+    border: 1px solid var(--sage);
+  }
+  .compare-col.needs {
+    background: var(--light-mauve);
+    border: 1px solid var(--blush);
+  }
+  .compare-col h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--warm-brown);
+  }
+  .compare-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .compare-col ul li {
+    font-size: 0.92rem;
+    padding: 0.4rem 0;
+    color: var(--text);
+    padding-left: 1.2rem;
+    position: relative;
+    border-bottom: 1px solid rgba(61,43,31,0.08);
+    line-height: 1.5;
+  }
+  .compare-col ul li:last-child { border-bottom: none; }
+  .compare-col.pass ul li::before { content: '·'; position: absolute; left: 0; color: var(--sage); font-weight: bold; }
+  .compare-col.needs ul li::before { content: '·'; position: absolute; left: 0; color: var(--mauve); font-weight: bold; }
+
+  /* ── Steps ── */
+  .steps {
+    counter-reset: step;
+    margin: 2rem 0;
+  }
+  .step {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    background: var(--warm-brown);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .step-body h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--warm-brown);
+    margin-bottom: 0.25rem;
+  }
+  .step-body p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    color: var(--text-light);
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: linear-gradient(135deg, var(--warm-brown) 0%, #5C3D2E 100%);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: rgba(201,169,166,0.12);
+    border-radius: 50%;
+  }
+  .cta-block::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -30px;
+    width: 220px; height: 220px;
+    background: rgba(138,158,140,0.1);
+    border-radius: 50%;
+  }
+  .cta-block h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-block p {
+    color: var(--blush);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--warm-brown);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 1rem 2.2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover {
+    background: var(--blush);
+    color: white;
+    transform: translateY(-2px);
+  }
+  .cta-small {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--mauve);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--light-mauve);
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 4rem;
+  }
+  footer a { color: var(--mauve); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .compare-block { grid-template-columns: 1fr; }
+    .hero { padding: 3rem 1.5rem 4.5rem; }
+    .article-wrap { padding: 2.5rem 1.3rem 4rem; }
+    .cta-block { padding: 2.2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="site-name">Psicóloga Verônica Grijó · CRP 05/41808</div>
+</header>
+
+<div class="hero">
+  <span class="category">Saúde Mental</span>
+  <h1>5 sinais de que você precisa de terapia <em>agora</em><br>(e como dar o primeiro passo sem medo)</h1>
+  <p class="meta">Por Verônica Grijó &nbsp;·&nbsp; Psicóloga Clínica</p>
+</div>
+
+<article class="article-wrap">
+
+  <div class="intro-block">
+    Você sente que algo está errado, mas fica se perguntando: "será que é coisa minha? Será que é grave o suficiente para ir a uma psicóloga?" Se essa dúvida existe, ela já é uma resposta em si.
+  </div>
+
+  <p>Não existe um nível mínimo de sofrimento exigido para você pedir ajuda. A terapia não é só para quem está em crise. Ela é para quem quer entender o que sente, funcionar melhor no dia a dia e parar de viver no piloto automático.</p>
+
+  <p>Mas eu sei que a dúvida persiste. Então vou ser direta: aqui estão 5 sinais concretos de que chegou a hora de procurar uma psicóloga, quando procurar psicólogo não precisa mais ser uma pergunta sem resposta.</p>
+
+  <div class="divider"><span>✦</span></div>
+
+  <!-- SIGNALS -->
+  <div class="signal-card" data-num="01">
+    <h3>Você sente uma ansiedade que não passa, mesmo quando nada de grave está acontecendo</h3>
+    <p>Aquela sensação de que algo ruim vai acontecer. O coração acelerado sem motivo. A cabeça que não para, mesmo na hora de descansar. Quando a ansiedade vira o estado padrão do seu corpo e não tem a ver com um evento específico, ela está te pedindo atenção. Não é frescura. É o seu sistema nervoso em alerta constante, e isso tem solução.</p>
+  </div>
+
+  <div class="signal-card" data-num="02">
+    <h3>Você está se criticando o tempo todo e nunca é suficiente</h3>
+    <p>A voz interna que diz que você poderia ter feito melhor, que você é fraca, que as outras pessoas dão conta e você não. Quando a autocrítica vira o seu idioma principal, você deixa de enxergar o que está funcionando. Esse padrão tende a se intensificar silenciosamente, e a terapia é um dos poucos lugares onde você aprende a notar essa voz sem deixar ela mandar em tudo.</p>
+  </div>
+
+  <div class="signal-card" data-num="03">
+    <h3>Você está esgotada de um jeito que dormir não resolve</h3>
+    <p>Não é cansaço de uma semana pesada. É aquela exaustão que já está há meses, que aparece logo de manhã, que faz qualquer coisa parecer um esforço enorme. Quando o descanso físico não é suficiente, o que está esgotado é algo mais fundo. Saber quando procurar psicólogo inclui reconhecer esse tipo de cansaço que o corpo carrega mas não tem palavras para explicar.</p>
+  </div>
+
+  <div class="signal-card" data-num="04">
+    <h3>Seus relacionamentos estão sofrendo (ou você está se isolando)</h3>
+    <p>Brigas que viram rotina. Dificuldade de confiar. A sensação de que ninguém realmente te entende. Ou o oposto: você foi desaparecendo aos poucos, cancelou compromissos, perdeu vontade de estar com pessoas. Relacionamentos são espelhos de como a gente está por dentro. Quando eles começam a rachar, vale olhar para o que está acontecendo em você.</p>
+  </div>
+
+  <div class="signal-card" data-num="05">
+    <h3>Você está usando algo para se sentir melhor e isso está saindo do controle</h3>
+    <p>Pode ser comida, álcool, redes sociais, trabalho em excesso, compras impulsivas. Não estou falando de prazer ocasional. Estou falando daquele hábito que você usa para escapar de algum sentimento que não sabe como lidar. Quando a válvula de escape começa a ser o problema, é hora de olhar para o que está por baixo.</p>
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <!-- DIFFERENCE SECTION -->
+  <h2 class="section-title">Tristeza passageira ou sinal de que preciso de suporte?</h2>
+
+  <p>Essa é uma dúvida real e honesta. Todo mundo passa por dias ruins. Períodos difíceis fazem parte da vida e não precisam virer diagnóstico. A diferença está na duração, na intensidade e no impacto no seu funcionamento.</p>
+
+  <div class="compare-block">
+    <div class="compare-col pass">
+      <h4>Tristeza passageira</h4>
+      <ul>
+        <li>Tem um motivo claro (uma perda, uma decepção)</li>
+        <li>Melhora com o tempo e com apoio de quem você ama</li>
+        <li>Não interfere no trabalho, nas relações, no sono de forma persistente</li>
+        <li>Você consegue sentir prazer em coisas que normalmente gosta</li>
+      </ul>
+    </div>
+    <div class="compare-col needs">
+      <h4>Sinal de que você precisa de suporte</h4>
+      <ul>
+        <li>A sensação dura semanas ou meses sem melhorar</li>
+        <li>Afeta sua rotina, seu trabalho, seus relacionamentos</li>
+        <li>Você perdeu o prazer em coisas que antes te faziam bem</li>
+        <li>Você sente que não consegue "sair disso" por conta própria</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>E mesmo que você esteja na coluna da esquerda agora: terapia não é só para quem está mal. É para quem quer se conhecer melhor, tomar decisões mais conscientes e parar de repetir os mesmos padrões. Você não precisa esperar chegar no limite.</p>
+
+  <div class="highlight-quote">
+    "Pedir ajuda não é sinal de fraqueza. É o ato mais corajoso de cuidado próprio que existe."
+  </div>
+
+  <!-- FIRST STEP -->
+  <h2 class="section-title">Como dar o primeiro passo sem sentir que é um bicho de sete cabeças</h2>
+
+  <p>O maior obstáculo de quem nunca fez terapia costuma ser o desconhecido. Não saber o que esperar, como funciona, o que falar na primeira sessão. Então vou te mostrar como é, na prática.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Você entra em contato</h4>
+        <p>Pode ser por WhatsApp, Instagram ou e-mail. Não precisa ter um discurso elaborado. "Quero agendar uma sessão" já é suficiente. Se quiser contar um pouco do que está sentindo, ótimo. Se não, tudo bem também.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>A primeira sessão é de escuta</h4>
+        <p>Não tem prova, não tem julgamento. Você vai contar o que quiser, no ritmo que conseguir. O objetivo é entender o que te trouxe até ali e o que você quer trabalhar. É uma conversa, não uma consulta médica.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>A sessão é online, do lugar que você se sentir segura</h4>
+        <p>Sem deslocamento, sem sala de espera, sem precisar sair de casa se não quiser. Você pode fazer de onde estiver, com privacidade e conforto. Isso já elimina boa parte das barreiras que impedem as pessoas de começar.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Você vai sentir que não estava exagerando</h4>
+        <p>Uma das coisas que quase toda paciente diz depois da primeira sessão é isso. O alívio de falar sem filtro, de ser ouvida de verdade, de entender que o que sente faz sentido. Esse alívio já começa no primeiro encontro.</p>
+      </div>
+    </div>
+  </div>
+
+  <p>Começar terapia pela primeira vez é um ato de respeito por você mesma. Não precisa ter chegado no fundo. Não precisa estar em crise. Você precisa apenas decidir que quer se entender melhor e viver com menos peso.</p>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Pronta para dar esse primeiro passo?</h2>
+    <p>Se você se reconheceu em algum dos sinais acima, não deixa para depois. A primeira sessão é o começo de uma conversa que você merecia ter há mais tempo.</p>
+    <a href="https://instagram.com/psiveronicagrijo" class="cta-btn" target="_blank">Agendar minha sessão</a>
+    <span class="cta-small">Atendimento 100% online · @psiveronicagrijo</span>
+  </div>
+
+</article>
+
+<footer>
+  <p>© Verônica Grijó · Psicóloga Clínica · CRP 05/41808 · <a href="https://instagram.com/psiveronicagrijo">@psiveronicagrijo</a></p>
+</footer>
+
+</body>
+</html>
