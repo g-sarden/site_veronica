@@ -19,10 +19,10 @@
   <meta property="og:title" content="Blog da Psicóloga em Macaé | Verônica Grijó" />
   <meta property="og:description"
     content="Textos sobre ansiedade, maternidade, autoestima e saúde mental escritos por psicóloga em Macaé." />
-  <meta property="og:image" content="https://veronicagrijo.psc.br/assets/foto1.jpeg" />
+  <meta property="og:image" content="https://veronicagrijo.psc.br/assets/foto1.webp" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/icone.png" />
+  <link rel="icon" type="image/webp" href="../assets/icone.webp" />
   <meta name="theme-color" content="#FFF8F7" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,6 +58,23 @@
             "jobTitle": "Psicóloga",
             "identifier": "CRP 05/41808"
           }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Início",
+              "item": "https://veronicagrijo.psc.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://veronicagrijo.psc.br/blog/"
+            }
+          ]
         }
       ]
     }
@@ -83,6 +100,8 @@
   </script>
 
   <!-- Fonts -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" />
   <link
     href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
@@ -244,6 +263,81 @@
       scroll-margin-top: 120px;
     }
 
+    .mobile-menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(162, 91, 108, 0.18);
+      border-radius: 9999px;
+      color: var(--color-primary);
+      background: rgba(255, 248, 247, 0.84);
+      box-shadow: 0 10px 28px rgba(37, 28, 29, 0.08);
+      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .mobile-menu-toggle:active {
+      transform: scale(0.94);
+    }
+
+    .mobile-menu-panel {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 1rem;
+      right: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 1rem;
+      border: 1px solid rgba(216, 194, 197, 0.55);
+      border-radius: 28px;
+      background: rgba(255, 248, 247, 0.96);
+      box-shadow: 0 24px 70px rgba(37, 28, 29, 0.16);
+      backdrop-filter: blur(18px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px) scale(0.98);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .mobile-menu-panel.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .mobile-menu-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 9999px;
+      color: rgba(76, 22, 37, 0.78);
+      font-weight: 500;
+      transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .mobile-menu-link:hover,
+    .mobile-menu-link:focus-visible {
+      color: var(--color-primary);
+      background: rgba(162, 91, 108, 0.08);
+    }
+
+    .mobile-menu-link-primary {
+      margin-top: 0.25rem;
+      color: var(--color-on-primary);
+      background: var(--color-primary);
+      box-shadow: 0 12px 26px rgba(162, 91, 108, 0.22);
+    }
+
+    .mobile-menu-link-primary:hover,
+    .mobile-menu-link-primary:focus-visible {
+      color: var(--color-on-primary);
+      background: var(--color-primary-dim);
+      transform: translateY(-1px);
+    }
+
     @keyframes pulse-whatsapp {
       0% {
         transform: scale(1);
@@ -270,6 +364,14 @@
         height: 40px;
       }
     }
+
+    @media (min-width: 768px) {
+
+      .mobile-menu-toggle,
+      .mobile-menu-panel {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -277,9 +379,9 @@
   class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container page-load-effect">
   <nav
     class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-outline-variant/10">
-    <div class="flex justify-center md:justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
       <a href="../#home" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-        <img src="../assets/icone.png"
+        <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
           class="h-12 md:h-14 w-auto object-contain drop-shadow-sm mix-blend-multiply dark:invert dark:mix-blend-screen"
           alt="Logotipo Psicóloga Verônica Grijó" />
         <div class="flex flex-col">
@@ -297,10 +399,21 @@
           href="../#sobre">Sobre</a>
         <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
           href="../#o-processo">O Processo</a>
-        <a class="text-rose-900 dark:text-rose-50 transition-colors" href="./">Blog</a>
+        <a class="text-rose-900 dark:text-rose-50 transition-colors" href="/#blog">Reflexões</a>
         <a class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium hover:bg-primary-dim hover:shadow-[0_0_15px_rgba(76,100,88,0.5)] hover:-translate-y-0.5 transition-all scale-95 duration-200 ease-in-out shadow-sm active:scale-90"
           href="../#agendar">Agendar Consulta</a>
       </div>
+      <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+      </button>
+    </div>
+    <div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true">
+      <a class="mobile-menu-link" href="../#home">Início</a>
+      <a class="mobile-menu-link" href="../#sobre">Sobre</a>
+      <a class="mobile-menu-link" href="../#o-processo">O Processo</a>
+      <a class="mobile-menu-link" href="/#blog">Reflexões</a>
+      <a class="mobile-menu-link mobile-menu-link-primary" href="../#agendar">Agendar Consulta</a>
     </div>
   </nav>
 
@@ -308,8 +421,9 @@
     class="relative pt-32 md:pt-36 px-6 md:px-8 pb-20 md:pb-24 overflow-hidden bg-surface w-full flex flex-col justify-center"
     id="topo">
     <video aria-hidden="true" autoplay class="absolute inset-0 w-full h-full object-cover z-0" loop muted
+      width="1920" height="1080"
       preload="metadata" playsinline
-      poster="../assets/lavanda-thumb.jpg">
+      poster="../assets/lavanda-thumb.webp">
       <source src="../assets/lavanda.mp4" type="video/mp4" />
     </video>
     <div class="absolute inset-0 bg-black/45 z-0 pointer-events-none"></div>
@@ -319,8 +433,13 @@
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
       <div class="text-white">
+        <nav class="mb-6 flex items-center gap-2 text-sm text-white/70" aria-label="breadcrumb">
+          <a href="/" class="hover:text-white transition-colors">Início</a>
+          <span aria-hidden="true">/</span>
+          <span class="text-white">Blog</span>
+        </nav>
         <div class="flex items-center gap-3 mb-6">
-          <img src="../assets/icone.png"
+          <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
             class="h-10 w-auto object-contain mix-blend-screen invert opacity-90 drop-shadow-md"
             alt="Psicóloga Verônica Grijó - Logotipo" />
           <span class="text-xs font-label uppercase tracking-widest text-primary-container drop-shadow-md">REFLEXÕES
@@ -401,8 +520,8 @@
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-10">
         <div class="max-w-3xl">
           <div class="flex items-center gap-3 mb-6">
-            <img src="../assets/icone.png" class="h-10 w-auto object-contain mix-blend-multiply opacity-80"
-              alt="Ramo de Lavanda" />
+            <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-10 w-auto object-contain mix-blend-multiply opacity-80"
+              alt="" aria-hidden="true" />
             <span class="text-xs font-label uppercase tracking-widest text-primary">NAVEGUE COM CALMA</span>
           </div>
           <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4 leading-tight">Encontre aqui o seu ombro
@@ -471,8 +590,8 @@
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
         <div>
           <div class="flex items-center gap-3 mb-5">
-            <img src="../assets/icone.png" class="h-10 w-auto object-contain mix-blend-multiply opacity-80"
-              alt="Ramo de Lavanda" />
+            <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-10 w-auto object-contain mix-blend-multiply opacity-80"
+              alt="" aria-hidden="true" />
             <span class="text-xs font-label uppercase tracking-widest text-primary">ÚLTIMAS PUBLICAÇÕES</span>
           </div>
           <h2 class="font-headline text-4xl md:text-5xl text-on-surface leading-tight">Leituras pensadas para acolher,
@@ -489,11 +608,11 @@
           class="blog-card group bg-surface-container-low rounded-[32px] border border-outline-variant/20 overflow-hidden shadow-sm h-full flex flex-col"
           style="animation: pageLoad 0.6s ease 0s both;">
           <div class="card-media overflow-hidden bg-surface">
-            <img src="../assets/sinais-terapia.png"
+            <img src="../assets/sinais-terapia.webp"
               alt="5 sinais de que você precisa de terapia agora"
               class="card-cover w-full h-full object-cover"
               loading="lazy"
-              onerror="this.src='../assets/foto1.jpeg'" />
+              onerror="this.src='../assets/foto1.webp'" />
           </div>
           <div class="p-7 flex flex-col flex-1">
             <div class="flex flex-wrap items-center gap-3 mb-4">
@@ -519,11 +638,11 @@
           class="blog-card group bg-surface-container-low rounded-[32px] border border-outline-variant/20 overflow-hidden shadow-sm h-full flex flex-col"
           style="animation: pageLoad 0.6s ease 0.08s both;">
           <div class="card-media overflow-hidden bg-surface">
-            <img src="../assets/ansiedade-materna.jpg"
+            <img src="../assets/ansiedade-materna.webp"
               alt="Ansiedade na Maternidade: Você Não Precisa Dar Conta de Tudo"
               class="card-cover w-full h-full object-cover"
               loading="lazy"
-              onerror="this.src='../assets/foto1.jpeg'" />
+              onerror="this.src='../assets/foto1.webp'" />
           </div>
           <div class="p-7 flex flex-col flex-1">
             <div class="flex flex-wrap items-center gap-3 mb-4">
@@ -606,7 +725,7 @@
         <div
           class="absolute -inset-1 bg-white/10 rounded-[40px] md:rounded-[80px] blur-sm scale-105 group-hover:bg-primary/20 transition-all duration-700">
         </div>
-        <img src="../assets/foto3.jpeg" alt="Verônica Grijó, psicóloga em Macaé com atendimento presencial e online"
+        <img src="../assets/foto3.webp" alt="Verônica Grijó, psicóloga em Macaé com atendimento presencial e online"
           class="w-full h-auto rounded-[40px] md:rounded-[80px] object-cover shadow-2xl relative z-10 grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000"
           loading="lazy" />
         <div
@@ -628,7 +747,7 @@
     <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
       <div class="flex flex-col items-center gap-10 mb-16">
         <a href="../#home" class="flex flex-col items-center gap-4 group">
-          <img src="../assets/icone.png"
+          <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
             class="h-16 w-auto object-contain invert mix-blend-screen opacity-90 transition-transform group-hover:scale-105"
             alt="Logotipo Verônica Grijó" />
           <div class="flex flex-col items-center">
@@ -721,6 +840,46 @@
   </div>
 
   <script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = mobileMenuButton?.querySelector('.material-symbols-outlined');
+
+    function setMobileMenu(open) {
+      if (!mobileMenuButton || !mobileMenu) return;
+
+      mobileMenu.classList.toggle('is-open', open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      mobileMenuButton.setAttribute('aria-expanded', String(open));
+      mobileMenuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+
+      if (mobileMenuIcon) {
+        mobileMenuIcon.textContent = open ? 'close' : 'menu';
+      }
+    }
+
+    mobileMenuButton?.addEventListener('click', () => {
+      const isOpen = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      setMobileMenu(!isOpen);
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMobileMenu(false));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!mobileMenuButton || !mobileMenu) return;
+      if (mobileMenuButton.contains(event.target) || mobileMenu.contains(event.target)) return;
+      setMobileMenu(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setMobileMenu(false);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) setMobileMenu(false);
+    });
+
     let activeCategory = 'all';
 
     function updateFilterButtonState(button, isActive) {

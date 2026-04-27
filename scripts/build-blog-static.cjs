@@ -49,13 +49,13 @@ function formatDate(dateStr, formatter) {
 }
 
 function toHomeImageSrc(src) {
-  if (!src) return 'assets/foto1.jpeg';
+  if (!src) return 'assets/foto1.webp';
   if (/^https?:\/\//i.test(src)) return src;
   return src.replace(/^\.\.\//, '');
 }
 
 function toBlogImageSrc(src) {
-  if (!src) return '../assets/foto1.jpeg';
+  if (!src) return '../assets/foto1.webp';
   if (/^https?:\/\//i.test(src)) return src;
   if (src.startsWith('../')) return src;
   return `../${src.replace(/^\.\//, '')}`;
@@ -88,7 +88,7 @@ function renderHomeCard(post) {
                 <div class="overflow-hidden" style="aspect-ratio:16/9;background:#f5eaeb">
                     <img src="${imageSrc}" alt="${title}"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy" onerror="this.src='assets/foto1.jpeg'" />
+                        loading="lazy" onerror="this.src='assets/foto1.webp'" />
                 </div>
                 <div class="p-6 flex flex-col flex-1">
                     <div class="flex items-center gap-3 mb-3">
@@ -193,7 +193,7 @@ function renderBlogCard(post, index) {
               alt="${title}"
               class="card-cover w-full h-full object-cover"
               loading="lazy"
-              onerror="this.src='../assets/foto1.jpeg'" />
+              onerror="this.src='../assets/foto1.webp'" />
           </div>
           <div class="p-7 flex flex-col flex-1">
             <div class="flex flex-wrap items-center gap-3 mb-4">

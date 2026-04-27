@@ -17,15 +17,15 @@
   <meta property="og:title" content="Psicóloga Online Especializada em Ansiedade | Verônica Grijó" />
   <meta property="og:description"
     content="Psicoterapia online para mulheres que vivem ansiedade, com acolhimento, praticidade e a privacidade da sua casa." />
-  <meta property="og:image" content="https://veronicagrijo.psc.br/assets/foto1.jpeg" />
+  <meta property="og:image" content="https://veronicagrijo.psc.br/assets/foto1.webp" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Psicóloga Online Especializada em Ansiedade | Verônica Grijó" />
   <meta name="twitter:description"
     content="Psicoterapia online para mulheres com ansiedade, de qualquer lugar e com a privacidade da sua casa." />
-  <meta name="twitter:image" content="https://veronicagrijo.psc.br/assets/foto1.jpeg" />
+  <meta name="twitter:image" content="https://veronicagrijo.psc.br/assets/foto1.webp" />
 
-  <link rel="icon" type="image/png" href="assets/icone.png" />
+  <link rel="icon" type="image/webp" href="assets/icone.webp" />
   <meta name="theme-color" content="#FFF8F7" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -95,6 +95,23 @@
               }
             }
           ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Início",
+              "item": "https://veronicagrijo.psc.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Psicóloga Online",
+              "item": "https://veronicagrijo.psc.br/psicologa-online.html"
+            }
+          ]
         }
       ]
     }
@@ -118,6 +135,8 @@
     }
   </script>
 
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" />
   <link
     href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
@@ -181,6 +200,81 @@
     .online-topbar {
       background: rgba(255, 248, 247, 0.94);
       box-shadow: 0 12px 32px rgba(37, 28, 29, 0.07);
+    }
+
+    .mobile-menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(162, 91, 108, 0.18);
+      border-radius: 9999px;
+      color: var(--color-primary);
+      background: rgba(255, 248, 247, 0.84);
+      box-shadow: 0 10px 28px rgba(37, 28, 29, 0.08);
+      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .mobile-menu-toggle:active {
+      transform: scale(0.94);
+    }
+
+    .mobile-menu-panel {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 1rem;
+      right: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 1rem;
+      border: 1px solid rgba(216, 194, 197, 0.55);
+      border-radius: 28px;
+      background: rgba(255, 248, 247, 0.96);
+      box-shadow: 0 24px 70px rgba(37, 28, 29, 0.16);
+      backdrop-filter: blur(18px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px) scale(0.98);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .mobile-menu-panel.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .mobile-menu-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 9999px;
+      color: rgba(76, 22, 37, 0.78);
+      font-weight: 500;
+      transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .mobile-menu-link:hover,
+    .mobile-menu-link:focus-visible {
+      color: var(--color-primary);
+      background: rgba(162, 91, 108, 0.08);
+    }
+
+    .mobile-menu-link-primary {
+      margin-top: 0.25rem;
+      color: var(--color-on-primary);
+      background: var(--color-primary);
+      box-shadow: 0 12px 26px rgba(162, 91, 108, 0.22);
+    }
+
+    .mobile-menu-link-primary:hover,
+    .mobile-menu-link-primary:focus-visible {
+      color: var(--color-on-primary);
+      background: var(--color-primary-dim);
+      transform: translateY(-1px);
     }
 
     .section-kicker {
@@ -317,6 +411,11 @@
         padding-bottom: 9rem;
       }
 
+      .mobile-menu-toggle,
+      .mobile-menu-panel {
+        display: none;
+      }
+
       .online-hero-grid {
         grid-template-columns: minmax(0, 1fr) 430px;
         gap: 2.5rem;
@@ -355,9 +454,9 @@
 <body
   class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container page-load-effect">
   <nav class="online-topbar fixed top-0 w-full z-50 backdrop-blur-md border-b border-outline-variant/10">
-    <div class="flex justify-center md:justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
       <a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-        <img src="assets/icone.png" class="h-12 w-auto object-contain drop-shadow-sm mix-blend-multiply"
+        <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-12 w-auto object-contain drop-shadow-sm mix-blend-multiply"
           alt="Logotipo Verônica Grijó" />
         <div class="flex flex-col">
           <span class="font-headline text-xl md:text-2xl font-bold text-primary leading-none">Verônica Grijó</span>
@@ -368,19 +467,35 @@
       <div class="hidden md:flex items-center gap-6">
         <a href="#como-funciona" class="text-rose-900/70 hover:text-rose-900 transition-colors">Como Funciona</a>
         <a href="#faq" class="text-rose-900/70 hover:text-rose-900 transition-colors">Perguntas Frequentes</a>
-        <a href="/blog/" class="text-rose-900/70 hover:text-rose-900 transition-colors">Blog</a>
+        <a href="/#blog" class="text-rose-900/70 hover:text-rose-900 transition-colors">Reflexões</a>
         <a href="#agendar-online"
           class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-medium hover:bg-primary-dim transition-all shadow-sm">Agendar
           Online</a>
       </div>
+      <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+      </button>
+    </div>
+    <div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true">
+      <a class="mobile-menu-link" href="/">Início</a>
+      <a class="mobile-menu-link" href="#como-funciona">Como Funciona</a>
+      <a class="mobile-menu-link" href="#faq">Perguntas Frequentes</a>
+      <a class="mobile-menu-link" href="/#blog">Reflexões</a>
+      <a class="mobile-menu-link mobile-menu-link-primary" href="#agendar-online">Agendar Online</a>
     </div>
   </nav>
 
   <main class="online-main px-6 md:px-8">
     <section class="anchor-section online-hero-section max-w-7xl mx-auto" id="topo">
       <div class="max-w-4xl">
+        <nav class="mb-6 flex items-center gap-2 text-sm text-on-surface-variant" aria-label="breadcrumb">
+          <a href="/" class="hover:text-primary transition-colors">Início</a>
+          <span aria-hidden="true">/</span>
+          <span class="text-on-surface">Psicóloga Online</span>
+        </nav>
         <div class="section-kicker">
-          <img src="assets/icone.png" class="mix-blend-multiply opacity-80" alt="Logotipo Verônica Grijó" />
+          <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="mix-blend-multiply opacity-80" alt="" aria-hidden="true" />
           <span class="text-xs font-label uppercase tracking-[0.18em] text-primary">Atendimento Online</span>
         </div>
         <h1 class="font-headline text-5xl md:text-6xl leading-[1.04] text-on-surface mb-6">Psicóloga online
@@ -418,7 +533,7 @@
               class="absolute -inset-1 bg-gradient-to-br from-primary/15 to-tertiary-fixed-dim/10 rounded-[36px] blur-sm">
             </div>
             <div class="online-photo-frame relative">
-              <img src="assets/foto1.jpeg"
+              <img src="assets/foto1.webp"
                 alt="Verônica Grijó, psicóloga online especializada em ansiedade para mulheres" fetchpriority="high" />
             </div>
           </div>
@@ -441,7 +556,7 @@
     <section class="anchor-section section-spacing max-w-7xl mx-auto" id="como-funciona">
       <div class="max-w-3xl section-stack">
         <div class="section-kicker">
-          <img src="assets/icone.png" class="mix-blend-multiply opacity-80" alt="Logotipo Verônica Grijó" />
+          <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="mix-blend-multiply opacity-80" alt="" aria-hidden="true" />
           <span class="text-xs font-label uppercase tracking-[0.18em] text-primary">Como Funciona</span>
         </div>
         <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Terapia online com profundidade, sem sair
@@ -473,7 +588,7 @@
     <section class="anchor-section section-spacing max-w-7xl mx-auto" id="faq">
       <div class="max-w-3xl section-stack">
         <div class="section-kicker">
-          <img src="assets/icone.png" class="mix-blend-multiply opacity-80" alt="Logotipo Verônica Grijó" />
+          <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="mix-blend-multiply opacity-80" alt="" aria-hidden="true" />
           <span class="text-xs font-label uppercase tracking-[0.18em] text-primary">Perguntas Frequentes</span>
         </div>
         <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Psicoterapia online com mais espaço para
@@ -529,7 +644,7 @@
     <section class="anchor-section section-spacing max-w-7xl mx-auto" id="agendar-online">
       <div class="bg-[#251c1d] rounded-[40px] p-10 md:p-14 text-white shadow-2xl">
         <div class="section-kicker">
-          <img src="assets/icone.png" class="mix-blend-screen invert opacity-80" alt="Logotipo Verônica Grijó" />
+          <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="mix-blend-screen invert opacity-80" alt="" aria-hidden="true" />
           <span class="text-xs font-label uppercase tracking-[0.18em] text-primary-container/80">Próximo Passo</span>
         </div>
         <h2 class="font-headline text-4xl md:text-5xl leading-tight mb-6">Se a ansiedade já está ocupando espaço
@@ -555,7 +670,7 @@
   <footer class="bg-[#1a1213] text-white/80 border-t border-white/5 py-16 px-6 md:px-8">
     <div class="max-w-7xl mx-auto flex flex-col items-center text-center gap-6">
       <a href="/" class="flex flex-col items-center gap-4 group">
-        <img src="assets/icone.png"
+        <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
           class="h-16 w-auto object-contain invert mix-blend-screen opacity-90 transition-transform group-hover:scale-105"
           alt="Logotipo Verônica Grijó" />
         <div class="flex flex-col items-center">
@@ -592,6 +707,47 @@
       </a>
     </div>
   </div>
+  <script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = mobileMenuButton?.querySelector('.material-symbols-outlined');
+
+    function setMobileMenu(open) {
+      if (!mobileMenuButton || !mobileMenu) return;
+
+      mobileMenu.classList.toggle('is-open', open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      mobileMenuButton.setAttribute('aria-expanded', String(open));
+      mobileMenuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+
+      if (mobileMenuIcon) {
+        mobileMenuIcon.textContent = open ? 'close' : 'menu';
+      }
+    }
+
+    mobileMenuButton?.addEventListener('click', () => {
+      const isOpen = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      setMobileMenu(!isOpen);
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMobileMenu(false));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!mobileMenuButton || !mobileMenu) return;
+      if (mobileMenuButton.contains(event.target) || mobileMenu.contains(event.target)) return;
+      setMobileMenu(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setMobileMenu(false);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) setMobileMenu(false);
+    });
+  </script>
 </body>
 
 </html>
