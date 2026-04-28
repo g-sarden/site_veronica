@@ -9,6 +9,8 @@ const blogPath = path.join(root, 'blog', 'index.html');
 const categoryColors = {
   Maternidade: ['#FEE2E2', '#B91C1C'],
   Ansiedade: ['#FEF3C7', '#92400E'],
+  Terapia: ['#E0E7FF', '#3730A3'],
+  'Terapia online': ['#DBEAFE', '#1E40AF'],
   Autoconhecimento: ['#EDE9FE', '#5B21B6'],
   'Saúde Mental': ['#CCFBF1', '#0F766E'],
   Relacionamentos: ['#FCE7F3', '#9D174D'],
@@ -17,6 +19,8 @@ const categoryColors = {
 const categoryThemes = {
   Maternidade: 'theme-maternidade',
   Ansiedade: 'theme-ansiedade',
+  Terapia: 'theme-terapia',
+  'Terapia online': 'theme-terapia-online',
   Autoconhecimento: 'theme-autoconhecimento',
   'Saúde Mental': 'theme-saude-mental',
   Relacionamentos: 'theme-relacionamentos',
@@ -72,10 +76,23 @@ function replaceBetween(content, startMarker, endMarker, replacement) {
   return `${content.slice(0, startIndex + startMarker.length)}\n${replacement}\n${content.slice(endIndex)}`;
 }
 
+function replaceBetweenIfPresent(content, startMarker, endMarker, replacement) {
+  const startIndex = content.indexOf(startMarker);
+  const endIndex = content.indexOf(endMarker);
+
+  if (startIndex === -1 && endIndex === -1) return content;
+  if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
+    throw new Error(`Marcadores incompletos ${startMarker} / ${endMarker}`);
+  }
+
+  return `${content.slice(0, startIndex + startMarker.length)}\n${replacement}\n${content.slice(endIndex)}`;
+}
+
 function renderHomeCard(post) {
   const colors = categoryColors[post.category] || ['#FFF0F2', '#A25B6C'];
   const title = escapeHtml(post.title);
   const excerpt = escapeHtml(post.excerpt);
+  const imageAlt = escapeHtml(post.coverAlt || post.title);
   const category = escapeHtml(post.category);
   const readTime = escapeHtml(post.readTime || '5 min');
   const imageSrc = escapeHtml(toHomeImageSrc(post.coverImage));
@@ -86,7 +103,7 @@ function renderHomeCard(post) {
                 class="group bg-surface rounded-[28px] border border-outline-variant/20 overflow-hidden shadow-sm flex flex-col hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-400 cursor-pointer"
                 style="text-decoration:none">
                 <div class="overflow-hidden" style="aspect-ratio:16/9;background:#f5eaeb">
-                    <img src="${imageSrc}" alt="${title}"
+                    <img src="${imageSrc}" alt="${imageAlt}"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy" onerror="this.src='assets/foto1.webp'" />
                 </div>
@@ -142,7 +159,7 @@ function renderFeaturedPost(post) {
   const title = escapeHtml(post.title);
   const excerpt = escapeHtml(post.excerpt || '');
   const readTime = escapeHtml(post.readTime || '4 min');
-  const href = `./${encodeURIComponent(post.slug)}.html`;
+  const href = `/blog/${encodeURIComponent(post.slug)}.html`;
   const date = escapeHtml(formatDate(post.date, longDateFormatter));
 
   return `          <div class="flex flex-wrap items-center gap-3 mb-5">
@@ -181,16 +198,17 @@ function renderBlogCard(post, index) {
   const title = escapeHtml(post.title);
   const excerpt = escapeHtml(post.excerpt || '');
   const coverImage = escapeHtml(toBlogImageSrc(post.coverImage));
+  const coverAlt = escapeHtml(post.coverAlt || post.title);
   const readTime = escapeHtml(post.readTime || '4 min');
   const date = escapeHtml(formatDate(post.date, longDateFormatter));
   const slug = encodeURIComponent(post.slug);
 
-  return `        <a href="./${slug}.html" data-category="${category}"
+  return `        <a href="/blog/${slug}.html" data-category="${category}"
           class="blog-card group bg-surface-container-low rounded-[32px] border border-outline-variant/20 overflow-hidden shadow-sm h-full flex flex-col"
           style="animation: pageLoad 0.6s ease ${index * 0.08}s both;">
           <div class="card-media overflow-hidden bg-surface">
             <img src="${coverImage}"
-              alt="${title}"
+              alt="${coverAlt}"
               class="card-cover w-full h-full object-cover"
               loading="lazy"
               onerror="this.src='../assets/foto1.webp'" />
@@ -237,8 +255,8 @@ function main() {
   blogHtml = replaceBetween(blogHtml, '<!-- BLOG_FEATURED_START -->', '<!-- BLOG_FEATURED_END -->', renderFeaturedPost(featuredPost));
   blogHtml = replaceBetween(blogHtml, '<!-- BLOG_POST_COUNT_START -->', '<!-- BLOG_POST_COUNT_END -->', String(posts.length).padStart(2, '0'));
   blogHtml = replaceBetween(blogHtml, '<!-- BLOG_CATEGORY_COUNT_START -->', '<!-- BLOG_CATEGORY_COUNT_END -->', String(categories.length).padStart(2, '0'));
-  blogHtml = replaceBetween(blogHtml, '<!-- BLOG_SUMMARY_START -->', '<!-- BLOG_SUMMARY_END -->', escapeHtml(summaryText));
-  blogHtml = replaceBetween(blogHtml, '<!-- BLOG_FILTERS_START -->', '<!-- BLOG_FILTERS_END -->', renderFilterButtons(categories));
+  blogHtml = replaceBetweenIfPresent(blogHtml, '<!-- BLOG_SUMMARY_START -->', '<!-- BLOG_SUMMARY_END -->', escapeHtml(summaryText));
+  blogHtml = replaceBetweenIfPresent(blogHtml, '<!-- BLOG_FILTERS_START -->', '<!-- BLOG_FILTERS_END -->', renderFilterButtons(categories));
   blogHtml = replaceBetween(blogHtml, '<!-- BLOG_GRID_START -->', '<!-- BLOG_GRID_END -->', blogGridMarkup);
   fs.writeFileSync(blogPath, blogHtml, 'utf8');
 

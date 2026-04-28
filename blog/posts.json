@@ -1,20 +1,140 @@
 [
   {
-    "slug": "5-sinais-de-que-voce-precisa-de-terapia",
-    "title": "5 sinais de que você precisa de terapia agora",
-    "excerpt": "Você sente que algo não vai bem, mas não sabe se já é hora de pedir ajuda? Estes 5 sinais ajudam a reconhecer quando a terapia pode ser um passo de cuidado importante.",
-    "date": "2026-04-23",
-    "category": "Saúde Mental",
+    "slug": "sinais-que-precisa-de-terapia",
+    "title": "5 sinais de que pode ser hora de procurar terapia (e como dar o primeiro passo)",
+    "seoTitle": "5 sinais de que pode ser hora de procurar terapia",
+    "excerpt": "Conheça sinais de que pode ser hora de procurar terapia e entenda como dar o primeiro passo sem medo, cobrança ou necessidade de chegar pronta.",
+    "metaDescription": "Você não precisa estar no fundo do poço para merecer ajuda. Conheça sinais comuns e saiba como dar o primeiro passo com uma psicóloga online.",
+    "date": "2026-04-28",
+    "category": "Terapia",
+    "funnelStage": "fundo-de-funil",
+    "primaryKeyword": "quando procurar psicólogo",
+    "secondaryKeywords": [
+      "sinais que preciso de terapia",
+      "como começar terapia pela primeira vez",
+      "preciso de terapia",
+      "terapia para ansiedade e autocrítica",
+      "como marcar consulta com psicólogo"
+    ],
     "readTime": "6 min",
-    "coverImage": "../assets/sinais-terapia.webp"
+    "coverImage": "../assets/sinais-terapia-cover.webp",
+    "coverAlt": "Mulher segurando o celular antes de pedir ajuda terapêutica",
+    "relatedPosts": [
+      {
+        "slug": "terapia-online-funciona",
+        "title": "Terapia online funciona de verdade? Tudo o que você precisa saber",
+        "status": "published"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Preciso estar em crise para procurar terapia?",
+        "answer": "Não. A terapia pode ajudar antes de o sofrimento virar crise, especialmente quando ansiedade, autocrítica, esgotamento ou sintomas físicos começam a interferir na sua rotina e nas suas relações."
+      },
+      {
+        "question": "Como saber se está na hora de buscar ajuda?",
+        "answer": "Um bom sinal é observar se o sofrimento está interferindo na sua capacidade de viver, trabalhar, descansar, se relacionar ou tomar decisões. Quando o padrão se repete e você não consegue sair dele sozinha, vale procurar apoio."
+      },
+      {
+        "question": "Como dar o primeiro passo para começar terapia?",
+        "answer": "Você pode enviar uma mensagem simples dizendo que quer marcar uma primeira conversa. Não precisa explicar tudo, organizar a história ou chegar com clareza total. A primeira sessão também serve para encontrar esse começo."
+      }
+    ],
+    "references": [
+      "https://www.nimh.nih.gov/health/topics/psychotherapies",
+      "https://www.mayoclinic.org/tests-procedures/psychotherapy/about/pac-20384616",
+      "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/mental-health/art-20044098",
+      "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/suicidio-prevencao"
+    ],
+    "ctaVariant": "sinais_terapia"
   },
   {
-    "slug": "ansiedade-maternidade",
-    "title": "Ansiedade na Maternidade: Você Não Precisa Dar Conta de Tudo",
-    "excerpt": "A maternidade é transformadora e bonita, mas também pode ser exaustiva, solitária e cheia de cobranças invisíveis. Entender de onde vem essa ansiedade é o primeiro passo para respirar de novo.",
-    "date": "2026-04-10",
-    "category": "Maternidade",
-    "readTime": "5 min",
-    "coverImage": "../assets/ansiedade-materna.webp"
+    "slug": "terapia-online-funciona",
+    "title": "Terapia online funciona de verdade? Tudo o que você precisa saber antes de começar",
+    "seoTitle": "Terapia online funciona? O que você precisa saber",
+    "excerpt": "Entenda como funciona a terapia online, o que esperar da primeira sessão e como escolher uma psicóloga com segurança antes de começar.",
+    "metaDescription": "Eficácia comprovada, como funciona na prática e o que esperar da primeira sessão. Guia por Verônica Grijó, psicóloga CRP 05/41808.",
+    "date": "2026-04-28",
+    "category": "Terapia online",
+    "funnelStage": "meio-de-funil",
+    "primaryKeyword": "terapia online funciona",
+    "secondaryKeywords": [
+      "como funciona terapia online",
+      "psicólogo online",
+      "primeira sessão de terapia",
+      "terapia online para ansiedade",
+      "psicóloga online para mulheres"
+    ],
+    "readTime": "7 min",
+    "coverImage": "../assets/terapia-online-funciona-cover.webp",
+    "coverAlt": "Mulher em uma sessão de terapia online pelo notebook",
+    "relatedPosts": [
+      {
+        "slug": "por-que-mulheres-tem-mais-ansiedade",
+        "title": "Por que mulheres têm mais ansiedade? O que a ciência diz",
+        "status": "published"
+      },
+      {
+        "slug": "sinais-que-precisa-de-terapia",
+        "title": "5 sinais de que pode ser hora de procurar terapia (e como dar o primeiro passo)",
+        "status": "published"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Terapia online é tão eficaz quanto presencial?",
+        "answer": "Em muitos casos, sim. Revisões publicadas em periódicos como World Psychiatry indicam efeitos semelhantes entre terapias online com suporte profissional e atendimentos presenciais, especialmente quando há método clínico, vínculo e regularidade."
+      },
+      {
+        "question": "Como funciona a primeira sessão de terapia online?",
+        "answer": "A primeira sessão é um encontro inicial para entender quem é você, o que te trouxe até ali, o que você já tentou e como o processo pode fazer sentido. Você não precisa chegar com tudo organizado."
+      },
+      {
+        "question": "Como verificar se um psicólogo online é registrado?",
+        "answer": "Todo psicólogo no Brasil precisa ter CRP ativo. Você pode consultar o registro no cadastro do Conselho Federal de Psicologia e também verificar se o profissional informa claramente seu CRP nos canais de atendimento."
+      }
+    ],
+    "references": [
+      "https://pubmed.ncbi.nlm.nih.gov/37159350/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219070/",
+      "https://site.cfp.org.br/fale-conosco/atendimento-online/cadastramento-para-atendimento-online/",
+      "https://cadastro.cfp.org.br/"
+    ],
+    "ctaVariant": "terapia_online"
+  },
+  {
+    "slug": "por-que-mulheres-tem-mais-ansiedade",
+    "title": "Por que mulheres têm mais ansiedade? O que a ciência diz (e o que você pode fazer)",
+    "seoTitle": "Por que mulheres têm mais ansiedade? A ciência explica",
+    "excerpt": "Entenda por que mulheres são mais diagnosticadas com ansiedade, como biologia e sobrecarga influenciam e como a terapia pode ajudar.",
+    "metaDescription": "Hormônios, pressão social e maternidade ajudam a explicar a ansiedade em mulheres. Entenda causas e caminhos de cuidado com uma psicóloga.",
+    "date": "2026-04-28",
+    "category": "Ansiedade",
+    "funnelStage": "topo-de-funil",
+    "primaryKeyword": "ansiedade em mulheres",
+    "secondaryKeywords": [
+      "ansiedade feminina causas",
+      "ansiedade e hormônios femininos",
+      "ansiedade e maternidade",
+      "sobrecarga emocional feminina",
+      "terapia para ansiedade feminina"
+    ],
+    "readTime": "6 min",
+    "coverImage": "../assets/ansiedade-mulheres-cover.webp",
+    "coverAlt": "Mulher ansiosa sentada perto da janela",
+    "relatedPosts": [
+      {
+        "slug": "terapia-online-funciona",
+        "title": "Terapia online funciona de verdade? Tudo o que você precisa saber",
+        "status": "published"
+      }
+    ],
+    "references": [
+      "https://www.nimh.nih.gov/health/statistics/any-anxiety-disorder",
+      "https://www.who.int/news-room/fact-sheets/detail/anxiety-disorders",
+      "https://pubmed.ncbi.nlm.nih.gov/21439576/",
+      "https://pubmed.ncbi.nlm.nih.gov/36373774/"
+    ],
+    "ctaVariant": "ansiedade_mulheres"
   }
 ]

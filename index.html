@@ -85,6 +85,12 @@
       "url": "https://veronicagrijo.psc.br/",
       "telephone": "+5521976215505",
       "availableLanguage": "pt-BR",
+      "sameAs": [
+        "https://www.instagram.com/psiveronicagrijo/",
+        "https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D",
+        "https://share.google/YX2GveHrzfAnZdOaW",
+        "https://www.doctoralia.com.br/veronica-grijo/psicologo/macae"
+      ],
       "knowsAbout": [
         "ansiedade",
         "maternidade",
@@ -129,6 +135,37 @@
       }
     },
     {
+      "@type": "ItemList",
+      "@id": "https://veronicagrijo.psc.br/#external-profiles",
+      "name": "Perfis externos e avaliações da psicóloga Verônica Grijó",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Google Business Profile",
+          "url": "https://share.google/YX2GveHrzfAnZdOaW"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Doctoralia",
+          "url": "https://www.doctoralia.com.br/veronica-grijo/psicologo/macae"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cadastro Nacional de Psicólogas e Psicólogos",
+          "url": "https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Instagram profissional",
+          "url": "https://www.instagram.com/psiveronicagrijo/"
+        }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "@id": "https://veronicagrijo.psc.br/#faq",
       "mainEntity": [
@@ -137,15 +174,15 @@
           "name": "Como funciona a psicoterapia online?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "As sessões acontecem por videochamada, em um horário reservado para você, com escuta acolhedora, continuidade e a praticidade de fazer terapia sem deslocamento."
+            "text": "As sessões acontecem por videochamada, em um horário reservado só para você. O processo tem a mesma eficácia das sessões presenciais. Você terá acolhimento, escuta qualificada e vínculo terapêutico, com toda a segurança e sigilo, no conforto da sua casa."
           }
         },
         {
           "@type": "Question",
-          "name": "A terapia online pode ser feita com privacidade em casa?",
+          "name": "Você atende todas as idades?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sim. Você pode escolher um ambiente silencioso e reservado, e muitas mulheres preferem a própria casa por se sentirem mais seguras, acolhidas e livres para falar com calma."
+            "text": "Não. Atendo adolescentes a partir dos 13 anos e mulheres adultas, sempre com atenção às particularidades de cada fase da vida."
           }
         },
         {
@@ -423,9 +460,9 @@
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
                     href="#o-processo">O Processo</a>
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
-                    href="#blog">Reflexões</a>
+                    href="blog/index.html">Blog</a>
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
-                    href="#faq">Perguntas</a>
+                    href="#faq">Dúvidas Frequentes</a>
                 <a class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium hover:bg-primary-dim hover:shadow-[0_0_15px_rgba(76,100,88,0.5)] hover:-translate-y-0.5 transition-all scale-95 duration-200 ease-in-out shadow-sm active:scale-90"
                     href="#agendar">Agendar Consulta</a>
             </div>
@@ -438,8 +475,8 @@
             <a class="mobile-menu-link" href="#home">Início</a>
             <a class="mobile-menu-link" href="#sobre">Sobre</a>
             <a class="mobile-menu-link" href="#o-processo">O Processo</a>
-            <a class="mobile-menu-link" href="#blog">Reflexões</a>
-            <a class="mobile-menu-link" href="#faq">Perguntas</a>
+            <a class="mobile-menu-link" href="blog/index.html">Blog</a>
+            <a class="mobile-menu-link" href="#faq">Dúvidas Frequentes</a>
             <a class="mobile-menu-link mobile-menu-link-primary" href="#agendar">Agendar Consulta</a>
         </div>
     </nav>
@@ -472,7 +509,7 @@
                         class="italic text-primary-container font-normal">acolhimento</span>.
                 </h1>
                 <p class="text-lg md:text-xl text-surface-bright leading-relaxed mb-10 max-w-xl drop-shadow-md">
-                    Psicóloga de mulheres com atendimento online no conforto e comodidade da sua casa.
+                    Psicóloga clínica com atendimento online do conforto e privacidade da sua casa.
                 </p>
                 <div class="flex flex-col items-center sm:flex-row gap-4">
                     <a class="bg-white text-primary px-8 py-4 rounded-full font-label tracking-wide hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300 w-full sm:w-auto text-center"
@@ -696,69 +733,98 @@
                         alt="" aria-hidden="true" />
                     <span class="text-xs font-label uppercase tracking-widest text-primary">REFLEXÕES & ARTIGOS</span>
                 </div>
-                <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4">Do Blog da <span
+                <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4">Blog da <span
                         class="italic font-normal text-primary">Verônica</span></h2>
                 <p class="text-on-surface-variant font-light text-lg max-w-xl mx-auto">Artigos sobre ansiedade,
-                    maternidade e autoconhecimento escritos por uma psicóloga em Macaé — para você que busca leveza.
-                </p>
+                    maternidade, autoconhecimento, saúde mental e autoestima.</p>
             </div>
 
             <!-- BLOG_HOME_STATIC_START -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <a href="/blog/5-sinais-de-que-voce-precisa-de-terapia.html"
+            <a href="/blog/sinais-que-precisa-de-terapia.html"
                 class="group bg-surface rounded-[28px] border border-outline-variant/20 overflow-hidden shadow-sm flex flex-col hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-400 cursor-pointer"
                 style="text-decoration:none">
                 <div class="overflow-hidden" style="aspect-ratio:16/9;background:#f5eaeb">
-                    <img src="assets/sinais-terapia.webp" alt="5 sinais de que você precisa de terapia agora"
+                    <img src="assets/sinais-terapia-cover.webp" alt="Mulher segurando o celular antes de pedir ajuda terapêutica"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy" onerror="this.src='assets/foto1.webp'" />
                 </div>
                 <div class="p-6 flex flex-col flex-1">
                     <div class="flex items-center gap-3 mb-3">
-                        <span style="background:#CCFBF1;color:#0F766E;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:50px">
-                            Saúde Mental
+                        <span style="background:#E0E7FF;color:#3730A3;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:50px">
+                            Terapia
                         </span>
                         <span style="font-size:.75rem;color:#9d7e82;font-weight:300">6 min de leitura</span>
                     </div>
                     <h3 class="font-headline text-lg text-on-surface mb-2 leading-snug group-hover:text-primary transition-colors" style="flex:1">
-                        5 sinais de que você precisa de terapia agora
+                        5 sinais de que pode ser hora de procurar terapia (e como dar o primeiro passo)
                     </h3>
                     <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-4"
                         style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">
-                        Você sente que algo não vai bem, mas não sabe se já é hora de pedir ajuda? Estes 5 sinais ajudam a reconhecer quando a terapia pode ser um passo de cuidado importante.
+                        Conheça sinais de que pode ser hora de procurar terapia e entenda como dar o primeiro passo sem medo, cobrança ou necessidade de chegar pronta.
                     </p>
                     <div class="flex items-center justify-between">
-                        <span style="font-size:.75rem;color:#b09095">23 de abr. de 2026</span>
+                        <span style="font-size:.75rem;color:#b09095">28 de abr. de 2026</span>
                         <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                             Ler <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
                         </span>
                     </div>
                 </div>
             </a>
-            <a href="/blog/ansiedade-maternidade.html"
+            <a href="/blog/terapia-online-funciona.html"
                 class="group bg-surface rounded-[28px] border border-outline-variant/20 overflow-hidden shadow-sm flex flex-col hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-400 cursor-pointer"
                 style="text-decoration:none">
                 <div class="overflow-hidden" style="aspect-ratio:16/9;background:#f5eaeb">
-                    <img src="assets/ansiedade-materna.webp" alt="Ansiedade na Maternidade: Você Não Precisa Dar Conta de Tudo"
+                    <img src="assets/terapia-online-funciona-cover.webp" alt="Mulher em uma sessão de terapia online pelo notebook"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy" onerror="this.src='assets/foto1.webp'" />
                 </div>
                 <div class="p-6 flex flex-col flex-1">
                     <div class="flex items-center gap-3 mb-3">
-                        <span style="background:#FEE2E2;color:#B91C1C;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:50px">
-                            Maternidade
+                        <span style="background:#DBEAFE;color:#1E40AF;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:50px">
+                            Terapia online
                         </span>
-                        <span style="font-size:.75rem;color:#9d7e82;font-weight:300">5 min de leitura</span>
+                        <span style="font-size:.75rem;color:#9d7e82;font-weight:300">7 min de leitura</span>
                     </div>
                     <h3 class="font-headline text-lg text-on-surface mb-2 leading-snug group-hover:text-primary transition-colors" style="flex:1">
-                        Ansiedade na Maternidade: Você Não Precisa Dar Conta de Tudo
+                        Terapia online funciona de verdade? Tudo o que você precisa saber antes de começar
                     </h3>
                     <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-4"
                         style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">
-                        A maternidade é transformadora e bonita, mas também pode ser exaustiva, solitária e cheia de cobranças invisíveis. Entender de onde vem essa ansiedade é o primeiro passo para respirar de novo.
+                        Entenda como funciona a terapia online, o que esperar da primeira sessão e como escolher uma psicóloga com segurança antes de começar.
                     </p>
                     <div class="flex items-center justify-between">
-                        <span style="font-size:.75rem;color:#b09095">10 de abr. de 2026</span>
+                        <span style="font-size:.75rem;color:#b09095">28 de abr. de 2026</span>
+                        <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Ler <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/por-que-mulheres-tem-mais-ansiedade.html"
+                class="group bg-surface rounded-[28px] border border-outline-variant/20 overflow-hidden shadow-sm flex flex-col hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-400 cursor-pointer"
+                style="text-decoration:none">
+                <div class="overflow-hidden" style="aspect-ratio:16/9;background:#f5eaeb">
+                    <img src="assets/ansiedade-mulheres-cover.webp" alt="Mulher ansiosa sentada perto da janela"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy" onerror="this.src='assets/foto1.webp'" />
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span style="background:#FEF3C7;color:#92400E;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:50px">
+                            Ansiedade
+                        </span>
+                        <span style="font-size:.75rem;color:#9d7e82;font-weight:300">6 min de leitura</span>
+                    </div>
+                    <h3 class="font-headline text-lg text-on-surface mb-2 leading-snug group-hover:text-primary transition-colors" style="flex:1">
+                        Por que mulheres têm mais ansiedade? O que a ciência diz (e o que você pode fazer)
+                    </h3>
+                    <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-4"
+                        style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">
+                        Entenda por que mulheres são mais diagnosticadas com ansiedade, como biologia e sobrecarga influenciam e como a terapia pode ajudar.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span style="font-size:.75rem;color:#b09095">28 de abr. de 2026</span>
                         <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                             Ler <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
                         </span>
@@ -785,14 +851,8 @@
                 <div class="flex items-center justify-center gap-3 mb-6">
                     <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-10 w-auto object-contain mix-blend-multiply opacity-80"
                         alt="" aria-hidden="true" />
-                    <span class="text-xs font-label uppercase tracking-widest text-primary">PERGUNTAS FREQUENTES</span>
+                    <span class="text-xs font-label uppercase tracking-widest text-primary">DÚVIDAS FREQUENTES</span>
                 </div>
-                <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4">Perguntas sobre a
-                    <span class="italic font-normal text-primary">psicoterapia online</span>.
-                </h2>
-                <p class="text-on-surface-variant font-light text-lg max-w-3xl mx-auto">Um pouco mais de clareza para
-                    quem quer entender como funciona o atendimento online, com acolhimento de qualquer lugar e a
-                    privacidade da própria casa.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="gap: 2rem;">
@@ -804,20 +864,20 @@
                     <h3 class="font-headline text-2xl text-on-surface mb-4" style="margin-bottom: 1.25rem;">Como
                         funciona a psicoterapia online?</h3>
                     <p class="text-on-surface-variant font-light leading-relaxed">As sessões acontecem por
-                        videochamada, em um horário reservado só para você. O processo mantém escuta, vínculo e
-                        continuidade, com a praticidade de fazer terapia sem deslocamento.</p>
+                        videochamada, em um horário reservado só para você. O processo tem a mesma eficácia das sessões
+                        presenciais. Você terá acolhimento, escuta qualificada e vínculo terapêutico, com toda a
+                        segurança e sigilo, no conforto da sua casa.</p>
                 </article>
 
                 <article class="faq-card rounded-[32px] p-8">
                     <div class="faq-badge flex items-center justify-center mb-6 bg-primary/10 text-primary"
                         style="width: 3rem; height: 3rem; border-radius: 1rem;">
-                        <span class="material-symbols-outlined">home_health</span>
+                        <span class="material-symbols-outlined">groups</span>
                     </div>
-                    <h3 class="font-headline text-2xl text-on-surface mb-4" style="margin-bottom: 1.25rem;">A terapia
-                        online pode ser feita com privacidade em casa?</h3>
-                    <p class="text-on-surface-variant font-light leading-relaxed">Sim. Você pode escolher um ambiente
-                        silencioso e reservado. Muitas mulheres preferem a própria casa por se sentirem mais seguras,
-                        acolhidas e livres para falar com calma.</p>
+                    <h3 class="font-headline text-2xl text-on-surface mb-4" style="margin-bottom: 1.25rem;">Você atende
+                        todas as idades?</h3>
+                    <p class="text-on-surface-variant font-light leading-relaxed">Não. Atendo adolescentes a partir dos
+                        13 anos e mulheres adultas, sempre com atenção às particularidades de cada fase da vida.</p>
                 </article>
 
                 <article class="faq-card rounded-[32px] p-8">
@@ -843,6 +903,72 @@
                     <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
             </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 bg-surface reveal" id="avaliacoes" style="scroll-margin-top: 7rem;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14" style="margin-bottom: 4.75rem;">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
+                        class="h-10 w-auto object-contain mix-blend-multiply opacity-80" alt="" aria-hidden="true" />
+                    <span class="text-xs font-label uppercase tracking-widest text-primary">AVALIAÇÕES & PRESENÇA PROFISSIONAL</span>
+                </div>
+                <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4">Sinais externos de
+                    <span class="italic font-normal text-primary">confiança</span>.
+                </h2>
+                <p class="text-on-surface-variant font-light text-lg max-w-3xl mx-auto">Você pode verificar registro,
+                    presença local e perfis públicos antes de escolher iniciar o cuidado psicológico. As avaliações
+                    ficam nos canais externos, preservando transparência e discrição.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="https://share.google/YX2GveHrzfAnZdOaW" target="_blank" rel="noopener noreferrer"
+                    class="group rounded-[32px] border border-outline-variant/20 bg-surface-container-low p-7 shadow-sm hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-300">
+                    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">reviews</span>
+                    </div>
+                    <h3 class="font-headline text-2xl text-on-surface mb-3 group-hover:text-primary transition-colors">Google</h3>
+                    <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-6">Veja informações públicas, localização e avaliações diretamente no Google Business Profile.</p>
+                    <span class="inline-flex items-center gap-1 text-primary text-sm font-medium">Ver perfil <span class="material-symbols-outlined text-base">open_in_new</span></span>
+                </a>
+
+                <a href="https://www.doctoralia.com.br/veronica-grijo/psicologo/macae" target="_blank"
+                    rel="noopener noreferrer"
+                    class="group rounded-[32px] border border-outline-variant/20 bg-surface-container-low p-7 shadow-sm hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-300">
+                    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">clinical_notes</span>
+                    </div>
+                    <h3 class="font-headline text-2xl text-on-surface mb-3 group-hover:text-primary transition-colors">Doctoralia</h3>
+                    <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-6">Perfil profissional externo em diretório de saúde. Pode conter dados históricos ainda em atualização.</p>
+                    <span class="inline-flex items-center gap-1 text-primary text-sm font-medium">Ver perfil <span class="material-symbols-outlined text-base">open_in_new</span></span>
+                </a>
+
+                <a href="https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D"
+                    target="_blank" rel="noopener noreferrer"
+                    class="group rounded-[32px] border border-outline-variant/20 bg-surface-container-low p-7 shadow-sm hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-300">
+                    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">badge</span>
+                    </div>
+                    <h3 class="font-headline text-2xl text-on-surface mb-3 group-hover:text-primary transition-colors">CFP</h3>
+                    <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-6">Confirme o registro profissional CRP 05/41808 no cadastro oficial do Conselho Federal de Psicologia.</p>
+                    <span class="inline-flex items-center gap-1 text-primary text-sm font-medium">Ver cadastro <span class="material-symbols-outlined text-base">open_in_new</span></span>
+                </a>
+
+                <a href="https://www.instagram.com/psiveronicagrijo/" target="_blank" rel="noopener noreferrer"
+                    class="group rounded-[32px] border border-outline-variant/20 bg-surface-container-low p-7 shadow-sm hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-300">
+                    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">alternate_email</span>
+                    </div>
+                    <h3 class="font-headline text-2xl text-on-surface mb-3 group-hover:text-primary transition-colors">Instagram</h3>
+                    <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-6">Acompanhe conteúdos, reflexões e informações profissionais publicadas no perfil oficial.</p>
+                    <span class="inline-flex items-center gap-1 text-primary text-sm font-medium">Acompanhar <span class="material-symbols-outlined text-base">open_in_new</span></span>
+                </a>
+            </div>
+
+            <p class="text-center text-on-surface-variant/70 text-sm font-light max-w-3xl mx-auto mt-10">
+                Por cuidado ético, este site não exibe relatos individuais de pacientes nem promete resultados. O objetivo é facilitar a verificação de presença profissional e canais públicos.
+            </p>
         </div>
     </section>
 
