@@ -5,6 +5,7 @@ const root = path.resolve(__dirname, '..');
 const postsPath = path.join(root, 'blog', 'posts.json');
 const homePath = path.join(root, 'index.html');
 const blogPath = path.join(root, 'blog', 'index.html');
+const sitemapPath = path.join(root, 'sitemap.xml');
 
 const categoryColors = {
   Maternidade: ['#FEE2E2', '#B91C1C'],
@@ -235,6 +236,37 @@ function renderBlogCard(post, index) {
         </a>`;
 }
 
+function renderSitemap(posts) {
+  const newestPostDate = posts
+    .map((post) => post.dateModified || post.date)
+    .sort((a, b) => new Date(b) - new Date(a))[0] || new Date().toISOString().slice(0, 10);
+  const staticUrls = [
+    { loc: 'https://veronicagrijo.psc.br/', lastmod: '2026-04-24', changefreq: 'monthly', priority: '1.0' },
+    { loc: 'https://veronicagrijo.psc.br/blog/', lastmod: newestPostDate, changefreq: 'weekly', priority: '0.8' },
+    { loc: 'https://veronicagrijo.psc.br/psicologa-online.html', lastmod: '2026-04-24', changefreq: 'monthly', priority: '0.9' },
+  ];
+  const postUrls = posts.map((post) => ({
+    loc: `https://veronicagrijo.psc.br/blog/${encodeURIComponent(post.slug)}.html`,
+    lastmod: post.dateModified || post.date,
+    changefreq: 'monthly',
+    priority: '0.7',
+  }));
+  const entries = [...staticUrls, ...postUrls]
+    .map(({ loc, lastmod, changefreq, priority }) => `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`)
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries}
+</urlset>
+`;
+}
+
 function main() {
   const posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'))
     .sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -259,6 +291,8 @@ function main() {
   blogHtml = replaceBetweenIfPresent(blogHtml, '<!-- BLOG_FILTERS_START -->', '<!-- BLOG_FILTERS_END -->', renderFilterButtons(categories));
   blogHtml = replaceBetween(blogHtml, '<!-- BLOG_GRID_START -->', '<!-- BLOG_GRID_END -->', blogGridMarkup);
   fs.writeFileSync(blogPath, blogHtml, 'utf8');
+
+  fs.writeFileSync(sitemapPath, renderSitemap(posts), 'utf8');
 
   console.log(`Listagem estática atualizada com ${posts.length} post(s).`);
 }

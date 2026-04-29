@@ -68,6 +68,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/foto1.webp" fetchpriority="high" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2" />
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" />
 
@@ -460,7 +464,7 @@
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
                     href="#o-processo">O Processo</a>
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
-                    href="blog/index.html">Blog</a>
+                    href="/blog/">Blog</a>
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
                     href="#faq">Dúvidas Frequentes</a>
                 <a class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium hover:bg-primary-dim hover:shadow-[0_0_15px_rgba(76,100,88,0.5)] hover:-translate-y-0.5 transition-all scale-95 duration-200 ease-in-out shadow-sm active:scale-90"
@@ -475,7 +479,7 @@
             <a class="mobile-menu-link" href="#home">Início</a>
             <a class="mobile-menu-link" href="#sobre">Sobre</a>
             <a class="mobile-menu-link" href="#o-processo">O Processo</a>
-            <a class="mobile-menu-link" href="blog/index.html">Blog</a>
+            <a class="mobile-menu-link" href="/blog/">Blog</a>
             <a class="mobile-menu-link" href="#faq">Dúvidas Frequentes</a>
             <a class="mobile-menu-link mobile-menu-link-primary" href="#agendar">Agendar Consulta</a>
         </div>
@@ -485,9 +489,9 @@
         class="relative pt-24 px-8 pb-16 overflow-hidden bg-surface w-full aspect-auto lg:aspect-video flex flex-col justify-center"
         id="home">
         <!-- Video de Fundo -->
-        <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover z-0" loop="" muted=""
-            width="1920" height="1080" preload="metadata" playsinline="" poster="assets/lavanda-thumb.webp">
-            <source src="assets/lavanda.mp4" type="video/mp4" />
+        <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover z-0 js-lazy-video" loop="" muted=""
+            width="1920" height="1080" preload="none" playsinline="" poster="assets/lavanda-thumb.webp">
+            <source data-src="assets/lavanda.mp4" type="video/mp4" />
         </video>
         <!-- Overlay escuro para garantir nitidez do vídeo e leitura impecável do texto claro -->
         <div class="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
@@ -497,7 +501,7 @@
                 <div class="flex items-center gap-3 mb-6">
                     <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
                         class="h-10 w-auto object-contain mix-blend-screen invert opacity-90 drop-shadow-md"
-                        alt="Psicóloga Verônica Grijó - Logotipo" />
+                        alt="" aria-hidden="true" />
                     <span class="text-xs font-label uppercase tracking-widest text-primary-container drop-shadow-md">
                         BEM-VINDA AO SEU ESPAÇO SEGURO</span>
                 </div>
@@ -596,9 +600,9 @@
         id="o-processo">
         <!-- Video de Fundo Seção 3 -->
         <video aria-hidden="true" autoplay=""
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-100 pointer-events-none" loop="" muted=""
-            width="1920" height="1080" preload="metadata" playsinline="" poster="assets/textura-thumb.jpg">
-            <source src="assets/textura.mp4" type="video/mp4" />
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-100 pointer-events-none js-lazy-video" loop="" muted=""
+            width="1920" height="1080" preload="none" playsinline="" poster="assets/textura-thumb.webp">
+            <source data-src="assets/textura.mp4" type="video/mp4" />
         </video>
         <!-- Overlay elegante escuro -->
         <div class="absolute inset-0 bg-black/60 z-0 pointer-events-none"></div>
@@ -1224,6 +1228,39 @@
             window.addEventListener('resize', () => {
                 if (window.innerWidth >= 768) setMobileMenu(false);
             });
+
+            const loadVideo = (video) => {
+                if (video.dataset.loaded === 'true') return;
+
+                video.querySelectorAll('source[data-src]').forEach((source) => {
+                    source.src = source.dataset.src;
+                    source.removeAttribute('data-src');
+                });
+
+                video.dataset.loaded = 'true';
+                video.load();
+                video.play().catch(() => {});
+            };
+
+            const lazyVideos = Array.from(document.querySelectorAll('.js-lazy-video'));
+            const startLazyVideos = () => {
+                if ('IntersectionObserver' in window) {
+                    const videoObserver = new IntersectionObserver((entries, observerInstance) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) return;
+                            loadVideo(entry.target);
+                            observerInstance.unobserve(entry.target);
+                        });
+                    }, { rootMargin: '200px 0px' });
+
+                    lazyVideos.forEach((video) => videoObserver.observe(video));
+                    return;
+                }
+
+                lazyVideos.forEach(loadVideo);
+            };
+
+            window.addEventListener('load', startLazyVideos, { once: true });
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {

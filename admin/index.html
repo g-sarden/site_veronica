@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Admin – Blog Verônica Grijó</title>
 <meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2"/>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2"/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
 <style>
@@ -108,6 +112,11 @@ textarea{resize:vertical;line-height:1.6}
     <input type="date" id="p-date"/>
   </div>
   <div class="field">
+    <label>Data de atualização</label>
+    <input type="date" id="p-date-modified"/>
+    <p class="hint">Opcional. Se ficar vazio, usa a mesma data de publicação.</p>
+  </div>
+  <div class="field">
     <label>Resumo (excerpt — até 200 chars)</label>
     <textarea id="p-excerpt" rows="2" placeholder="Resumo curto que aparece no card do blog…" maxlength="200"></textarea>
   </div>
@@ -142,6 +151,7 @@ function doLogin(){
     document.getElementById('admin-screen').classList.add('active');
     // Data de hoje
     document.getElementById('p-date').value = new Date().toISOString().split('T')[0];
+    document.getElementById('p-date-modified').value = new Date().toISOString().split('T')[0];
   } else {
     const el = document.getElementById('login-err');
     el.style.display = 'block';
@@ -171,6 +181,7 @@ async function publish(){
   const cat     = document.getElementById('p-cat').value;
   const read    = document.getElementById('p-read').value;
   const date    = document.getElementById('p-date').value;
+  const dateModified = document.getElementById('p-date-modified').value || date;
   const excerpt = document.getElementById('p-excerpt').value.trim();
   const img     = document.getElementById('p-img').value.trim() || 'foto1.webp';
   const content = document.getElementById('p-content').value.trim();
@@ -188,7 +199,8 @@ async function publish(){
 
   // ── 1. Gera HTML do post ──────────────────────────────
   const datePretty = new Date(date+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
-  const postHtml = buildPostHTML({title,slug,cat,read,date,datePretty,excerpt,img,content,meta});
+  const modifiedPretty = new Date(dateModified+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+  const postHtml = buildPostHTML({title,slug,cat,read,date,dateModified,datePretty,modifiedPretty,excerpt,img,content,meta});
 
   // ── 2. Atualiza posts.json ───────────────────────────
   let jsonSha = null;
@@ -201,8 +213,9 @@ async function publish(){
 
   // Remove entrada duplicada (re-publicação)
   posts = posts.filter(p => p.slug !== slug);
-  posts.unshift({slug, title, excerpt, date, category:cat, readTime:`${read} min`, coverImage:`../assets/${img}`});
+  posts.unshift({slug, title, excerpt, date, dateModified, category:cat, readTime:`${read} min`, coverImage:`../assets/${img}`});
   posts.sort((a,b)=>new Date(b.date)-new Date(a.date));
+  const sitemapXml = buildSitemap(posts);
 
   try {
     // ── 3. Commit do HTML do post ──────────────────────
@@ -217,6 +230,13 @@ async function publish(){
       `Index: add ${slug}`,
       btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2)))),
       jsonSha
+    );
+
+    // ── 5. Commit do sitemap.xml ───────────────────────
+    await ghPut(`${API}/sitemap.xml`, token,
+      `Sitemap: add ${slug}`,
+      btoa(unescape(encodeURIComponent(sitemapXml))),
+      await getFileSha(`${API}/sitemap.xml`, token)
     );
 
     showStatus('ok',`✅ Post publicado! Acesse em /blog/${slug}.html após o deploy (~1 min).`);
@@ -256,7 +276,37 @@ async function ghPut(url, token, message, content, sha){
   return r.json();
 }
 
-function buildPostHTML({title,slug,cat,read,date,datePretty,excerpt,img,content,meta}){
+function buildSitemap(posts){
+  const newestPostDate = posts
+    .map(post => post.dateModified || post.date)
+    .sort((a,b)=>new Date(b)-new Date(a))[0] || new Date().toISOString().split('T')[0];
+  const staticUrls = [
+    {loc:'https://veronicagrijo.psc.br/', lastmod:'2026-04-24', changefreq:'monthly', priority:'1.0'},
+    {loc:'https://veronicagrijo.psc.br/blog/', lastmod:newestPostDate, changefreq:'weekly', priority:'0.8'},
+    {loc:'https://veronicagrijo.psc.br/psicologa-online.html', lastmod:'2026-04-24', changefreq:'monthly', priority:'0.9'}
+  ];
+  const postUrls = posts.map(post => ({
+    loc:`https://veronicagrijo.psc.br/blog/${encodeURIComponent(post.slug)}.html`,
+    lastmod:post.dateModified || post.date,
+    changefreq:'monthly',
+    priority:'0.7'
+  }));
+
+  const entries = [...staticUrls, ...postUrls].map(({loc,lastmod,changefreq,priority}) => `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries}
+</urlset>
+`;
+}
+
+function buildPostHTML({title,slug,cat,read,date,dateModified,datePretty,modifiedPretty,excerpt,img,content,meta}){
   return `<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
@@ -272,15 +322,17 @@ function buildPostHTML({title,slug,cat,read,date,datePretty,excerpt,img,content,
 <meta property="og:description" content="${escHtml(meta||excerpt)}"/>
 <meta property="og:image" content="https://veronicagrijo.psc.br/assets/${img}"/>
 <meta property="article:published_time" content="${date}T00:00:00-03:00"/>
-<meta property="article:modified_time" content="${date}T00:00:00-03:00"/>
+<meta property="article:modified_time" content="${dateModified}T00:00:00-03:00"/>
 <meta property="article:author" content="Verônica Grijó"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://veronicagrijo.psc.br/blog/${slug}.html#article","mainEntityOfPage":"https://veronicagrijo.psc.br/blog/${slug}.html","headline":"${escJS(title)}","description":"${escJS(meta||excerpt)}","image":"https://veronicagrijo.psc.br/assets/${img}","datePublished":"${date}","dateModified":"${date}","articleSection":"${escJS(cat)}","inLanguage":"pt-BR","author":{"@type":"Person","name":"Verônica Grijó","url":"https://veronicagrijo.psc.br/","jobTitle":"Psicóloga","identifier":"CRP 05/41808","sameAs":["https://www.instagram.com/psiveronicagrijo/","https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D","https://share.google/YX2GveHrzfAnZdOaW","https://www.doctoralia.com.br/veronica-grijo/psicologo/macae"]},"publisher":{"@type":"Organization","name":"Psicóloga Verônica Grijó","logo":{"@type":"ImageObject","url":"https://veronicagrijo.psc.br/assets/icone.webp"}},"isPartOf":{"@type":"Blog","name":"Blog da Verônica Grijó","url":"https://veronicagrijo.psc.br/blog/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://veronicagrijo.psc.br/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://veronicagrijo.psc.br/blog/"},{"@type":"ListItem","position":3,"name":"${escJS(title)}","item":"https://veronicagrijo.psc.br/blog/${slug}.html"}]}]}<\/script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://veronicagrijo.psc.br/blog/${slug}.html#article","mainEntityOfPage":"https://veronicagrijo.psc.br/blog/${slug}.html","headline":"${escJS(title)}","description":"${escJS(meta||excerpt)}","image":"https://veronicagrijo.psc.br/assets/${img}","datePublished":"${date}","dateModified":"${dateModified}","articleSection":"${escJS(cat)}","inLanguage":"pt-BR","author":{"@type":"Person","name":"Verônica Grijó","url":"https://veronicagrijo.psc.br/","jobTitle":"Psicóloga","identifier":"CRP 05/41808","sameAs":["https://www.instagram.com/psiveronicagrijo/","https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D","https://share.google/YX2GveHrzfAnZdOaW","https://www.doctoralia.com.br/veronica-grijo/psicologo/macae"]},"publisher":{"@type":"Organization","name":"Psicóloga Verônica Grijó","logo":{"@type":"ImageObject","url":"https://veronicagrijo.psc.br/assets/icone.webp"}},"isPartOf":{"@type":"Blog","name":"Blog da Verônica Grijó","url":"https://veronicagrijo.psc.br/blog/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://veronicagrijo.psc.br/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://veronicagrijo.psc.br/blog/"},{"@type":"ListItem","position":3,"name":"${escJS(title)}","item":"https://veronicagrijo.psc.br/blog/${slug}.html"}]}]}<\/script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXG49PXGTM"><\/script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NXG49PXGTM',{allow_google_signals:false,allow_ad_personalization_signals:false});<\/script>
 <link rel="icon" type="image/webp" href="../assets/icone.webp"/>
 <meta name="theme-color" content="#FFF8F7"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2"/>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2"/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../assets/style.css"/>
@@ -311,7 +363,7 @@ function buildPostHTML({title,slug,cat,read,date,datePretty,excerpt,img,content,
 <div class="flex flex-col"><span class="font-headline text-xl font-bold text-primary leading-none">Verônica Grijó</span><span class="font-label text-xs tracking-widest text-outline uppercase mt-1">Psicóloga Clínica</span></div>
 </a>
 <div class="flex items-center gap-5">
-<a href="/#blog" class="text-rose-900/70 hover:text-rose-900 transition-colors flex items-center gap-1 text-sm"><span class="material-symbols-outlined text-base">arrow_back</span> Reflexões</a>
+<a href="/blog/" class="text-rose-900/70 hover:text-rose-900 transition-colors flex items-center gap-1 text-sm"><span class="material-symbols-outlined text-base">arrow_back</span> Blog</a>
 <a href="../#agendar" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-medium hover:bg-primary-dim transition-all text-sm shadow-sm">Agendar Consulta</a>
 </div>
 </div>
@@ -328,10 +380,10 @@ function buildPostHTML({title,slug,cat,read,date,datePretty,excerpt,img,content,
 </nav>
 <h1 class="font-headline text-4xl md:text-5xl text-on-surface leading-tight mb-6">${escHtml(title)}</h1>
 <div class="flex items-center gap-6 text-sm text-on-surface-variant font-light pb-8 border-b border-outline-variant/20">
-<div class="flex items-center gap-2"><img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-8 w-8 rounded-full object-contain mix-blend-multiply bg-surface-container p-1" alt="Verônica Grijó"/><span>Por Verônica Grijó | Psicóloga CRP 05/41808</span></div>
+<div class="flex items-center gap-2"><img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-8 w-8 rounded-full object-contain mix-blend-multiply bg-surface-container p-1" alt="" aria-hidden="true"/><span>Por Verônica Grijó | Psicóloga CRP 05/41808</span></div>
 <span class="text-outline/40">·</span><span>${datePretty}</span>
 <span class="text-outline/40">·</span>
-<span>Atualizado em ${datePretty}</span>
+<span>Atualizado em ${modifiedPretty}</span>
 <span class="text-outline/40">·</span>
 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">schedule</span>${read} min de leitura</span>
 </div>
@@ -340,7 +392,7 @@ function buildPostHTML({title,slug,cat,read,date,datePretty,excerpt,img,content,
 <main class="py-12 px-8">
 <article class="max-w-3xl mx-auto prose">${content}</article>
 <aside class="max-w-3xl mx-auto mt-16 bg-[#251c1d] rounded-[40px] p-10 md:p-14 text-center text-white shadow-2xl">
-<img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-12 w-auto mx-auto mb-6 invert mix-blend-screen opacity-80" alt="Verônica Grijó"/>
+<img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-12 w-auto mx-auto mb-6 invert mix-blend-screen opacity-80" alt="" aria-hidden="true"/>
 <p class="font-headline text-2xl md:text-3xl mb-4 leading-tight">Esse artigo ressoou com você?</p>
 <p class="text-white/70 font-light mb-8 max-w-md mx-auto leading-relaxed">A terapia é o espaço onde essas reflexões se transformam em movimento real. Dê o próximo passo.</p>
 <a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20li%20seu%20artigo%20sobre%20${encodeURIComponent(title)}%20e%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-bold hover:bg-primary-dim hover:-translate-y-1 transition-all duration-300">Agendar minha sessão</a>
