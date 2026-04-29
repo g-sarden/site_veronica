@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Admin – Blog Verônica Grijó</title>
+<title>Admin - Blog Verônica Grijó</title>
 <meta name="robots" content="noindex, nofollow"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -14,413 +14,647 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#1a1213;color:#f0e8e9;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-h1,h2{font-family:'Lora',serif}
-.card{background:#251c1d;border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;width:100%;max-width:600px;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+h1,h2,h3{font-family:'Lora',serif}
+.card{background:#251c1d;border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:42px;width:100%;max-width:820px;box-shadow:0 24px 80px rgba(0,0,0,.4)}
 .logo{text-align:center;margin-bottom:32px}
-.logo img{height:48px;opacity:.85;filter:invert(1) brightness(1.2)}
-.logo h1{font-size:1.5rem;font-weight:700;color:#f0e8e9;margin-top:12px}
+.logo img{width:auto;height:56px;max-width:72px;object-fit:contain;opacity:.85;filter:invert(1) brightness(1.2)}
+.logo h1{font-size:1.55rem;font-weight:700;color:#f0e8e9;margin-top:12px}
 .logo p{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#a25b6c;margin-top:4px}
-label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
-input,textarea,select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;color:#f0e8e9;font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;outline:none;transition:border .2s}
-input:focus,textarea:focus,select:focus{border-color:#a25b6c}
-textarea{resize:vertical;line-height:1.6}
+label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.56);margin-bottom:8px}
+input,textarea,select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;color:#f0e8e9;font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;outline:none;transition:border .2s,background .2s}
+input[type=file]{padding:12px;background:rgba(255,255,255,.035)}
+input:focus,textarea:focus,select:focus{border-color:#a25b6c;background:rgba(255,255,255,.07)}
+textarea{resize:vertical;line-height:1.6;min-height:320px}
 .field{margin-bottom:20px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 .btn{width:100%;background:#a25b6c;color:#fff;border:none;border-radius:50px;padding:16px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;transition:all .3s;margin-top:8px}
 .btn:hover{background:#8a4d5e;transform:translateY(-2px);box-shadow:0 12px 30px rgba(162,91,108,.4)}
-.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.status{margin-top:16px;padding:14px 18px;border-radius:14px;font-size:.9rem;display:none}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.status{margin-top:16px;padding:14px 18px;border-radius:14px;font-size:.9rem;display:none;white-space:pre-line}
 .status.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:#86efac}
 .status.err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#fca5a5}
-.status.loading{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+.status.loading{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.75)}
 #login-screen,#admin-screen{display:none}
 #login-screen.active,#admin-screen.active{display:block}
-.hint{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:6px}
+.hint{font-size:.76rem;color:rgba(255,255,255,.38);margin-top:6px;line-height:1.5}
 .section-title{font-size:1.1rem;color:#f0e8e9;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+.preview{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:16px;margin:18px 0 22px}
+.preview img{width:120px;aspect-ratio:16/9;object-fit:cover;border-radius:14px;background:#1a1213}
+.preview strong{display:block;color:#fff;margin-bottom:4px}
+.preview span{display:block;color:rgba(255,255,255,.52);font-size:.84rem;line-height:1.45}
+.drop-copy{background:rgba(162,91,108,.12);border:1px solid rgba(162,91,108,.22);border-radius:18px;padding:14px 16px;margin-bottom:18px;color:rgba(255,255,255,.72);font-size:.88rem;line-height:1.55}
+.session-line{margin:-12px 0 28px;text-align:center;color:rgba(255,255,255,.48);font-size:.82rem}
+@media(max-width:720px){.card{padding:28px}.row,.row-3,.preview{grid-template-columns:1fr}.preview img{width:100%}}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
-<div class="card" id="login-screen" class="active">
+<div class="card active" id="login-screen">
   <div class="logo">
     <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" alt="Logo"/>
-    <h1>Verônica Grijó</h1>
-    <p>Painel do Blog</p>
+    <h1>Admin Seguro</h1>
+    <p>Cloudflare Access</p>
   </div>
-  <div class="field">
-    <label>Senha de acesso</label>
-    <input type="password" id="pw-input" placeholder="Digite a senha…" onkeydown="if(event.key==='Enter')doLogin()"/>
-  </div>
-  <button class="btn" onclick="doLogin()">Entrar</button>
-  <div class="status err" id="login-err">Senha incorreta.</div>
+  <div class="status loading" id="login-status" style="display:block">Validando acesso...</div>
 </div>
 
-<!-- ADMIN -->
 <div class="card" id="admin-screen">
   <div class="logo">
     <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" alt="Logo"/>
     <h1>Novo Post</h1>
-    <p>Blog · GitHub Pages</p>
+    <p>Markdown + imagem + SEO automático</p>
+  </div>
+  <p class="session-line" id="session-user">Sessão protegida por Cloudflare Access</p>
+
+  <h2 class="section-title">Segurança</h2>
+  <div class="drop-copy">
+    O acesso é feito pelo Cloudflare Access. O token do GitHub fica protegido no servidor e nunca é enviado para o navegador.
   </div>
 
-  <h2 class="section-title">Configuração GitHub</h2>
-  <div class="field">
-    <label>GitHub Personal Access Token</label>
-    <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxxxxxx"/>
-    <p class="hint">Token com permissão <strong>repo</strong>. Não é salvo em nenhum lugar.</p>
+  <h2 class="section-title" style="margin-top:28px">Publicação</h2>
+  <div class="drop-copy">
+    Envie o Markdown como você escreveria para o blog: primeiro H1 vira título, o primeiro parágrafo vira resumo, links em "Referências" entram no post e no schema. A imagem é convertida para WebP 16:9 com alvo de até 80 KB antes do upload.
   </div>
   <div class="row">
     <div class="field">
-      <label>Usuário / Org</label>
-      <input type="text" id="gh-owner" value="g-sarden" placeholder="seu-usuario"/>
+      <label>Arquivo Markdown</label>
+      <input type="file" id="md-file" accept=".md,.markdown,text/markdown,text/plain"/>
+      <p class="hint">Opcional. Você também pode colar o Markdown no campo abaixo.</p>
     </div>
     <div class="field">
-      <label>Repositório</label>
-      <input type="text" id="gh-repo" value="site_veronica" placeholder="site_veronica"/>
+      <label>Imagem de capa</label>
+      <input type="file" id="cover-file" accept="image/*"/>
+      <p class="hint">Obrigatória. O admin gera /assets/slug-cover.webp em WebP, comprimida para SEO.</p>
     </div>
   </div>
 
-  <h2 class="section-title" style="margin-top:28px">Dados do Post</h2>
-  <div class="field">
-    <label>Título</label>
-    <input type="text" id="p-title" placeholder="Título completo do artigo"/>
-  </div>
-  <div class="field">
-    <label>Slug (URL) — sem espaços, sem acentos</label>
-    <input type="text" id="p-slug" placeholder="ansiedade-na-maternidade"/>
-    <p class="hint">O post ficará em: /blog/<span id="slug-preview">...</span>.html</p>
-  </div>
-  <div class="row">
+  <div class="row-3">
     <div class="field">
       <label>Categoria</label>
       <select id="p-cat">
+        <option>Reflexão</option>
+        <option>Terapia</option>
+        <option>Terapia online</option>
         <option>Maternidade</option>
         <option>Ansiedade</option>
         <option>Autoconhecimento</option>
         <option>Saúde Mental</option>
         <option>Relacionamentos</option>
       </select>
+      <p class="hint">Pode ser sobrescrita no front matter com category.</p>
     </div>
     <div class="field">
-      <label>Tempo de leitura (min)</label>
-      <input type="number" id="p-read" value="5" min="1" max="60"/>
+      <label>Data de publicação</label>
+      <input type="date" id="p-date"/>
+    </div>
+    <div class="field">
+      <label>Data de atualização</label>
+      <input type="date" id="p-date-modified"/>
     </div>
   </div>
-  <div class="field">
-    <label>Data de publicação</label>
-    <input type="date" id="p-date"/>
-  </div>
-  <div class="field">
-    <label>Data de atualização</label>
-    <input type="date" id="p-date-modified"/>
-    <p class="hint">Opcional. Se ficar vazio, usa a mesma data de publicação.</p>
-  </div>
-  <div class="field">
-    <label>Resumo (excerpt — até 200 chars)</label>
-    <textarea id="p-excerpt" rows="2" placeholder="Resumo curto que aparece no card do blog…" maxlength="200"></textarea>
-  </div>
-  <div class="field">
-    <label>Imagem de capa (nome do arquivo em /assets/)</label>
-    <input type="text" id="p-img" placeholder="foto2.webp"/>
-    <p class="hint">Faça upload manual do arquivo em /assets/ antes de publicar.</p>
-  </div>
-  <div class="field">
-    <label>Conteúdo HTML do artigo</label>
-    <textarea id="p-content" rows="14" placeholder="Cole aqui o HTML do corpo do artigo gerado pelo Claude…"></textarea>
-    <p class="hint">Use &lt;h2&gt;, &lt;p&gt;, &lt;blockquote&gt;, &lt;ul&gt;, &lt;strong&gt; — sem &lt;html&gt; ou &lt;body&gt;.</p>
-  </div>
-  <div class="field">
-    <label>Meta description (até 160 chars)</label>
-    <input type="text" id="p-meta" maxlength="160" placeholder="Descrição para o Google…"/>
+
+  <div class="row">
+    <div class="field">
+      <label>Título opcional</label>
+      <input type="text" id="p-title" placeholder="Se vazio, usa o primeiro # do Markdown"/>
+    </div>
+    <div class="field">
+      <label>Slug opcional</label>
+      <input type="text" id="p-slug" placeholder="Se vazio, gera automaticamente"/>
+      <p class="hint">URL prevista: /blog/<span id="slug-preview">...</span>.html</p>
+    </div>
   </div>
 
-  <button class="btn" id="publish-btn" onclick="publish()">Publicar Post</button>
+  <div class="field">
+    <label>Markdown do artigo</label>
+    <textarea id="p-markdown" placeholder="# Título do artigo&#10;&#10;Primeiro parágrafo do texto...&#10;&#10;## Referências&#10;- https://pubmed.ncbi.nlm.nih.gov/..."></textarea>
+    <p class="hint">Front matter opcional: title, slug, category, metaDescription, coverAlt, keywords.</p>
+  </div>
+
+  <div class="preview" id="post-preview" aria-live="polite">
+    <img id="preview-image" alt="" aria-hidden="true"/>
+    <div>
+      <strong id="preview-title">Aguardando Markdown</strong>
+      <span id="preview-meta">O preview de SEO aparecerá aqui.</span>
+    </div>
+  </div>
+
+  <button class="btn" id="publish-btn" onclick="publish()">Publicar post</button>
   <div class="status" id="pub-status"></div>
 </div>
 
 <script>
-// ── CONFIG ────────────────────────────────────────────────
-const ADMIN_PASSWORD = 'veronica2026'; // ← ALTERE AQUI
+const SITE_URL = 'https://veronicagrijo.psc.br';
+const DEFAULT_AUTHOR = 'Verônica Grijó';
+const WHATSAPP = '5521976215505';
 
-// ── LOGIN ─────────────────────────────────────────────────
-function doLogin(){
-  const pw = document.getElementById('pw-input').value;
-  if(pw === ADMIN_PASSWORD){
+initAdmin();
+
+async function initAdmin(){
+  const status = document.getElementById('login-status');
+  try {
+    const response = await fetch('/api/session', {cache:'no-store'});
+    const session = await response.json().catch(() => ({}));
+    if(!response.ok || !session.ok) {
+      throw new Error(session.error || 'Acesso não autorizado.');
+    }
+
     document.getElementById('login-screen').classList.remove('active');
     document.getElementById('admin-screen').classList.add('active');
-    // Data de hoje
-    document.getElementById('p-date').value = new Date().toISOString().split('T')[0];
-    document.getElementById('p-date-modified').value = new Date().toISOString().split('T')[0];
-  } else {
-    const el = document.getElementById('login-err');
-    el.style.display = 'block';
-    setTimeout(()=>el.style.display='none', 3000);
+    document.getElementById('session-user').textContent = session.email
+      ? `Sessão protegida por Cloudflare Access: ${session.email}`
+      : 'Sessão protegida por Cloudflare Access';
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('p-date').value = today;
+    document.getElementById('p-date-modified').value = today;
+    updatePreview();
+  } catch(err) {
+    status.className = 'status err';
+    status.textContent = `Acesso bloqueado. ${err.message}`;
   }
 }
 
-// Mostrar tela de login
-document.getElementById('login-screen').classList.add('active');
-
-// Slug preview ao vivo
-document.getElementById('p-slug').addEventListener('input', function(){
-  document.getElementById('slug-preview').textContent = this.value || '...';
+document.getElementById('md-file').addEventListener('change', async (event) => {
+  const file = event.target.files?.[0];
+  if(!file) return;
+  document.getElementById('p-markdown').value = await file.text();
+  updatePreview();
 });
+document.getElementById('cover-file').addEventListener('change', updateImagePreview);
+document.getElementById('p-markdown').addEventListener('input', updatePreview);
+document.getElementById('p-title').addEventListener('input', updatePreview);
+document.getElementById('p-slug').addEventListener('input', updatePreview);
+document.getElementById('p-cat').addEventListener('change', updatePreview);
 
-// ── PUBLICAR ──────────────────────────────────────────────
 async function publish(){
-  const status = document.getElementById('pub-status');
-  const btn    = document.getElementById('publish-btn');
+  const markdown = val('p-markdown');
+  const coverFile = document.getElementById('cover-file').files?.[0];
 
-  // Coleta campos
-  const token   = document.getElementById('gh-token').value.trim();
-  const owner   = document.getElementById('gh-owner').value.trim();
-  const repo    = document.getElementById('gh-repo').value.trim();
-  const title   = document.getElementById('p-title').value.trim();
-  const slug    = document.getElementById('p-slug').value.trim();
-  const cat     = document.getElementById('p-cat').value;
-  const read    = document.getElementById('p-read').value;
-  const date    = document.getElementById('p-date').value;
-  const dateModified = document.getElementById('p-date-modified').value || date;
-  const excerpt = document.getElementById('p-excerpt').value.trim();
-  const img     = document.getElementById('p-img').value.trim() || 'foto1.webp';
-  const content = document.getElementById('p-content').value.trim();
-  const meta    = document.getElementById('p-meta').value.trim();
-
-  if(!token||!owner||!repo||!title||!slug||!date||!content){
-    showStatus('err','Preencha todos os campos obrigatórios (token, título, slug, data, conteúdo).');
+  if(!markdown || !coverFile){
+    showStatus('err','Preencha o Markdown e a imagem de capa.');
     return;
   }
 
+  const btn = document.getElementById('publish-btn');
   btn.disabled = true;
-  showStatus('loading','Publicando… aguarde.');
-
-  const API = `https://api.github.com/repos/${owner}/${repo}/contents`;
-
-  // ── 1. Gera HTML do post ──────────────────────────────
-  const datePretty = new Date(date+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
-  const modifiedPretty = new Date(dateModified+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
-  const postHtml = buildPostHTML({title,slug,cat,read,date,dateModified,datePretty,modifiedPretty,excerpt,img,content,meta});
-
-  // ── 2. Atualiza posts.json ───────────────────────────
-  let jsonSha = null;
-  let posts   = [];
-  try {
-    const jr = await ghGet(`${API}/blog/posts.json`, token);
-    jsonSha  = jr.sha;
-    posts    = JSON.parse(atob(jr.content.replace(/\n/g,'')));
-  } catch(e){ /* arquivo ainda não existe */ }
-
-  // Remove entrada duplicada (re-publicação)
-  posts = posts.filter(p => p.slug !== slug);
-  posts.unshift({slug, title, excerpt, date, dateModified, category:cat, readTime:`${read} min`, coverImage:`../assets/${img}`});
-  posts.sort((a,b)=>new Date(b.date)-new Date(a.date));
-  const sitemapXml = buildSitemap(posts);
+  showStatus('loading','Preparando Markdown, imagem WebP e metadados SEO...');
 
   try {
-    // ── 3. Commit do HTML do post ──────────────────────
-    await ghPut(`${API}/blog/${slug}.html`, token,
-      `Post: ${title}`,
-      btoa(unescape(encodeURIComponent(postHtml))),
-      await getFileSha(`${API}/blog/${slug}.html`, token)
-    );
+    const parsed = parseMarkdownPost(markdown);
+    const title = val('p-title') || parsed.title;
+    if(!title) throw new Error('Não encontrei título. Use um # Título no Markdown ou preencha o campo de título.');
 
-    // ── 4. Commit do posts.json ────────────────────────
-    await ghPut(`${API}/blog/posts.json`, token,
-      `Index: add ${slug}`,
-      btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2)))),
-      jsonSha
-    );
+    const slug = sanitizeSlug(val('p-slug') || parsed.slug || title);
+    const category = parsed.frontMatter.category || document.getElementById('p-cat').value || 'Reflexão';
+    const date = parsed.frontMatter.date || val('p-date') || new Date().toISOString().split('T')[0];
+    const dateModified = parsed.frontMatter.dateModified || val('p-date-modified') || date;
+    const datePretty = prettyDate(date);
+    const modifiedPretty = prettyDate(dateModified);
+    const meta = clamp(parsed.frontMatter.metaDescription || parsed.excerpt, 155);
+    const imageName = `${slug}-cover.webp`;
+    const coverAlt = parsed.frontMatter.coverAlt || title;
+    const keywords = parseKeywords(parsed.frontMatter.keywords, category, title);
+    const imageBlob = await convertImageToWebp(coverFile);
+    const imageBase64 = await blobToBase64(imageBlob);
+    const read = parsed.readTime;
 
-    // ── 5. Commit do sitemap.xml ───────────────────────
-    await ghPut(`${API}/sitemap.xml`, token,
-      `Sitemap: add ${slug}`,
-      btoa(unescape(encodeURIComponent(sitemapXml))),
-      await getFileSha(`${API}/sitemap.xml`, token)
-    );
+    showStatus('loading',`Imagem otimizada: ${Math.round(imageBlob.size/1024)} KB\nPublicando arquivos no GitHub...`);
 
-    showStatus('ok',`✅ Post publicado! Acesse em /blog/${slug}.html após o deploy (~1 min).`);
-  } catch(err){
-    showStatus('err',`❌ Erro: ${err.message}`);
+    const postHtml = buildPostHTML({
+      title, slug, category, read, date, dateModified, datePretty, modifiedPretty,
+      excerpt: parsed.excerpt, meta, imageName, coverAlt, content: parsed.html,
+      references: parsed.references, faq: parsed.faq, keywords
+    });
+
+    const post = {
+      slug,
+      title,
+      seoTitle: clamp(title, 58),
+      excerpt: parsed.excerpt,
+      metaDescription: meta,
+      date,
+      dateModified,
+      category,
+      readTime: `${read} min`,
+      coverImage: `../assets/${imageName}`,
+      coverAlt,
+      references: parsed.references,
+      faq: parsed.faq,
+      ctaVariant: slug.replace(/-/g,'_')
+    };
+
+    await publishViaApi({
+      slug,
+      title,
+      imageName,
+      imageBase64,
+      postHtml: encodeBase64Utf8(postHtml),
+      post
+    });
+
+    showStatus('ok',`Post publicado com sucesso.\nURL: /blog/${slug}.html\nImagem: /assets/${imageName}`);
+  } catch(err) {
+    showStatus('err',`Erro: ${err.message}`);
+  } finally {
+    btn.disabled = false;
   }
-  btn.disabled = false;
 }
 
-// ── HELPERS ───────────────────────────────────────────────
-function showStatus(type, msg){
-  const el = document.getElementById('pub-status');
-  el.className = `status ${type}`;
-  el.style.display = 'block';
-  el.textContent = msg;
-}
-
-async function ghGet(url, token){
-  const r = await fetch(url, {headers:{Authorization:`token ${token}`, Accept:'application/vnd.github.v3+json'}});
-  if(!r.ok) throw new Error(await r.text());
-  return r.json();
-}
-
-async function getFileSha(url, token){
-  try { return (await ghGet(url, token)).sha; } catch(e){ return null; }
-}
-
-async function ghPut(url, token, message, content, sha){
-  const body = {message, content};
-  if(sha) body.sha = sha;
-  const r = await fetch(url, {
-    method:'PUT',
-    headers:{Authorization:`token ${token}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
-    body: JSON.stringify(body)
+async function publishViaApi(payload){
+  const response = await fetch('/api/publish', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
   });
-  if(!r.ok) throw new Error(await r.text());
-  return r.json();
+  const data = await response.json().catch(() => ({}));
+  if(!response.ok || !data.ok) {
+    throw new Error(data.error || 'Não foi possível publicar o post.');
+  }
+  return data;
 }
 
-function buildSitemap(posts){
-  const newestPostDate = posts
-    .map(post => post.dateModified || post.date)
-    .sort((a,b)=>new Date(b)-new Date(a))[0] || new Date().toISOString().split('T')[0];
-  const staticUrls = [
-    {loc:'https://veronicagrijo.psc.br/', lastmod:'2026-04-24', changefreq:'monthly', priority:'1.0'},
-    {loc:'https://veronicagrijo.psc.br/blog/', lastmod:newestPostDate, changefreq:'weekly', priority:'0.8'},
-    {loc:'https://veronicagrijo.psc.br/psicologa-online.html', lastmod:'2026-04-24', changefreq:'monthly', priority:'0.9'}
+function updatePreview(){
+  const markdown = val('p-markdown');
+  const parsed = parseMarkdownPost(markdown);
+  const title = val('p-title') || parsed.title || 'Aguardando Markdown';
+  const slug = sanitizeSlug(val('p-slug') || parsed.slug || title);
+  const category = parsed.frontMatter.category || document.getElementById('p-cat').value || 'Reflexão';
+  document.getElementById('slug-preview').textContent = slug || '...';
+  document.getElementById('preview-title').textContent = title;
+  document.getElementById('preview-meta').textContent = `${category} - ${parsed.readTime || 1} min - ${parsed.excerpt || 'Resumo será extraído do primeiro parágrafo.'}`;
+}
+
+function updateImagePreview(){
+  const file = document.getElementById('cover-file').files?.[0];
+  const preview = document.getElementById('preview-image');
+  if(!file) {
+    preview.removeAttribute('src');
+    return;
+  }
+  preview.src = URL.createObjectURL(file);
+  updatePreview();
+}
+
+function parseMarkdownPost(rawMarkdown){
+  const { frontMatter, markdown } = extractFrontMatter(rawMarkdown || '');
+  const lines = markdown.replace(/\r\n/g,'\n').split('\n');
+  const h1Index = lines.findIndex(line => /^#\s+/.test(line.trim()));
+  const h1 = h1Index >= 0 ? stripMarkdown(lines[h1Index].replace(/^#\s+/,'')) : '';
+  const title = frontMatter.title || h1;
+  const bodyLines = h1Index >= 0 ? lines.filter((_, index) => index !== h1Index) : lines;
+  const contentMarkdown = bodyLines.join('\n').trim();
+  const references = extractReferences(contentMarkdown);
+  const contentWithoutReferences = removeReferencesSection(contentMarkdown);
+  const plain = stripMarkdown(contentMarkdown);
+  const excerpt = clamp(frontMatter.excerpt || firstParagraph(contentMarkdown) || plain, 190);
+
+  return {
+    frontMatter,
+    title,
+    slug: frontMatter.slug || sanitizeSlug(title),
+    excerpt,
+    readTime: Math.max(1, Math.ceil((plain.match(/\S+/g) || []).length / 200)),
+    references,
+    faq: extractFaq(contentMarkdown),
+    html: markdownToHtml(contentWithoutReferences)
+  };
+}
+
+function extractFrontMatter(markdown){
+  if(!markdown.trimStart().startsWith('---')) return {frontMatter:{}, markdown};
+  const normalized = markdown.replace(/\r\n/g,'\n');
+  const end = normalized.indexOf('\n---', 3);
+  if(end === -1) return {frontMatter:{}, markdown};
+  const raw = normalized.slice(3, end).trim();
+  const frontMatter = {};
+  raw.split('\n').forEach(line => {
+    const match = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+    if(match) frontMatter[match[1]] = match[2].replace(/^["']|["']$/g,'').trim();
+  });
+  return {frontMatter, markdown: normalized.slice(end + 4).trim()};
+}
+
+function markdownToHtml(markdown){
+  const lines = markdown.replace(/\r\n/g,'\n').split('\n');
+  const html = [];
+  let i = 0;
+  while(i < lines.length){
+    const line = lines[i];
+    const trimmed = line.trim();
+    if(!trimmed){ i++; continue; }
+
+    if(/^---+$/.test(trimmed)){ html.push('<hr/>'); i++; continue; }
+
+    const heading = trimmed.match(/^(#{1,6})\s+(.+)$/);
+    if(heading){
+      const level = Math.min(6, Math.max(2, heading[1].length));
+      const id = sanitizeSlug(stripMarkdown(heading[2]));
+      html.push(`<h${level} id="${id}">${renderInline(heading[2])}</h${level}>`);
+      i++;
+      continue;
+    }
+
+    if(/^>\s?/.test(trimmed)){
+      const quote = [];
+      while(i < lines.length && /^>\s?/.test(lines[i].trim())){
+        quote.push(lines[i].trim().replace(/^>\s?/,''));
+        i++;
+      }
+      html.push(`<blockquote>${quote.map(part => `<p>${renderInline(part)}</p>`).join('')}</blockquote>`);
+      continue;
+    }
+
+    if(/^[-*]\s+/.test(trimmed)){
+      const items = [];
+      while(i < lines.length && /^[-*]\s+/.test(lines[i].trim())){
+        items.push(`<li>${renderInline(lines[i].trim().replace(/^[-*]\s+/,''))}</li>`);
+        i++;
+      }
+      html.push(`<ul>${items.join('')}</ul>`);
+      continue;
+    }
+
+    if(/^\d+\.\s+/.test(trimmed)){
+      const items = [];
+      while(i < lines.length && /^\d+\.\s+/.test(lines[i].trim())){
+        items.push(`<li>${renderInline(lines[i].trim().replace(/^\d+\.\s+/,''))}</li>`);
+        i++;
+      }
+      html.push(`<ol>${items.join('')}</ol>`);
+      continue;
+    }
+
+    const paragraph = [];
+    while(i < lines.length && lines[i].trim() && !/^(#{1,6})\s+/.test(lines[i].trim()) && !/^[-*]\s+/.test(lines[i].trim()) && !/^\d+\.\s+/.test(lines[i].trim()) && !/^>\s?/.test(lines[i].trim())){
+      paragraph.push(lines[i].trim());
+      i++;
+    }
+    html.push(`<p>${renderInline(paragraph.join(' '))}</p>`);
+  }
+  return html.join('\n');
+}
+
+function renderInline(value){
+  let text = escHtml(value);
+  text = text.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, (_, label, url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`);
+  text = text.replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, (match, prefix, url) => `${prefix}<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`);
+  text = text.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  text = text.replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  text = text.replace(/`([^`]+)`/g,'<code>$1</code>');
+  return text;
+}
+
+function extractReferences(markdown){
+  const urls = [...markdown.matchAll(/https?:\/\/[^\s)\]]+/g)].map(match => match[0].replace(/[.,;:]+$/,''));
+  return [...new Set(urls.filter(url => !url.includes('veronicagrijo.psc.br') && !url.includes('wa.me')))];
+}
+
+function removeReferencesSection(markdown){
+  return markdown.replace(/\n?#{2,3}\s*(Refer[eê]ncias|Referencias|Fontes|Sources)[\s\S]*$/i,'').trim();
+}
+
+function extractFaq(markdown){
+  const section = markdown.match(/#{2,3}\s*(FAQ|Perguntas frequentes|D[uú]vidas frequentes)[\s\S]*$/i);
+  if(!section) return [];
+  const blocks = section[0].split(/\n(?=#{3,4}\s+)/).slice(1);
+  return blocks.map(block => {
+    const lines = block.trim().split('\n');
+    const question = stripMarkdown(lines.shift().replace(/^#{3,4}\s+/,''));
+    const answer = stripMarkdown(lines.join(' '));
+    return question && answer ? {question, answer: clamp(answer, 320)} : null;
+  }).filter(Boolean).slice(0, 6);
+}
+
+function firstParagraph(markdown){
+  return stripMarkdown((markdown.split(/\n\s*\n/).find(block => {
+    const trimmed = block.trim();
+    return trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('- ') && !trimmed.startsWith('>') && !/^https?:\/\//.test(trimmed);
+  }) || '').trim());
+}
+
+async function convertImageToWebp(file){
+  const bitmap = await createImageBitmap(file);
+  const maxBytes = 80 * 1024;
+  const variants = [
+    [1200, 675],
+    [1080, 608],
+    [960, 540],
+    [840, 472]
   ];
-  const postUrls = posts.map(post => ({
-    loc:`https://veronicagrijo.psc.br/blog/${encodeURIComponent(post.slug)}.html`,
-    lastmod:post.dateModified || post.date,
-    changefreq:'monthly',
-    priority:'0.7'
-  }));
+  const qualities = [0.82, 0.74, 0.66, 0.58, 0.5, 0.42];
+  let bestBlob = null;
 
-  const entries = [...staticUrls, ...postUrls].map(({loc,lastmod,changefreq,priority}) => `  <url>
-    <loc>${loc}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`).join('\n');
+  for(const [targetW, targetH] of variants){
+    const canvas = cropImageToCanvas(bitmap, targetW, targetH);
+    for(const quality of qualities){
+      const blob = await canvasToBlob(canvas, 'image/webp', quality);
+      if(!bestBlob || blob.size < bestBlob.size) bestBlob = blob;
+      if(blob.size <= maxBytes) return blob;
+    }
+  }
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries}
-</urlset>
-`;
+  return bestBlob;
 }
 
-function buildPostHTML({title,slug,cat,read,date,dateModified,datePretty,modifiedPretty,excerpt,img,content,meta}){
+function cropImageToCanvas(bitmap, targetW, targetH){
+  const sourceRatio = bitmap.width / bitmap.height;
+  const targetRatio = targetW / targetH;
+  let sw = bitmap.width;
+  let sh = bitmap.height;
+  let sx = 0;
+  let sy = 0;
+  if(sourceRatio > targetRatio){
+    sw = bitmap.height * targetRatio;
+    sx = (bitmap.width - sw) / 2;
+  } else {
+    sh = bitmap.width / targetRatio;
+    sy = (bitmap.height - sh) / 2;
+  }
+
+  const canvas = document.createElement('canvas');
+  canvas.width = targetW;
+  canvas.height = targetH;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(bitmap, sx, sy, sw, sh, 0, 0, targetW, targetH);
+  return canvas;
+}
+
+function canvasToBlob(canvas, type, quality){
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('Não foi possível converter a imagem para WebP.')), type, quality);
+  });
+}
+
+function blobToBase64(blob){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+function buildPostHTML({title,slug,category,read,date,dateModified,datePretty,modifiedPretty,excerpt,meta,imageName,coverAlt,content,references,faq,keywords}){
+  const articleUrl = `${SITE_URL}/blog/${slug}.html`;
+  const imageUrl = `${SITE_URL}/assets/${imageName}`;
+  const ctaText = encodeURIComponent(`Olá Verônica, li seu artigo sobre ${title} e gostaria de agendar uma sessão`);
+  const graph = [
+    {
+      '@type':'BlogPosting',
+      '@id':`${articleUrl}#article`,
+      mainEntityOfPage:articleUrl,
+      headline:title,
+      description:meta || excerpt,
+      image:imageUrl,
+      datePublished:date,
+      dateModified:dateModified,
+      articleSection:category,
+      keywords,
+      citation: references,
+      inLanguage:'pt-BR',
+      author:{
+        '@type':'Person',
+        name:'Verônica Grijó',
+        url:SITE_URL + '/',
+        jobTitle:'Psicóloga',
+        identifier:'CRP 05/41808',
+        sameAs:[
+          'https://www.instagram.com/psiveronicagrijo/',
+          'https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D',
+          'https://share.google/YX2GveHrzfAnZdOaW',
+          'https://www.doctoralia.com.br/veronica-grijo/psicologo/macae'
+        ]
+      },
+      publisher:{'@type':'Organization',name:'Psicóloga Verônica Grijó',logo:{'@type':'ImageObject',url:`${SITE_URL}/assets/icone.webp`}},
+      isPartOf:{'@type':'Blog',name:'Blog da Verônica Grijó',url:`${SITE_URL}/blog/`}
+    },
+    {
+      '@type':'BreadcrumbList',
+      itemListElement:[
+        {'@type':'ListItem',position:1,name:'Início',item:`${SITE_URL}/`},
+        {'@type':'ListItem',position:2,name:'Blog',item:`${SITE_URL}/blog/`},
+        {'@type':'ListItem',position:3,name:title,item:articleUrl}
+      ]
+    }
+  ];
+  if(faq.length){
+    graph.push({'@type':'FAQPage',mainEntity:faq.map(item => ({'@type':'Question',name:item.question,acceptedAnswer:{'@type':'Answer',text:item.answer}}))});
+  }
+  const referencesHtml = references.length ? `<section class="references-section"><h2>Referências</h2><ul>${references.map(url => `<li><a href="${escHtml(url)}" target="_blank" rel="noopener noreferrer">${escHtml(url)}</a></li>`).join('')}</ul></section>` : '';
+
   return `<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>${escHtml(title)} | Blog | Verônica Grijó</title>
-<meta name="description" content="${escHtml(meta||excerpt)}"/>
-<meta name="robots" content="index,follow"/>
-<link rel="canonical" href="https://veronicagrijo.psc.br/blog/${slug}.html"/>
+<meta name="description" content="${escHtml(meta || excerpt)}"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Verônica Grijó"/>
+<link rel="canonical" href="${articleUrl}"/>
 <meta property="og:type" content="article"/>
-<meta property="og:url" content="https://veronicagrijo.psc.br/blog/${slug}.html"/>
+<meta property="og:url" content="${articleUrl}"/>
 <meta property="og:title" content="${escHtml(title)}"/>
-<meta property="og:description" content="${escHtml(meta||excerpt)}"/>
-<meta property="og:image" content="https://veronicagrijo.psc.br/assets/${img}"/>
+<meta property="og:description" content="${escHtml(meta || excerpt)}"/>
+<meta property="og:image" content="${imageUrl}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="675"/>
+<meta property="og:image:type" content="image/webp"/>
+<meta property="og:image:alt" content="${escHtml(coverAlt)}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="${escHtml(title)}"/>
+<meta name="twitter:description" content="${escHtml(meta || excerpt)}"/>
+<meta name="twitter:image" content="${imageUrl}"/>
 <meta property="article:published_time" content="${date}T00:00:00-03:00"/>
 <meta property="article:modified_time" content="${dateModified}T00:00:00-03:00"/>
 <meta property="article:author" content="Verônica Grijó"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://veronicagrijo.psc.br/blog/${slug}.html#article","mainEntityOfPage":"https://veronicagrijo.psc.br/blog/${slug}.html","headline":"${escJS(title)}","description":"${escJS(meta||excerpt)}","image":"https://veronicagrijo.psc.br/assets/${img}","datePublished":"${date}","dateModified":"${dateModified}","articleSection":"${escJS(cat)}","inLanguage":"pt-BR","author":{"@type":"Person","name":"Verônica Grijó","url":"https://veronicagrijo.psc.br/","jobTitle":"Psicóloga","identifier":"CRP 05/41808","sameAs":["https://www.instagram.com/psiveronicagrijo/","https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D","https://share.google/YX2GveHrzfAnZdOaW","https://www.doctoralia.com.br/veronica-grijo/psicologo/macae"]},"publisher":{"@type":"Organization","name":"Psicóloga Verônica Grijó","logo":{"@type":"ImageObject","url":"https://veronicagrijo.psc.br/assets/icone.webp"}},"isPartOf":{"@type":"Blog","name":"Blog da Verônica Grijó","url":"https://veronicagrijo.psc.br/blog/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://veronicagrijo.psc.br/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://veronicagrijo.psc.br/blog/"},{"@type":"ListItem","position":3,"name":"${escJS(title)}","item":"https://veronicagrijo.psc.br/blog/${slug}.html"}]}]}<\/script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXG49PXGTM"><\/script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NXG49PXGTM',{allow_google_signals:false,allow_ad_personalization_signals:false});<\/script>
 <link rel="icon" type="image/webp" href="../assets/icone.webp"/>
 <meta name="theme-color" content="#FFF8F7"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2"/>
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2"/>
+<link rel="preload" as="image" href="../assets/${imageName}" fetchpriority="high"/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../assets/style.css"/>
+<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph})}<\/script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXG49PXGTM"><\/script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NXG49PXGTM',{allow_google_signals:false,allow_ad_personalization_signals:false});function trackWhatsApp(label){gtag('event','whatsapp_click',{event_category:'contato',event_label:label,value:1});}<\/script>
 <style>
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
-@keyframes pageLoad{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.page-load-effect{animation:pageLoad .9s cubic-bezier(.16,1,.3,1) forwards}
-.prose h2{font-family:'Lora',serif;font-size:1.75rem;line-height:1.3;margin-top:2.5rem;margin-bottom:1rem;color:#1c1417}
-.prose h3{font-family:'Lora',serif;font-size:1.3rem;margin-top:2rem;margin-bottom:.75rem;color:#1c1417}
-.prose p{font-size:1.0625rem;line-height:1.85;margin-bottom:1.4rem;font-weight:300;color:#3d2d31}
-.prose ul,.prose ol{padding-left:1.5rem;margin-bottom:1.4rem}
-.prose li{font-size:1.0625rem;line-height:1.85;margin-bottom:.5rem;font-weight:300;color:#3d2d31}
-.prose blockquote{border-left:3px solid #A25B6C;padding:1rem 1.5rem;margin:2rem 0;background:#FFF0F2;border-radius:0 16px 16px 0;font-family:'Lora',serif;font-style:italic;font-size:1.15rem;color:#A25B6C;line-height:1.7}
-.prose strong{font-weight:600;color:#1c1417}
-.prose a{color:#A25B6C;text-decoration:underline;text-underline-offset:3px}
-.prose hr{border:none;border-top:1px solid #e8d8da;margin:2.5rem 0}
-.cover-img{aspect-ratio:21/9;object-fit:cover;width:100%}
-@media(max-width:640px){.cover-img{aspect-ratio:4/3}}
-@keyframes pulse-whatsapp{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(37,211,102,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0)}}
-.animate-whatsapp{animation:pulse-whatsapp 2s infinite}
+body{font-family:'Plus Jakarta Sans',sans-serif}
+h1,h2,h3,.font-headline{font-family:'Lora',serif}
+.article-cover{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.article-body h2{font-family:'Lora',serif;font-size:2rem;line-height:1.25;margin:2.8rem 0 1rem;color:#1c1417}
+.article-body h3{font-family:'Lora',serif;font-size:1.35rem;margin:2rem 0 .75rem;color:#1c1417}
+.article-body p,.article-body li{font-size:1.0625rem;line-height:1.85;color:#3d2d31;font-weight:300}
+.article-body p{margin-bottom:1.35rem}
+.article-body ul,.article-body ol{padding-left:1.5rem;margin:0 0 1.5rem}
+.article-body blockquote{border-left:3px solid #A25B6C;padding:1rem 1.5rem;margin:2rem 0;background:#FFF0F2;border-radius:0 16px 16px 0;font-family:'Lora',serif;font-style:italic;color:#A25B6C}
+.article-body a{color:#A25B6C;text-decoration:underline;text-underline-offset:3px}
+.references-section{margin-top:3rem;padding-top:2rem;border-top:1px solid #eadadd}
+.meta-chip{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(122,100,106,.16);border-radius:999px;padding:.6rem .9rem;background:#fff8f7;color:#72565d;font-size:.85rem;margin:.25rem}
 </style>
 </head>
-<body class="bg-surface text-on-surface font-body page-load-effect selection:bg-primary-container selection:text-on-primary-container">
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10">
-<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-<a href="../" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-<img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-12 w-auto object-contain drop-shadow-sm mix-blend-multiply" alt="Logotipo Verônica Grijó"/>
-<div class="flex flex-col"><span class="font-headline text-xl font-bold text-primary leading-none">Verônica Grijó</span><span class="font-label text-xs tracking-widest text-outline uppercase mt-1">Psicóloga Clínica</span></div>
-</a>
-<div class="flex items-center gap-5">
-<a href="/blog/" class="text-rose-900/70 hover:text-rose-900 transition-colors flex items-center gap-1 text-sm"><span class="material-symbols-outlined text-base">arrow_back</span> Blog</a>
-<a href="../#agendar" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-medium hover:bg-primary-dim transition-all text-sm shadow-sm">Agendar Consulta</a>
-</div>
-</div>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<nav class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-outline-variant/10">
+  <div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
+    <a href="../#home" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+      <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-12 w-auto object-contain drop-shadow-sm mix-blend-multiply" alt="Logotipo Verônica Grijó"/>
+      <div class="flex flex-col"><span class="font-headline text-xl font-bold text-primary leading-none">Verônica Grijó</span><span class="text-xs tracking-widest text-outline uppercase mt-1">Psicóloga Clínica</span></div>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-rose-900/70 hover:text-rose-900 transition-colors" href="/blog/">Blog</a>
+      <a class="bg-primary text-on-primary px-7 py-3 rounded-full font-medium hover:bg-primary-dim transition-all shadow-sm" href="../#agendar">Agendar Consulta</a>
+    </div>
+  </div>
 </nav>
-<header class="pt-24 bg-surface-container-low">
-<div class="w-full overflow-hidden">
-<img src="../assets/${img}" alt="${escHtml(title)}" class="cover-img" fetchpriority="high" onerror="this.src='../assets/foto1.webp'"/>
-</div>
-<div class="max-w-3xl mx-auto px-8 pt-12 pb-8">
-<nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest mb-5" aria-label="breadcrumb">
-<a href="../blog/" class="text-outline/60 hover:text-primary transition-colors">Blog</a>
-<span class="text-outline/40">›</span>
-<span class="text-primary">${escHtml(cat)}</span>
-</nav>
-<h1 class="font-headline text-4xl md:text-5xl text-on-surface leading-tight mb-6">${escHtml(title)}</h1>
-<div class="flex items-center gap-6 text-sm text-on-surface-variant font-light pb-8 border-b border-outline-variant/20">
-<div class="flex items-center gap-2"><img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-8 w-8 rounded-full object-contain mix-blend-multiply bg-surface-container p-1" alt="" aria-hidden="true"/><span>Por Verônica Grijó | Psicóloga CRP 05/41808</span></div>
-<span class="text-outline/40">·</span><span>${datePretty}</span>
-<span class="text-outline/40">·</span>
-<span>Atualizado em ${modifiedPretty}</span>
-<span class="text-outline/40">·</span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">schedule</span>${read} min de leitura</span>
-</div>
-</div>
+<header class="pt-28 bg-surface-container-low">
+  <img src="../assets/${imageName}" alt="${escHtml(coverAlt)}" class="article-cover" fetchpriority="high"/>
+  <div class="max-w-3xl mx-auto px-6 md:px-8 pt-12 pb-10">
+    <nav class="flex items-center gap-2 text-xs uppercase tracking-widest mb-5" aria-label="breadcrumb">
+      <a href="../blog/" class="text-outline/70 hover:text-primary transition-colors">Blog</a><span aria-hidden="true">/</span><span class="text-primary">${escHtml(category)}</span>
+    </nav>
+    <h1 class="font-headline text-4xl md:text-5xl text-on-surface leading-tight mb-6">${escHtml(title)}</h1>
+    <p class="text-lg md:text-xl text-on-surface-variant font-light leading-relaxed mb-6">${escHtml(excerpt)}</p>
+    <div>
+      <span class="meta-chip"><span class="material-symbols-outlined text-base">person</span>Por Verônica Grijó | Psicóloga CRP 05/41808</span>
+      <span class="meta-chip"><span class="material-symbols-outlined text-base">calendar_today</span>${datePretty}</span>
+      <span class="meta-chip"><span class="material-symbols-outlined text-base">update</span>Atualizado em ${modifiedPretty}</span>
+      <span class="meta-chip"><span class="material-symbols-outlined text-base">schedule</span>${read} min de leitura</span>
+    </div>
+  </div>
 </header>
-<main class="py-12 px-8">
-<article class="max-w-3xl mx-auto prose">${content}</article>
-<aside class="max-w-3xl mx-auto mt-16 bg-[#251c1d] rounded-[40px] p-10 md:p-14 text-center text-white shadow-2xl">
-<img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-12 w-auto mx-auto mb-6 invert mix-blend-screen opacity-80" alt="" aria-hidden="true"/>
-<p class="font-headline text-2xl md:text-3xl mb-4 leading-tight">Esse artigo ressoou com você?</p>
-<p class="text-white/70 font-light mb-8 max-w-md mx-auto leading-relaxed">A terapia é o espaço onde essas reflexões se transformam em movimento real. Dê o próximo passo.</p>
-<a href="https://wa.me/5521976215505?text=Olá%20Verônica%2C%20li%20seu%20artigo%20sobre%20${encodeURIComponent(title)}%20e%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-bold hover:bg-primary-dim hover:-translate-y-1 transition-all duration-300">Agendar minha sessão</a>
-</aside>
-<nav class="max-w-3xl mx-auto mt-12 flex justify-between text-sm">
-<a href="../blog/" class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group"><span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>Voltar ao blog</a>
-</nav>
+<main class="py-12 px-6 md:px-8">
+  <article class="article-body max-w-3xl mx-auto">${content}${referencesHtml}</article>
+  <aside class="max-w-3xl mx-auto mt-16 bg-[#251c1d] rounded-[40px] p-10 md:p-14 text-center text-white shadow-2xl">
+    <img src="../assets/icone.webp" width="209" height="225" decoding="async" loading="lazy" class="h-12 w-auto mx-auto mb-6 invert mix-blend-screen opacity-80" alt="" aria-hidden="true"/>
+    <p class="font-headline text-2xl md:text-3xl mb-4 leading-tight">Esse artigo ressoou com você?</p>
+    <p class="text-white/70 font-light mb-8 max-w-md mx-auto leading-relaxed">A terapia é o espaço onde essas reflexões se transformam em movimento real.</p>
+    <a href="https://wa.me/${WHATSAPP}?text=${ctaText}" target="_blank" rel="noopener noreferrer" onclick="trackWhatsApp('blog_post_cta')" class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-bold hover:bg-primary-dim hover:-translate-y-1 transition-all duration-300">Agendar minha sessão</a>
+  </aside>
+  <nav class="max-w-3xl mx-auto mt-12 text-sm">
+    <a href="../blog/" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">arrow_back</span>Voltar ao blog</a>
+  </nav>
 </main>
 <footer class="bg-[#1a1213] text-white/50 py-8 px-8 text-center text-xs mt-12">
-<div class="flex flex-col md:flex-row items-center justify-center gap-4">
-<a href="../" class="hover:text-white/80 transition-colors">← Voltar ao site</a>
-<span class="hidden md:inline">·</span>
-<p>© 2026 Verônica Grijó · CRP 05/41808</p>
-</div>
+  <p>2026 Verônica Grijó - CRP 05/41808</p>
 </footer>
-<div class="fixed bottom-6 right-6 z-[9999] group flex items-center pointer-events-none">
-<div class="flex items-center pointer-events-auto">
-<a href="https://wa.me/5521976215505" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 animate-whatsapp">
-<svg viewBox="0 0 24 24" class="w-8 h-8 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-</div>
-</div>
 </body>
 </html>`;
 }
 
-function escHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function escJS(s){ return (s||'').replace(/\\/g,'\\\\').replace(/"/g,'\\"'); }
+function val(id){ return document.getElementById(id).value.trim(); }
+function showStatus(type, msg){ const el=document.getElementById('pub-status'); el.className=`status ${type}`; el.style.display='block'; el.textContent=msg; }
+function prettyDate(date){ return new Date(date+'T12:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}); }
+function clamp(text, max){ const clean=String(text || '').replace(/\s+/g,' ').trim(); return clean.length > max ? clean.slice(0,max-1).replace(/\s+\S*$/,'') + '...' : clean; }
+function sanitizeSlug(value){ return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,90); }
+function stripMarkdown(value){ return String(value || '').replace(/```[\s\S]*?```/g,' ').replace(/`([^`]+)`/g,'$1').replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').replace(/[#>*_~`-]/g,' ').replace(/\s+/g,' ').trim(); }
+function parseKeywords(raw, category, title){ const fromRaw = String(raw || '').split(',').map(item => item.trim()).filter(Boolean); return [...new Set([...fromRaw, category, ...stripMarkdown(title).split(/\s+/).filter(word => word.length > 4).slice(0,5)])]; }
+function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function encodeBase64Utf8(str){ const bytes = new TextEncoder().encode(str); let binary=''; const chunk=0x8000; for(let i=0;i<bytes.length;i+=chunk){ binary += String.fromCharCode(...bytes.subarray(i,i+chunk)); } return btoa(binary); }
 </script>
 </body>
 </html>
