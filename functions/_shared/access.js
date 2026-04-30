@@ -1,6 +1,15 @@
+export const NO_STORE_HEADERS = {
+  'Cache-Control': 'no-store',
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'Cross-Origin-Opener-Policy': 'same-origin'
+};
+
 const JSON_HEADERS = {
   'Content-Type': 'application/json; charset=utf-8',
-  'Cache-Control': 'no-store'
+  ...NO_STORE_HEADERS
 };
 
 export class HttpError extends Error {

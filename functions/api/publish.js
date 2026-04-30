@@ -1,4 +1,4 @@
-import {HttpError, accessErrorResponse, json, requireAccess} from '../_shared/access.js';
+import {HttpError, NO_STORE_HEADERS, accessErrorResponse, json, requireAccess} from '../_shared/access.js';
 
 const SITE_URL = 'https://veronicagrijo.psc.br';
 const MAX_IMAGE_BYTES = 80 * 1024;
@@ -67,7 +67,7 @@ export async function onRequestPost({request, env}) {
 }
 
 export function onRequestOptions() {
-  return new Response(null, {status: 204, headers: {'Cache-Control': 'no-store'}});
+  return new Response(null, {status: 204, headers: NO_STORE_HEADERS});
 }
 
 function normalizePublication(payload) {

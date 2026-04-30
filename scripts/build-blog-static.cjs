@@ -104,7 +104,7 @@ function renderHomeCard(post) {
                 class="group bg-surface rounded-[28px] border border-outline-variant/20 overflow-hidden shadow-sm flex flex-col hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-400 cursor-pointer"
                 style="text-decoration:none">
                 <div class="overflow-hidden" style="aspect-ratio:16/9;background:#f5eaeb">
-                    <img src="${imageSrc}" alt="${imageAlt}"
+                    <img src="${imageSrc}" width="1200" height="675" alt="${imageAlt}"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy" onerror="this.src='assets/foto1.webp'" />
                 </div>
@@ -208,7 +208,7 @@ function renderBlogCard(post, index) {
           class="blog-card group bg-surface-container-low rounded-[32px] border border-outline-variant/20 overflow-hidden shadow-sm h-full flex flex-col"
           style="animation: pageLoad 0.6s ease ${index * 0.08}s both;">
           <div class="card-media overflow-hidden bg-surface">
-            <img src="${coverImage}"
+            <img src="${coverImage}" width="1200" height="675"
               alt="${coverAlt}"
               class="card-cover w-full h-full object-cover"
               loading="lazy"

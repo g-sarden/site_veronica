@@ -50,7 +50,7 @@
           "@type": "Service",
           "name": "Psicoterapia online para ansiedade",
           "serviceType": "Psicoterapia online",
-          "description": "Atendimento psicológico online para mulheres que vivem ansiedade, sobrecarga e exaustão emocional, com a praticidade de fazer terapia de qualquer lugar.",
+          "description": "Atendimento psicológico online para mulheres que vivem ansiedade, sobrecarga e exaustão emocional, com escuta clínica, privacidade, avaliação de adequação do formato e a praticidade de fazer terapia de qualquer lugar.",
           "provider": {
             "@type": "Person",
             "name": "Verônica Grijó",
@@ -60,7 +60,6 @@
             "sameAs": [
               "https://www.instagram.com/psiveronicagrijo/",
               "https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D",
-              "https://share.google/YX2GveHrzfAnZdOaW",
               "https://www.doctoralia.com.br/veronica-grijo/psicologo/macae"
             ]
           },
@@ -102,6 +101,22 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Sim. A psicoterapia online pode ajudar a compreender a ansiedade, regular emoções e construir uma rotina com mais clareza, leveza e constância no cuidado."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como me preparar para a sessão online?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Escolha um lugar reservado, teste a conexão, use fone de ouvido se isso aumentar sua privacidade e separe esse horário como um compromisso de cuidado."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Terapia online substitui atendimento de emergência?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. Em risco imediato, crise intensa ou emergência, procure atendimento presencial de urgência na sua região. O CVV também atende pelo 188, 24 horas, para apoio emocional."
               }
             }
           ]
@@ -404,6 +419,76 @@
       margin: 0;
     }
 
+    .online-insight-grid,
+    .online-process-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .online-text-panel,
+    .online-process-card,
+    .online-safety-band {
+      background: rgba(255, 253, 252, 0.92);
+      border: 1px solid rgba(122, 100, 106, 0.16);
+      box-shadow: 0 16px 40px rgba(37, 28, 29, 0.05);
+    }
+
+    .online-text-panel {
+      border-radius: 32px;
+      padding: 2rem;
+    }
+
+    .online-text-panel p + p {
+      margin-top: 1rem;
+    }
+
+    .online-check-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.35rem;
+    }
+
+    .online-check-list li {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.75rem;
+      color: var(--color-on-surface-variant);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .online-check-list .material-symbols-outlined {
+      color: var(--color-primary);
+      font-size: 1.15rem;
+      margin-top: 0.18rem;
+    }
+
+    .online-process-card {
+      border-radius: 30px;
+      padding: 2rem;
+    }
+
+    .online-process-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 9999px;
+      background: var(--color-primary-container);
+      color: var(--color-on-primary-container);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .online-safety-band {
+      border-radius: 32px;
+      padding: 2rem;
+      margin-top: 3.5rem;
+    }
+
     .compact-cta {
       display: inline-flex;
       align-items: center;
@@ -449,6 +534,20 @@
       }
 
       .faq-info-card {
+        padding: 2.4rem;
+      }
+
+      .online-insight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .online-process-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .online-text-panel,
+      .online-process-card,
+      .online-safety-band {
         padding: 2.4rem;
       }
     }
@@ -543,7 +642,7 @@
               class="absolute -inset-1 bg-gradient-to-br from-primary/15 to-tertiary-fixed-dim/10 rounded-[36px] blur-sm">
             </div>
             <div class="online-photo-frame relative">
-              <img src="assets/foto1.webp"
+              <img src="assets/foto1.webp" width="1048" height="862"
                 alt="Verônica Grijó, psicóloga online especializada em ansiedade para mulheres" fetchpriority="high" />
             </div>
           </div>
@@ -595,6 +694,92 @@
       </div>
     </section>
 
+    <section class="anchor-section section-spacing max-w-7xl mx-auto" id="para-quem">
+      <div class="max-w-3xl section-stack">
+        <div class="section-kicker">
+          <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
+            class="mix-blend-multiply opacity-80" alt="" aria-hidden="true" />
+          <span class="text-xs font-label uppercase tracking-[0.18em] text-primary">Para Quem</span>
+        </div>
+        <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Quando buscar uma psicóloga online para
+          ansiedade</h2>
+        <p class="text-on-surface-variant font-light text-lg leading-relaxed">A terapia online pode ser um caminho
+          possível quando a ansiedade começa a ocupar espaço demais na rotina, no corpo, nos relacionamentos ou na forma
+          como você se cobra. Não é preciso esperar chegar ao limite para procurar ajuda.</p>
+      </div>
+
+      <div class="online-insight-grid">
+        <article class="online-text-panel hover-lift-card">
+          <h3 class="font-headline text-2xl text-on-surface mb-4">Sinais de que o cuidado pode ser importante</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">Muitas mulheres chegam à terapia depois de
+            tentar sustentar tudo sozinhas por tempo demais. O processo pode ajudar quando existe uma sensação constante
+            de alerta, medo de decepcionar, dificuldade de descansar ou necessidade de controlar todos os detalhes para
+            se sentir segura.</p>
+          <ul class="online-check-list">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span><span>Preocupações
+                excessivas que continuam mesmo quando não há uma urgência real.</span></li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span><span>Cansaço emocional,
+                irritabilidade ou sensação de estar sempre atrasada consigo mesma.</span></li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span><span>Autocobrança,
+                culpa, medo de falhar e dificuldade para reconhecer os próprios limites.</span></li>
+          </ul>
+        </article>
+
+        <article class="online-text-panel hover-lift-card">
+          <h3 class="font-headline text-2xl text-on-surface mb-4">O que torna o formato online adequado</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">O online não diminui a seriedade do encontro
+            terapêutico. Ele muda o caminho de acesso. Para muitas pessoas, a ausência de deslocamento, a privacidade de
+            um ambiente conhecido e a possibilidade de manter frequência tornam o cuidado mais viável.</p>
+          <p class="text-on-surface-variant font-light leading-relaxed">Antes de começar, vale observar se você tem um
+            espaço reservado, conexão estável e disponibilidade emocional para estar presente na sessão. Quando algo
+            precisa ser ajustado, isso também pode ser conversado com calma.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="anchor-section section-spacing max-w-7xl mx-auto" id="processo">
+      <div class="max-w-3xl section-stack">
+        <div class="section-kicker">
+          <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
+            class="mix-blend-multiply opacity-80" alt="" aria-hidden="true" />
+          <span class="text-xs font-label uppercase tracking-[0.18em] text-primary">Processo</span>
+        </div>
+        <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Como o acompanhamento online acontece</h2>
+        <p class="text-on-surface-variant font-light text-lg leading-relaxed">A primeira conversa não precisa resolver
+          tudo. Ela serve para entender o que você está vivendo, avaliar se o formato online faz sentido para o seu caso
+          e construir uma direção de trabalho com responsabilidade clínica.</p>
+      </div>
+
+      <div class="online-process-grid">
+        <article class="online-process-card hover-lift-card">
+          <span class="online-process-step">1</span>
+          <h3 class="font-headline text-2xl text-on-surface mb-4">Primeiro contato</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">Você envia uma mensagem pelo WhatsApp, tira
+            dúvidas iniciais e combina o melhor horário para a primeira sessão online.</p>
+        </article>
+        <article class="online-process-card hover-lift-card">
+          <span class="online-process-step">2</span>
+          <h3 class="font-headline text-2xl text-on-surface mb-4">Sessão com privacidade</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">O encontro acontece por videochamada, em um
+            espaço reservado, com escuta profissional, sigilo e tempo para você organizar o que está sentindo.</p>
+        </article>
+        <article class="online-process-card hover-lift-card">
+          <span class="online-process-step">3</span>
+          <h3 class="font-headline text-2xl text-on-surface mb-4">Continuidade</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">A frequência e os objetivos são construídos a
+            partir da sua demanda, respeitando seu momento, seus limites e a evolução do processo terapêutico.</p>
+        </article>
+      </div>
+
+      <div class="online-safety-band">
+        <h3 class="font-headline text-3xl text-on-surface mb-4">Segurança, limites e cuidado responsável</h3>
+        <p class="text-on-surface-variant font-light leading-relaxed">A psicoterapia online é um espaço clínico, mas não
+          substitui atendimento de emergência. Se houver risco imediato, crise intensa, ideação suicida ou situação de
+          violência, procure um serviço presencial de urgência da sua região. Para apoio emocional gratuito e sigiloso,
+          o CVV atende pelo telefone 188, 24 horas por dia.</p>
+      </div>
+    </section>
+
     <section class="anchor-section section-spacing max-w-7xl mx-auto" id="faq">
       <div class="max-w-3xl section-stack">
         <div class="section-kicker">
@@ -632,6 +817,20 @@
           <p class="text-on-surface-variant font-light leading-relaxed">Sim. A psicoterapia online pode ajudar a
             compreender a ansiedade, regular emoções e construir uma rotina com mais clareza, leveza e constância no
             cuidado.</p>
+        </article>
+        <article
+          class="faq-info-card hover-lift-card bg-surface rounded-[32px] border border-outline-variant/20 shadow-sm">
+          <h3 class="font-headline text-2xl text-on-surface leading-snug">Como me preparar para a sessão online?</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">Escolha um lugar reservado, teste a conexão, use
+            fone de ouvido se isso aumentar sua privacidade e separe esse horário como um compromisso de cuidado.</p>
+        </article>
+        <article
+          class="faq-info-card hover-lift-card bg-surface rounded-[32px] border border-outline-variant/20 shadow-sm">
+          <h3 class="font-headline text-2xl text-on-surface leading-snug">Terapia online substitui atendimento de
+            emergência?</h3>
+          <p class="text-on-surface-variant font-light leading-relaxed">Não. Em risco imediato, crise intensa ou
+            emergência, procure atendimento presencial de urgência na sua região. O CVV também atende pelo 188, 24 horas,
+            para apoio emocional.</p>
         </article>
       </div>
 
