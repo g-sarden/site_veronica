@@ -21,7 +21,7 @@
     <meta property="og:title" content="Psicóloga Online para Mulheres | Verônica Grijó" />
     <meta property="og:description"
         content="Psicoterapia online para mulheres, com foco em ansiedade, maternidade, autoestima e sobrecarga emocional. Verônica Grijó, CRP 05/41808, com base em Macaé/RJ." />
-    <meta property="og:image" content="https://veronicagrijo.psc.br/assets/foto1.webp" />
+    <meta property="og:image" content="https://veronicagrijo.psc.br/assets/og-veronica-grijo.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -30,7 +30,7 @@
     <meta name="twitter:title" content="Psicóloga Online para Mulheres | Verônica Grijó" />
     <meta name="twitter:description"
         content="Psicoterapia online para mulheres que buscam acolhimento para ansiedade, maternidade, autoestima e sobrecarga emocional." />
-    <meta name="twitter:image" content="https://veronicagrijo.psc.br/assets/foto1.webp" />
+    <meta name="twitter:image" content="https://veronicagrijo.psc.br/assets/og-veronica-grijo.webp" />
 
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXG49PXGTM"></script>
@@ -63,6 +63,7 @@
     </script> -->
 
     <!-- Ícone do Navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="icon" type="image/webp" href="assets/icone.webp" />
     <meta name="theme-color" content="#FFF8F7" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,8 +73,6 @@
         href="https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin
         href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2" />
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" />
 
     <!-- Schema Markup (JSON-LD) para estruturação profunda do Google -->
     <script type="application/ld+json">
@@ -89,11 +88,13 @@
       "url": "https://veronicagrijo.psc.br/",
       "telephone": "+5521976215505",
       "availableLanguage": "pt-BR",
+      "priceRange": "$$",
+      "paymentAccepted": "PIX, transferência bancária",
       "sameAs": [
         "https://www.instagram.com/psiveronicagrijo/",
         "https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D",
         "https://www.doctoralia.com.br/veronica-grijo/psicologo/macae",
-        "https://maps.app.goo.gl/MZoS44oFFcTq79yg8"
+        "https://maps.google.com/?cid=17371004012259982897"
       ],
       "knowsAbout": [
         "ansiedade",
@@ -129,6 +130,46 @@
       }
     },
     {
+      "@type": "MedicalBusiness",
+      "@id": "https://veronicagrijo.psc.br/#macae-medical-business",
+      "name": "Verônica Grijó - Psicóloga em Macaé/RJ",
+      "description": "Atendimento psicológico online para mulheres, com base profissional em Macaé/RJ e alcance nacional.",
+      "url": "https://veronicagrijo.psc.br/",
+      "image": "https://veronicagrijo.psc.br/assets/foto1.webp",
+      "telephone": "+5521976215505",
+      "priceRange": "$$",
+      "paymentAccepted": "PIX, transferência bancária",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Macaé",
+        "addressRegion": "RJ",
+        "addressCountry": "BR"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Macaé"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Rio de Janeiro"
+        },
+        {
+          "@type": "Country",
+          "name": "Brasil"
+        }
+      ],
+      "founder": {
+        "@id": "https://veronicagrijo.psc.br/#psychologist"
+      },
+      "sameAs": [
+        "https://www.instagram.com/psiveronicagrijo/",
+        "https://cadastro.cfp.org.br/visualizar.html?profissional=J512A%2FmhOySP5y6hUf3%2BJcktuYXW2uixtPnDIvBkdIM%3D",
+        "https://www.doctoralia.com.br/veronica-grijo/psicologo/macae",
+        "https://maps.google.com/?cid=17371004012259982897"
+      ]
+    },
+    {
       "@type": "WebSite",
       "@id": "https://veronicagrijo.psc.br/#website",
       "url": "https://veronicagrijo.psc.br/",
@@ -147,7 +188,7 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Google Business Profile",
-          "url": "https://maps.app.goo.gl/MZoS44oFFcTq79yg8"
+          "url": "https://maps.google.com/?cid=17371004012259982897"
         },
         {
           "@type": "ListItem",
@@ -373,7 +414,7 @@
             transform: translateY(-1px);
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1280px) {
 
             .mobile-menu-toggle,
             .mobile-menu-panel {
@@ -445,7 +486,7 @@
         class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-outline-variant/10">
         <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
             <a href="#home" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <img src="assets/icone.webp" width="209" height="225" decoding="async" loading="lazy"
+                <img src="assets/icone.webp" width="209" height="225" decoding="async"
                     class="h-12 md:h-14 w-auto object-contain drop-shadow-sm mix-blend-multiply dark:invert dark:mix-blend-screen"
                     alt="Logotipo Psicóloga Verônica Grijó" />
                 <div class="flex flex-col">
@@ -456,7 +497,7 @@
                         Clínica</span>
                 </div>
             </a>
-            <div class="hidden md:flex items-center gap-10" style="gap: 2rem;">
+            <div class="hidden xl:flex items-center gap-10" style="gap: 2rem;">
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
                     href="#home">Início</a>
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
@@ -465,6 +506,8 @@
                     href="#o-processo">O Processo</a>
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
                     href="/blog/">Blog</a>
+                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+                    href="#avaliacoes">Avaliações</a>
                 <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
                     href="#faq">Dúvidas Frequentes</a>
                 <a class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium hover:bg-primary-dim hover:shadow-[0_0_15px_rgba(76,100,88,0.5)] hover:-translate-y-0.5 transition-all scale-95 duration-200 ease-in-out shadow-sm active:scale-90"
@@ -480,6 +523,7 @@
             <a class="mobile-menu-link" href="#sobre">Sobre</a>
             <a class="mobile-menu-link" href="#o-processo">O Processo</a>
             <a class="mobile-menu-link" href="/blog/">Blog</a>
+            <a class="mobile-menu-link" href="#avaliacoes">Avaliações</a>
             <a class="mobile-menu-link" href="#faq">Dúvidas Frequentes</a>
             <a class="mobile-menu-link mobile-menu-link-primary" href="#agendar">Agendar Consulta</a>
         </div>
@@ -765,7 +809,7 @@
                         Entenda por que a culpa materna aparece mesmo quando você ama e se dedica, como ela pesa na saúde emocional e por que autocompaixão não é descuido.
                     </p>
                     <div class="flex items-center justify-between">
-                        <span style="font-size:.75rem;color:#b09095">29 de abr. de 2026</span>
+                        <time datetime="2026-04-29" style="font-size:.75rem;color:#b09095">29 de abr. de 2026</time>
                         <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                             Ler <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
                         </span>
@@ -795,7 +839,7 @@
                         Entenda por que a autocrítica crônica pesa tanto em mulheres, como ela afeta trabalho, relações e saúde mental, e por que autocompaixão não é acomodação.
                     </p>
                     <div class="flex items-center justify-between">
-                        <span style="font-size:.75rem;color:#b09095">29 de abr. de 2026</span>
+                        <time datetime="2026-04-29" style="font-size:.75rem;color:#b09095">29 de abr. de 2026</time>
                         <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                             Ler <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
                         </span>
@@ -825,7 +869,7 @@
                         Burnout não é fraqueza nem falta de organização. Entenda como o esgotamento aparece, por que atinge tantas mulheres e quando buscar ajuda.
                     </p>
                     <div class="flex items-center justify-between">
-                        <span style="font-size:.75rem;color:#b09095">29 de abr. de 2026</span>
+                        <time datetime="2026-04-29" style="font-size:.75rem;color:#b09095">29 de abr. de 2026</time>
                         <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                             Ler <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
                         </span>
@@ -924,7 +968,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="https://maps.app.goo.gl/MZoS44oFFcTq79yg8" target="_blank" rel="noopener noreferrer"
+                <a href="https://maps.google.com/?cid=17371004012259982897" target="_blank" rel="noopener noreferrer"
                     class="group rounded-[32px] border border-outline-variant/20 bg-surface-container-low p-7 shadow-sm hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-300">
                     <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                         <span class="material-symbols-outlined">map</span>

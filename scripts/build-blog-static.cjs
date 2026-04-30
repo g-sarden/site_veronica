@@ -99,6 +99,7 @@ function renderHomeCard(post) {
   const imageSrc = escapeHtml(toHomeImageSrc(post.coverImage));
   const href = `/blog/${encodeURIComponent(post.slug)}.html`;
   const date = escapeHtml(formatDate(post.date, shortDateFormatter));
+  const dateTime = escapeHtml(post.date);
 
   return `            <a href="${href}"
                 class="group bg-surface rounded-[28px] border border-outline-variant/20 overflow-hidden shadow-sm flex flex-col hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(162,91,108,0.13)] transition-all duration-400 cursor-pointer"
@@ -123,7 +124,7 @@ function renderHomeCard(post) {
                         ${excerpt}
                     </p>
                     <div class="flex items-center justify-between">
-                        <span style="font-size:.75rem;color:#b09095">${date}</span>
+                        <time datetime="${dateTime}" style="font-size:.75rem;color:#b09095">${date}</time>
                         <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                             Ler <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
                         </span>
@@ -162,6 +163,7 @@ function renderFeaturedPost(post) {
   const readTime = escapeHtml(post.readTime || '4 min');
   const href = `/blog/${encodeURIComponent(post.slug)}.html`;
   const date = escapeHtml(formatDate(post.date, longDateFormatter));
+  const dateTime = escapeHtml(post.date);
 
   return `          <div class="flex flex-wrap items-center gap-3 mb-5">
             <span class="cat-pill font-medium px-3 py-1 rounded-full ${theme}">${category}</span>
@@ -170,7 +172,7 @@ function renderFeaturedPost(post) {
           <h2 class="font-headline text-3xl md:text-4xl leading-tight mb-4">${title}</h2>
           <p class="text-white/75 text-lg leading-relaxed font-light mb-6">${excerpt}</p>
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <span class="text-white/55 text-sm">${date}</span>
+            <time datetime="${dateTime}" class="text-white/55 text-sm">${date}</time>
             <a href="${href}"
               class="inline-flex items-center gap-2 text-white border border-white/20 px-5 py-3 rounded-full font-medium hover:bg-white/10 transition-all w-fit">
               Ler artigo
@@ -202,6 +204,7 @@ function renderBlogCard(post, index) {
   const coverAlt = escapeHtml(post.coverAlt || post.title);
   const readTime = escapeHtml(post.readTime || '4 min');
   const date = escapeHtml(formatDate(post.date, longDateFormatter));
+  const dateTime = escapeHtml(post.date);
   const slug = encodeURIComponent(post.slug);
 
   return `        <a href="/blog/${slug}.html" data-category="${category}"
@@ -226,7 +229,7 @@ function renderBlogCard(post, index) {
               ${excerpt}
             </p>
             <div class="mt-6 pt-6 border-t border-outline-variant/20 flex items-center justify-between gap-4">
-              <span class="text-xs text-outline">${date}</span>
+              <time datetime="${dateTime}" class="text-xs text-outline">${date}</time>
               <span class="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                 Ler artigo
                 <span class="material-symbols-outlined text-base">arrow_forward</span>
@@ -240,10 +243,14 @@ function renderSitemap(posts) {
   const newestPostDate = posts
     .map((post) => post.dateModified || post.date)
     .sort((a, b) => new Date(b) - new Date(a))[0] || new Date().toISOString().slice(0, 10);
+  const latestSiteUpdate = '2026-04-30';
+  const homepageLastmod = [latestSiteUpdate, newestPostDate]
+    .sort((a, b) => new Date(b) - new Date(a))[0];
   const staticUrls = [
-    { loc: 'https://veronicagrijo.psc.br/', lastmod: '2026-04-24', changefreq: 'monthly', priority: '1.0' },
+    { loc: 'https://veronicagrijo.psc.br/', lastmod: homepageLastmod, changefreq: 'monthly', priority: '1.0' },
     { loc: 'https://veronicagrijo.psc.br/blog/', lastmod: newestPostDate, changefreq: 'weekly', priority: '0.8' },
     { loc: 'https://veronicagrijo.psc.br/psicologa-online.html', lastmod: '2026-04-24', changefreq: 'monthly', priority: '0.9' },
+    { loc: 'https://veronicagrijo.psc.br/politica-de-privacidade.html', lastmod: latestSiteUpdate, changefreq: 'yearly', priority: '0.3' },
   ];
   const postUrls = posts.map((post) => ({
     loc: `https://veronicagrijo.psc.br/blog/${encodeURIComponent(post.slug)}.html`,
