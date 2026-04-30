@@ -250,7 +250,6 @@ function renderSitemap(posts) {
     { loc: 'https://veronicagrijo.psc.br/', lastmod: homepageLastmod, changefreq: 'monthly', priority: '1.0' },
     { loc: 'https://veronicagrijo.psc.br/blog/', lastmod: newestPostDate, changefreq: 'weekly', priority: '0.8' },
     { loc: 'https://veronicagrijo.psc.br/psicologa-online.html', lastmod: '2026-04-24', changefreq: 'monthly', priority: '0.9' },
-    { loc: 'https://veronicagrijo.psc.br/politica-de-privacidade.html', lastmod: latestSiteUpdate, changefreq: 'yearly', priority: '0.3' },
   ];
   const postUrls = posts.map((post) => ({
     loc: `https://veronicagrijo.psc.br/blog/${encodeURIComponent(post.slug)}.html`,
