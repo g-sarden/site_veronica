@@ -1,5 +1,105 @@
 [
   {
+    "slug": "depressao-mitos-e-duvidas",
+    "title": "Depressão: os principais mitos e dúvidas que ainda cercam esse assunto",
+    "seoTitle": "Depressão: principais mitos e dúvidas respondidos por psicóloga",
+    "excerpt": "Poucos temas de saúde mental carregam tanto mal-entendido quanto a depressão. Vamos desfazer os principais mitos com calma — e entender quando buscar ajuda.",
+    "metaDescription": "Entenda os principais mitos sobre depressão, a diferença entre tristeza e depressão, e quando buscar ajuda profissional.",
+    "date": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "category": "Saúde Mental",
+    "funnelStage": "topo-de-funil",
+    "primaryKeyword": "mitos sobre depressão",
+    "secondaryKeywords": [
+      "diferença tristeza e depressão",
+      "depressão tem cura",
+      "antidepressivo vicia",
+      "depressão invisível",
+      "quando buscar ajuda para depressão"
+    ],
+    "readTime": "7 min",
+    "coverImage": "../assets/depressao-mitos-cover.webp",
+    "coverAlt": "Mulher bem-vestida à janela com sorriso discreto, mas olhar distante — depressão invisível",
+    "relatedPosts": [
+      {
+        "slug": "ansiedade-normal-ou-patologica",
+        "title": "Ansiedade normal ou patológica? Como saber a diferença",
+        "status": "published"
+      },
+      {
+        "slug": "o-que-fazer-em-uma-crise-de-ansiedade",
+        "title": "O que fazer em uma crise de ansiedade: técnicas e o que vem depois",
+        "status": "published"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Depressão tem cura?",
+        "answer": "Depressão tem tratamento eficaz. A maioria das pessoas que recebe acompanhamento adequado — combinando psicoterapia e, quando indicado, medicação — consegue remissão dos sintomas e qualidade de vida significativamente melhorada."
+      },
+      {
+        "question": "Depressão e tristeza são a mesma coisa?",
+        "answer": "Não. Tristeza é uma emoção normal e saudável, que tem causa identificável e passa com o tempo. Depressão é um quadro clínico que vai muito além da tristeza — envolve vazio, falta de energia, perda de prazer, alterações físicas e cognitivas, e persiste por semanas ou meses."
+      },
+      {
+        "question": "Posso ter depressão sem saber?",
+        "answer": "Sim. A depressão pode se manifestar de formas que não correspondem à imagem que se tem dela — como irritabilidade, dores físicas sem causa orgânica, cansaço persistente ou falta de motivação que parece 'preguiça'. Muitas pessoas passam anos sem reconhecer o quadro."
+      }
+    ],
+    "references": [],
+    "ctaVariant": "depressao_mitos"
+  },
+  {
+    "slug": "ansiedade-normal-ou-patologica",
+    "title": "Ansiedade normal ou ansiedade patológica? Como saber a diferença",
+    "seoTitle": "Ansiedade normal ou patológica? Como saber a diferença",
+    "excerpt": "\"Será que isso que eu sinto é normal, ou já é ansiedade de verdade?\" Entenda a diferença entre o nervosismo útil e a ansiedade que já merece atenção profissional.",
+    "metaDescription": "Entenda a diferença entre ansiedade normal e ansiedade patológica, quando o nervosismo vira um problema e quando buscar ajuda profissional.",
+    "date": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "category": "Ansiedade",
+    "funnelStage": "topo-de-funil",
+    "primaryKeyword": "ansiedade normal ou patológica",
+    "secondaryKeywords": [
+      "diferença ansiedade normal e transtorno",
+      "quando ansiedade precisa de tratamento",
+      "nervosismo ou ansiedade",
+      "sinais de transtorno de ansiedade",
+      "terapia para ansiedade"
+    ],
+    "readTime": "6 min",
+    "coverImage": "../assets/ansiedade-normal-patologica-cover.webp",
+    "coverAlt": "Duas faces da ansiedade — a útil antes de um desafio e a persistente que não passa",
+    "relatedPosts": [
+      {
+        "slug": "ansiedade-por-antecipacao-e-controle",
+        "title": "Ansiedade por antecipação: a ilusão do controle",
+        "status": "published"
+      },
+      {
+        "slug": "o-que-fazer-em-uma-crise-de-ansiedade",
+        "title": "O que fazer em uma crise de ansiedade: técnicas e o que vem depois",
+        "status": "published"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Ansiedade normal e transtorno de ansiedade: qual a diferença?",
+        "answer": "A principal diferença está na intensidade, duração e impacto. A ansiedade normal é proporcional, tem fim claro e não compromete a vida cotidiana. O transtorno de ansiedade é persistente, desproporcional e interfere de forma significativa no funcionamento da pessoa."
+      },
+      {
+        "question": "Como saber se preciso de ajuda profissional para a ansiedade?",
+        "answer": "Se a ansiedade está presente com frequência sem uma causa clara, não melhora quando a situação se resolve, ou está afetando seu sono, trabalho ou relações, é um sinal de que vale buscar uma avaliação profissional. Você não precisa esperar chegar ao limite para merecer cuidado."
+      },
+      {
+        "question": "Terapia ajuda em casos de ansiedade?",
+        "answer": "Sim. A psicoterapia, especialmente abordagens como TCC e ACT, tem forte evidência científica no tratamento de transtornos de ansiedade. Além de ajudar a entender as raízes do padrão ansioso, oferece ferramentas concretas para modificar pensamentos e comportamentos que alimentam o ciclo."
+      }
+    ],
+    "references": [],
+    "ctaVariant": "ansiedade_normal_patologica"
+  },
+  {
     "slug": "o-que-fazer-em-uma-crise-de-ansiedade",
     "title": "O que fazer em uma crise de ansiedade: técnicas para o momento e o que fazer depois",
     "seoTitle": "O que fazer em uma crise de ansiedade: técnicas e o que vem depois",
