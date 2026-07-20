@@ -1,5 +1,205 @@
 [
   {
+    "slug": "o-que-fazer-em-uma-crise-de-ansiedade",
+    "title": "O que fazer em uma crise de ansiedade: técnicas para o momento e o que fazer depois",
+    "seoTitle": "O que fazer em uma crise de ansiedade: técnicas e o que vem depois",
+    "excerpt": "Aprenda técnicas para atravessar uma crise de ansiedade com mais segurança e entenda por que as crises se repetem — e quando buscar ajuda profissional.",
+    "metaDescription": "Aprenda técnicas para atravessar uma crise de ansiedade com mais segurança e entenda por que as crises se repetem — e quando buscar ajuda profissional.",
+    "date": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "category": "Ansiedade",
+    "funnelStage": "topo-de-funil",
+    "primaryKeyword": "o que fazer em uma crise de ansiedade",
+    "secondaryKeywords": [
+      "crise de ansiedade técnicas",
+      "como passar uma crise de ansiedade",
+      "respiração para ansiedade",
+      "técnica 5-4-3-2-1",
+      "terapia para ansiedade"
+    ],
+    "readTime": "7 min",
+    "coverImage": "../assets/crise-ansiedade-cover.webp",
+    "coverAlt": "Mulher com a mão na parede, olhos fechados, respirando fundo durante uma crise de ansiedade",
+    "relatedPosts": [
+      {
+        "slug": "sinais-que-precisa-de-terapia",
+        "title": "5 sinais de que pode ser hora de procurar terapia (e como dar o primeiro passo)",
+        "status": "published"
+      },
+      {
+        "slug": "por-que-mulheres-tem-mais-ansiedade",
+        "title": "Por que mulheres têm mais ansiedade? O que a ciência diz",
+        "status": "published"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Crise de ansiedade é perigosa?",
+        "answer": "Em si mesma, a crise de ansiedade não oferece risco físico — embora os sintomas possam ser muito assustadores. Ela é uma resposta intensa do sistema nervoso, não uma falha do coração ou do corpo. Mas crises recorrentes merecem atenção profissional."
+      },
+      {
+        "question": "Quanto tempo dura uma crise de ansiedade?",
+        "answer": "A maioria das crises atinge o pico em 10 minutos e diminui em 20 a 30 minutos. Usar técnicas de respiração e ancoragem pode ajudar a reduzir a duração e a intensidade."
+      },
+      {
+        "question": "Qual o tratamento para crise de ansiedade recorrente?",
+        "answer": "A psicoterapia, especialmente abordagens como TCC e ACT, é altamente eficaz no tratamento da ansiedade. Em alguns casos, avaliação psiquiátrica pode ser indicada. O mais importante é não esperar o sofrimento se tornar insuportável para buscar ajuda."
+      }
+    ],
+    "references": [],
+    "ctaVariant": "crise_ansiedade"
+  },
+  {
+    "slug": "esgotamento-de-quem-nao-sabe-dizer-nao",
+    "title": "\"Sempre os outros primeiro\": o esgotamento de quem não sabe dizer não",
+    "seoTitle": "O esgotamento de quem não sabe dizer não — e o que fazer",
+    "excerpt": "Tem um tipo de cansaço que não aparece no corpo — aparece na vontade. Entenda por que dizer não é tão difícil e como o padrão de agradar a todos gera esgotamento emocional.",
+    "metaDescription": "Entenda por que dizer não é tão difícil, como o padrão de agradar a todos gera esgotamento emocional e o que a ACT ensina sobre limites e valores.",
+    "date": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "category": "Autoconhecimento",
+    "funnelStage": "topo-de-funil",
+    "primaryKeyword": "esgotamento emocional dizer não",
+    "secondaryKeywords": [
+      "dificuldade de dizer não",
+      "limites emocionais",
+      "agradar a todos ansiedade",
+      "ACT valores e limites",
+      "terapia para autoconhecimento"
+    ],
+    "readTime": "6 min",
+    "coverImage": "../assets/esgotamento-dizer-nao-cover.webp",
+    "coverAlt": "Mulher exausta no sofá rodeada de itens representando as demandas de todos ao redor",
+    "relatedPosts": [
+      {
+        "slug": "culpa-materna-o-que-e-por-que-acontece-e-como-lidar",
+        "title": "Culpa materna: o que é, por que acontece e como lidar",
+        "status": "published"
+      },
+      {
+        "slug": "afinal-de-contas-o-que-e-burnout",
+        "title": "Afinal de contas, o que é burnout?",
+        "status": "published"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Por que me sinto culpada quando coloco limites?",
+        "answer": "A culpa ao colocar limites geralmente vem de aprendizados antigos que associaram o cuidado com o outro à renúncia de si mesma. É um padrão que pode ser compreendido e ressignificado em terapia."
+      },
+      {
+        "question": "Dificuldade em dizer não tem relação com ansiedade?",
+        "answer": "Sim. Muitas vezes a dificuldade em negar pedidos está ligada ao medo de desagradar, de conflito ou de rejeição — que são formas de ansiedade social. Quando esse padrão é crônico, pode gerar esgotamento emocional significativo."
+      },
+      {
+        "question": "Como a terapia pode ajudar em quem não sabe dizer não?",
+        "answer": "A terapia ajuda a identificar os valores reais da pessoa, entender as origens do padrão de complacência e construir, aos poucos, a capacidade de agir a partir desses valores — inclusive colocando limites — sem a necessidade de aprovação constante."
+      }
+    ],
+    "references": [],
+    "ctaVariant": "esgotamento_dizer_nao"
+  },
+  {
+    "slug": "ansiedade-por-antecipacao-e-controle",
+    "title": "A mente que nunca descansa: ansiedade por antecipação e a ilusão do controle",
+    "seoTitle": "Ansiedade por antecipação: por que tentar controlar tudo só aumenta a ansiedade",
+    "excerpt": "Enquanto lava a louça, já pensa na reunião de amanhã. Enquanto tudo está tranquilo, já se prepara para quando não estiver. Entenda por que tentar prever e controlar tudo só aumenta sua ansiedade.",
+    "metaDescription": "Entenda por que a ansiedade por antecipação e a tentativa de controlar tudo aumentam o sofrimento — e como a ACT pode ajudar a viver no presente.",
+    "date": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "category": "Ansiedade",
+    "funnelStage": "topo-de-funil",
+    "primaryKeyword": "ansiedade por antecipação",
+    "secondaryKeywords": [
+      "tentativa de controle ansiedade",
+      "mente que nunca para",
+      "ACT incerteza",
+      "preocupação excessiva",
+      "terapia para ansiedade"
+    ],
+    "readTime": "6 min",
+    "coverImage": "../assets/ansiedade-antecipacao-cover.webp",
+    "coverAlt": "Mulher com olhar distante à mesa, pensando em cenários futuros enquanto o café esfria",
+    "relatedPosts": [
+      {
+        "slug": "culpa-materna-o-que-e-por-que-acontece-e-como-lidar",
+        "title": "Culpa materna: o que é, por que acontece e como lidar",
+        "status": "published"
+      },
+      {
+        "slug": "sinais-que-precisa-de-terapia",
+        "title": "5 sinais de que pode ser hora de procurar terapia (e como dar o primeiro passo)",
+        "status": "published"
+      }
+    ],
+    "faq": [
+      {
+        "question": "O que é ansiedade por antecipação?",
+        "answer": "É a tendência de antecipar mentalmente cenários negativos futuros como forma de tentar se preparar ou controlar o que está por vir. O problema é que o corpo reage a esses cenários imaginados como se fossem reais, gerando sofrimento desnecessário no presente."
+      },
+      {
+        "question": "Ansiedade por antecipação tem cura?",
+        "answer": "A ansiedade por antecipação responde bem à psicoterapia, especialmente abordagens como a ACT, que trabalham a relação com pensamentos futuros e ensinam a focar na ação possível no presente, em vez de lutar contra a incerteza."
+      },
+      {
+        "question": "Como saber se minha preocupação é excessiva?",
+        "answer": "Um sinal importante é quando a preocupação interfere na sua capacidade de estar presente, descansar ou agir. Se você percebe que passa mais tempo em cenários futuros do que no momento atual, vale buscar apoio profissional."
+      }
+    ],
+    "references": [],
+    "ctaVariant": "ansiedade_antecipacao"
+  },
+  {
+    "slug": "crise-identidade-pos-parto",
+    "title": "Quem sou eu além de mãe? Como o primeiro filho pode gerar uma crise de identidade na mulher",
+    "seoTitle": "Crise de identidade pós-parto: quem sou eu além de mãe?",
+    "excerpt": "Olhar no espelho depois do primeiro filho e não se reconhecer é mais comum do que ninguém fala. Entenda por que acontece e como o conceito de eu observador da ACT pode ajudar.",
+    "metaDescription": "Depois do primeiro filho, é comum não se reconhecer mais. Entenda a crise de identidade pós-parto, o conceito de eu observador da ACT e como se reencontrar.",
+    "date": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "category": "Maternidade",
+    "funnelStage": "topo-de-funil",
+    "primaryKeyword": "crise de identidade pós-parto",
+    "secondaryKeywords": [
+      "identidade materna",
+      "maternidade e autoconhecimento",
+      "terapia para mães",
+      "eu observador ACT",
+      "maternidade e identidade"
+    ],
+    "readTime": "7 min",
+    "coverImage": "../assets/crise-identidade-cover.webp",
+    "coverAlt": "Mãe segurando bebê olhando para o reflexo no vidro, buscando sua própria identidade",
+    "relatedPosts": [
+      {
+        "slug": "culpa-materna-o-que-e-por-que-acontece-e-como-lidar",
+        "title": "Culpa materna: o que é, por que acontece e como lidar",
+        "status": "published"
+      },
+      {
+        "slug": "por-que-voce-nunca-se-acha-boa-o-suficiente",
+        "title": "Por que você nunca se acha boa o suficiente",
+        "status": "published"
+      }
+    ],
+    "faq": [
+      {
+        "question": "É normal não se reconhecer depois de ter um filho?",
+        "answer": "Sim. A crise de identidade pós-parto é muito mais comum do que se fala. A chegada de um filho reorganiza profundamente a forma como a mulher se percebe, e esse processo pode gerar desorientação, tristeza e uma sensação de luto pela versão anterior de si mesma."
+      },
+      {
+        "question": "O que é o 'eu observador' da Terapia de Aceitação e Compromisso?",
+        "answer": "Na ACT, o 'eu observador' (ou self como contexto) é a compreensão de que você não é nenhum rótulo fixo. Você é o espaço onde todos esses papéis acontecem — como o céu que permanece o mesmo independente das nuvens que passam."
+      },
+      {
+        "question": "Como a terapia pode ajudar na crise de identidade pós-parto?",
+        "answer": "A terapia oferece um espaço para nomear o que está acontecendo, entender a origem do conflito interno e construir uma relação mais flexível com as diferentes versões de si mesma. Não é sobre voltar ao que era antes, mas aprender a caber numa versão maior de você."
+      }
+    ],
+    "references": [],
+    "ctaVariant": "crise_identidade"
+  },
+  {
     "slug": "culpa-materna-o-que-e-por-que-acontece-e-como-lidar",
     "title": "Culpa materna: o que é, por que acontece e como lidar",
     "seoTitle": "Culpa materna: o que é, por que acontece e como lidar",
