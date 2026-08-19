@@ -1,0 +1,3 @@
+# Proteção de acesso direto a arquivos de template e arquivos legados
+/assets/5%20sinais.html /blog/sinais-que-precisa-de-terapia.html 301
+/blog/post-template.html /blog/ 302

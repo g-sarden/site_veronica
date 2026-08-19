@@ -1,0 +1,17 @@
+# ----------------------------------------
+# Eventos: Nome do evento
+# Conta: Verônica Grijó
+# Propriedade: veronicagrijo.psc.br
+# ----------------------------------------
+# 
+# Todos os usuários
+# Data de início: 20260521
+# Data de término: 20260818
+Nome do evento,Contagem de eventos,Total de usuários,Contagem de eventos por usuário ativo,Receita total
+page_view,293,71,4.126760563380282,0
+user_engagement,205,34,6.029411764705882,0
+whatsapp_click,107,59,1.8135593220338984,0
+session_start,95,71,1.3380281690140845,0
+first_visit,73,69,1.0579710144927537,0
+scroll,37,10,3.7,0
+click,4,4,1,0
