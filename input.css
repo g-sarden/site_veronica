@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@source "./index.html";
+@source "./psicologa-online.html";
+@source "./politica-de-privacidade.html";
+@source "./blog/**/*.html";
+@source "./admin/**/*.html";
+@source "./scripts/**/*.js";
+
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/container-queries";
 

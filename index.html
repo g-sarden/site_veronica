@@ -427,7 +427,7 @@
             transform: translateY(-1px);
         }
 
-        @media (min-width: 1280px) {
+        @media (min-width: 1024px) {
 
             .mobile-menu-toggle,
             .mobile-menu-panel {
@@ -510,20 +510,20 @@
                         Clínica</span>
                 </div>
             </a>
-            <div class="hidden xl:flex items-center gap-10" style="gap: 2rem;">
-                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+            <div class="hidden lg:flex items-center gap-4 xl:gap-8 text-sm xl:text-base">
+                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors whitespace-nowrap"
                     href="#home">Início</a>
-                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors whitespace-nowrap"
                     href="#sobre">Sobre</a>
-                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors whitespace-nowrap"
                     href="#o-processo">O Processo</a>
-                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors whitespace-nowrap"
                     href="/blog/">Blog</a>
-                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors whitespace-nowrap"
                     href="#avaliacoes">Avaliações</a>
-                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors"
+                <a class="text-rose-900/70 dark:text-rose-100/70 hover:text-rose-900 dark:hover:text-rose-50 transition-colors whitespace-nowrap"
                     href="#faq">Dúvidas Frequentes</a>
-                <a class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium hover:bg-primary-dim hover:shadow-[0_0_15px_rgba(76,100,88,0.5)] hover:-translate-y-0.5 transition-all scale-95 duration-200 ease-in-out shadow-sm active:scale-90"
+                <a class="bg-primary text-on-primary px-5 py-2.5 xl:px-8 xl:py-3 rounded-full font-medium hover:bg-primary-dim hover:shadow-[0_0_15px_rgba(76,100,88,0.5)] hover:-translate-y-0.5 transition-all scale-95 duration-200 ease-in-out shadow-sm active:scale-90 whitespace-nowrap"
                     href="#agendar">Agendar Consulta</a>
             </div>
             <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
@@ -1294,7 +1294,7 @@
             });
 
             window.addEventListener('resize', () => {
-                if (window.innerWidth >= 768) setMobileMenu(false);
+                if (window.innerWidth >= 1024) setMobileMenu(false);
             });
 
             const loadVideo = (video) => {
